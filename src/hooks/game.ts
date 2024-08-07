@@ -63,7 +63,6 @@ export function useGameState(): GameState {
 			attempts.filter((word) => word !== randomWord).length,
 		[attempts, randomWord],
 	);
-	console.log(heartsLeft);
 
 	return {
 		attempts,
