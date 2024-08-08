@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Wordle from './Components/Wordle';
 import './App.css';
 
 export interface Word {
@@ -15,7 +16,6 @@ const words : Word[] =  [
   { "id": 5, "word": "flood" },
   { "id": 6, "word": "grape" },
   { "id": 7, "word": "house" },
-  { "id": 8, "word": "icebox" },
   { "id": 9, "word": "jolly" },
   { "id": 10, "word": "knack" },
   { "id": 11, "word": "lucky" },
@@ -43,12 +43,12 @@ const getRandomWord = (): String  => {
 
 function App() {
 
-  const [word, setWord] = useState<String | null>(getRandomWord);
+  const [word, setWord] = useState<String>(getRandomWord);
 
   return (
     <div className="App">
       <h1>OpenDevEd Wordle</h1>
-      {word && <p>word is {word}</p>}
+      {word && <Wordle wordToGuess={word}/>}
     </div>
   );
 }
