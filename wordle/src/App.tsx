@@ -4,7 +4,7 @@ import './App.css';
 
 export interface Word {
   id: number;
-  word: String;
+  word: string;
 }
 
 const words : Word[] =  [
@@ -35,7 +35,7 @@ const words : Word[] =  [
   { "id": 25, "word": "zebra" }
 ];
 
-const getRandomWord = (): String  => {
+const getRandomWord = (): string  => {
   const rndm = Math.floor(Math.random() * words.length);
 
   return (words[rndm].word)
@@ -43,7 +43,7 @@ const getRandomWord = (): String  => {
 
 function App() {
 
-  const [word, setWord] = useState<String>(getRandomWord);
+  const [word, setWord] = useState<string>(getRandomWord);
 
   return (
     <div className="App">

@@ -1,15 +1,45 @@
 import { useState } from "react"
 
+type Status = "CORRECT" | "MISPLACED" | "WRONG";
 
-const useWordle  = (WordToGuess: String) => {
-    const [attempts, setAttempts] = useState(0);
-    const [currentGuess, setCurrentGuess] = useState('');
+interface Letter {
+    value: string;
+    state: Status;
+
+}
+
+const useWordle  = (WordToGuess: string) => {
+    const [attempts, setAttempts] = useState<number>(0);
+    const [currentGuess, setCurrentGuess] = useState<string>('');
     const [guesses, setGuesses] = useState([]);
-    const [history, setHistory] = useState([]);
-    const [isGuessed, setIsGuessed] = useState(false);
+    const [history, setHistory] = useState<string[]>(["hello", "color"]);
+    const [isGuessed, setIsGuessed] = useState<Boolean>(false);
 
     const guessColoring = () => {
+        const correctWord: (string | null)[] = WordToGuess.split(''); 
+        const enteredGuess: string[] = currentGuess.split('');
+        const guessesColored: Letter[] = enteredGuess.map((l) => {
+            return  ({value: l, state: "WRONG"});
+        })
 
+        guessesColored.forEach((letter, i) => {
+            console.log(correctWord[i], '       ', letter.value);
+            if (correctWord[i] === letter.value)
+            {
+                guessesColored[i].state = "CORRECT";
+                correctWord[i] = null;
+            }
+        })
+
+        guessesColored.forEach((letter, i) => {
+            if (correctWord.includes(letter.value) && letter.state != "CORRECT")
+            {
+                guessesColored[i].state = "MISPLACED";
+                correctWord[correctWord.indexOf(letter.value)] = null;
+            }
+        })
+
+        return (guessesColored);
     }
 
     const submitGuess = () => {
@@ -17,6 +47,29 @@ const useWordle  = (WordToGuess: String) => {
     }
 
     const handlekeyUp = (event: KeyboardEvent) => {
+
+        if (event.key === "Enter")
+        {
+            if (attempts > 5)
+            {
+                console.log('you have no more attempts');
+                return ;
+            }
+
+            if (history.includes(currentGuess))
+            {
+                console.log('duplicate word');
+                return ;
+            }
+
+            if (currentGuess.length !== 5)
+            {
+                console.log('word must be 5 characters')
+                return ;
+            }
+            const colored = guessColoring();
+            console.log(colored);
+        }
 
         if (event.key === "Backspace")
         {

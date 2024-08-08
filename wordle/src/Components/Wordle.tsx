@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import useWordle from "../hooks/useWordle";
 
 interface Props {
-    wordToGuess: String;
+    wordToGuess: string;
 }
 
 const Wordle = ({wordToGuess}: Props) => {
