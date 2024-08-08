@@ -7,7 +7,7 @@ interface Props {
 
 const Wordle = ({wordToGuess}: Props) => {
 
-    const {currentGuess, handlekeyUp} = useWordle(wordToGuess);
+    const {currentGuess, handlekeyUp, guesses, isGuessed, attempts} = useWordle(wordToGuess);
 
     useEffect(() => {
         window.addEventListener('keyup', handlekeyUp);
@@ -15,8 +15,15 @@ const Wordle = ({wordToGuess}: Props) => {
         return () => window.removeEventListener('keyup', handlekeyUp);
     }, [handlekeyUp]);
 
+    useEffect(() => {
+        console.log(guesses, attempts, isGuessed);
+    }, [attempts, guesses, isGuessed]);
+
     return (
-        <>{currentGuess}</>
+        <>
+            <div>{wordToGuess}</div>
+            <div>{currentGuess}</div>
+        </>
     )
 }
 

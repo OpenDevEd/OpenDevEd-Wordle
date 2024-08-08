@@ -11,7 +11,7 @@ interface Letter {
 const useWordle  = (WordToGuess: string) => {
     const [attempts, setAttempts] = useState<number>(0);
     const [currentGuess, setCurrentGuess] = useState<string>('');
-    const [guesses, setGuesses] = useState([]);
+    const [guesses, setGuesses] = useState([...Array(6)]);
     const [history, setHistory] = useState<string[]>(["hello", "color"]);
     const [isGuessed, setIsGuessed] = useState<Boolean>(false);
 
@@ -23,7 +23,6 @@ const useWordle  = (WordToGuess: string) => {
         })
 
         guessesColored.forEach((letter, i) => {
-            console.log(correctWord[i], '       ', letter.value);
             if (correctWord[i] === letter.value)
             {
                 guessesColored[i].state = "CORRECT";
@@ -42,8 +41,25 @@ const useWordle  = (WordToGuess: string) => {
         return (guessesColored);
     }
 
-    const submitGuess = () => {
+    const submitGuess = (guess: any) => {
+        if (currentGuess === WordToGuess)
+            setIsGuessed(true);
 
+        setGuesses((prevGuesses) => {
+            const newGuesses = [...prevGuesses];
+            newGuesses[attempts] = guess;
+            return (newGuesses);
+        })
+
+        setHistory((prevHistory) => {
+            return [...prevHistory, currentGuess];
+        })
+
+        setAttempts((prevAttempts) => {
+            return (prevAttempts + 1)
+        })
+
+        setCurrentGuess('');
     }
 
     const handlekeyUp = (event: KeyboardEvent) => {
@@ -68,7 +84,8 @@ const useWordle  = (WordToGuess: string) => {
                 return ;
             }
             const colored = guessColoring();
-            console.log(colored);
+            submitGuess(colored);
+            // console.log(colored);
         }
 
         if (event.key === "Backspace")
