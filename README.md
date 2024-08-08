@@ -26,17 +26,21 @@ git clone https://github.com/megrisse/OpenDevEd-Wordle.git
 ```
 2. Navigate to the project directory:
 ```
-cd wordle-clone
+cd OpenDevEd-Wordle
 ```
-3. Install dependencies:
+3. swith to my branch
+```
+git checkout wordle-megrisse
+```
+4. Install dependencies:
 ```
 npm install
 ```
-4. Start the development server:
+5. Start the development server:
 ```
 npm run start
 ```
-5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## How to Play
 
