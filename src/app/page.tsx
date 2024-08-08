@@ -23,7 +23,7 @@ export default function Home() {
 
 	useEffect(() => {
 		if (gameState === "win" || gameState === "lose") {
-			playSound(gameState === "win" ? "/victory.wav" : "/lose.wav");
+			playSound(gameState === "win" ? "victory" : "lose");
 			setResults({
 				gameState: gameState,
 				heartsLeft,
@@ -61,16 +61,16 @@ export default function Home() {
 							<Hearts heartsLeft={results?.heartsLeft || 0} />
 						</div>
 						<div className="bg-text h-44 w-[0.05rem]"></div>
-						<div>
-							<p className="text-text text-2xl">
+						<div className="select-none">
+							<p className="text-text text-2xl font-bold">
 								The word was
 								<span className="text-text-400 ml-2 text-2xl font-black">
 									{results?.randomWord}
 								</span>
 								.
 							</p>
-							<p className="text-text-400">
-								Click anywhere to play again.
+							<p className="text-text-400 font-light">
+								Press any key to play again.
 							</p>
 						</div>
 					</div>

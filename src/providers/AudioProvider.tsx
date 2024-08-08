@@ -1,5 +1,6 @@
 "use client";
-import { createContext, useRef } from "react";
+import { SFX } from "@/constants/game";
+import { createContext, useEffect, useRef } from "react";
 
 export const AudioContextProvider = createContext({});
 
@@ -8,21 +9,16 @@ export default function AudioProvider({
 }: {
 	children: React.ReactNode;
 }) {
-	const containerRef = useRef<HTMLDivElement>(null);
-
 	const playSound = (
-		sound: string | null,
+		sound: keyof typeof SFX,
 		volume: number = 1,
 		skipAhead: number = 0,
 	) => {
-		if (!containerRef.current) return;
 		if (!sound) return;
 
-		const audio = new Audio();
+		const audio = new Audio(SFX[sound]);
 		audio.volume = volume;
 		audio.currentTime = skipAhead;
-		audio.src = sound;
-		audio.load();
 		audio.play();
 	};
 
@@ -32,7 +28,11 @@ export default function AudioProvider({
 				playSound,
 			}}
 		>
-			<div ref={containerRef} className="hidden"></div>
+			{
+				Object.values(SFX).map((sound) => (
+					<audio preload="auto" src={sound} key={sound} />
+				))
+			}
 			{children}
 		</AudioContextProvider.Provider>
 	);

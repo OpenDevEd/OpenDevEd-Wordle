@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useEffect } from "react";
-import wordlist from "@/data/wordlist.json";
+import wordles from "@/data/wordles.json";
+import allowed_guesses from "@/data/allowed_guesses.json";
 import { twMerge } from "tailwind-merge";
 import { CornerDownLeft } from "lucide-react";
 import { MAX_ATTEMPTS, WORD_LENGTH } from "@/constants/game";
@@ -44,15 +45,17 @@ export default function Grid({
 
 	const submitWord = useCallback(() => {
 		if (currentString.length !== WORD_LENGTH) return;
-		const wordExists = wordlist.includes(currentString);
+		const wordExists =
+			wordles.includes(currentString) ||
+			allowed_guesses.includes(currentString);
 		if (wordExists) {
 			const currentColors = processAttemptColors(
 				currentString,
 				randomWord,
 			);
 			if (newColorExists(attemptColors, currentColors, "green"))
-				playSound("/correct.wav", 0.5);
-			else playSound("/deny.mp3");
+				playSound("correct", 0.5);
+			else playSound("deny");
 			setAttempts((prev) => [...prev, currentString]);
 			setAttemptColors((prev) => [...prev, currentColors]);
 			setCurrentString("");
@@ -63,7 +66,7 @@ export default function Grid({
 			animate(`.row-${attempts.length}`, {
 				x: [10, 0],
 			});
-			playSound("/invalid.mp3", 0.5);
+			playSound("invalid", 0.5);
 		}
 	}, [
 		currentString,
@@ -81,21 +84,30 @@ export default function Grid({
 	useEffect(() => {
 		const alphabetRegex = /^[a-zA-Z]$/;
 
+		const resetGame = () => {
+			setAttempts([]);
+			setAttemptColors([]);
+			setCurrentString("");
+			setRandomWord(generateRandomWord());
+			setCheats([]);
+		};
+
 		const handleKeyDown = (e: KeyboardEvent) => {
 			if (alphabetRegex.test(e.key)) setIsKeyDown(true);
 		};
 
 		const handleKeyUp = (e: KeyboardEvent) => {
 			setIsKeyDown(false);
-			if (
+			if (!showGrid) resetGame();
+			else if (
 				alphabetRegex.test(e.key) &&
 				currentString.length < WORD_LENGTH
 			) {
 				setCurrentString((prev) => prev + e.key.toLowerCase());
-				playSound("/typing.wav");
+				playSound("typing");
 			} else if (e.key === "Backspace") {
 				setCurrentString((prev) => prev.slice(0, -1));
-				playSound("/backspace.wav", 0.5, 0.05);
+				playSound("backspace", 0.5, 0.05);
 			} else if (e.key === "Enter") {
 				submitWord();
 			}
@@ -103,13 +115,7 @@ export default function Grid({
 
 		if (randomWord === "") setRandomWord(generateRandomWord());
 
-		setResetGame(() => () => {
-			setAttempts([]);
-			setAttemptColors([]);
-			setCurrentString("");
-			setRandomWord(generateRandomWord());
-			setCheats([]);
-		});
+		setResetGame(() => resetGame);
 
 		window.addEventListener("keydown", handleKeyDown);
 		window.addEventListener("keyup", handleKeyUp);
@@ -131,6 +137,7 @@ export default function Grid({
 		heartScope,
 		playSound,
 		setCheats,
+		showGrid
 	]);
 
 	return (
@@ -186,7 +193,7 @@ export default function Grid({
 												: undefined
 										}
 										className={twMerge(
-											"bg-primary hover:bg-primary-400 dark:bg-primary-300 absolute -right-0 flex size-16 items-center justify-center rounded opacity-0 transition-all active:scale-95",
+											"absolute -right-0 flex size-16 items-center justify-center rounded bg-primary opacity-0 transition-all hover:bg-primary-400 active:scale-95 dark:bg-primary-300",
 											isCurrentWord &&
 												canPopOut &&
 												"-right-2 translate-x-full cursor-pointer opacity-100",

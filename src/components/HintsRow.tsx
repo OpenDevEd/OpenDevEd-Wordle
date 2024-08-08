@@ -22,15 +22,15 @@ export default function HintsRow({
 	const addCheat = useCallback(() => {
 		const newArray = newCheat(attempts, randomWord, cheats);
 		if (newArray === cheats) {
-			playSound("/deny.mp3");
+			playSound("deny");
 			return;
 		}
-		playSound("/correct.wav", 0.5);
+		playSound("correct", 0.5);
 		setCheats(newArray);
 	}, [attempts, randomWord, cheats, setCheats, playSound]);
 
 	return (
-		<div className="flex gap-8">
+		<div className="flex gap-8 select-none">
 			{Array(WORD_LENGTH)
 				.fill(null)
 				.map((_, index) => (

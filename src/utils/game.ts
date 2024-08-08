@@ -1,8 +1,8 @@
-import wordlist from "@/data/wordlist.json";
+import wordles from "@/data/wordles.json";
 import { WORD_LENGTH } from "@/constants/game";
 
 export function generateRandomWord() {
-	return wordlist[Math.floor(Math.random() * wordlist.length)];
+	return wordles[Math.floor(Math.random() * wordles.length)];
 }
 
 export function processAttemptColors(
@@ -43,17 +43,13 @@ export function newCheat(
 	cheats: string[],
 ) {
 	const characters = randomWord.split("");
-	const missedCharacters = characters.map((character, index) => {
-		if (attempts.some((attempt) => attempt[index] === character))
-			return null;
-		return character;
+	const bestGuesses = Array(WORD_LENGTH).fill("").map((_, index) => {
+		return attempts.some(attempt => attempt[index] == characters[index]) ? characters[index] : "";
 	});
-	const missedCharacter = missedCharacters.findIndex(
-		(character) => character !== null && !cheats.includes(character),
-	);
-	if (missedCharacter === -1) return cheats;
+	const newCharacterIndex = bestGuesses.findIndex((character, index) => character === "" && cheats[index] != characters[index]);
+	if (newCharacterIndex === -1) return cheats;
 	const newArray = [...cheats];
-	newArray[missedCharacter] = characters[missedCharacter];
+	newArray[newCharacterIndex] = characters[newCharacterIndex];
 	return newArray;
 }
 
