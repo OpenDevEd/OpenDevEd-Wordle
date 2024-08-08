@@ -9,7 +9,7 @@ const History = ({ words }: HistoryData) => {
   if (!words.length)
     return (
       <Heading marginY={4} fontSize="22px" color="#6FA76B">
-        You still haven't made any guesses
+        Begin by making your first guess!
       </Heading>
     );
   return (

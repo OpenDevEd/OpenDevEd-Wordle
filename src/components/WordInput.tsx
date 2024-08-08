@@ -11,6 +11,7 @@ import {
   LETTERS_REQUIRED_MSG,
 } from "../utils/constants";
 import { useInput } from "../hooks/useInput";
+import { useRef } from "react";
 
 interface WordInputProps {
   onWordInsert: (word: string) => void;
@@ -21,6 +22,7 @@ const WordInput = ({ onWordInsert, guesses }: WordInputProps) => {
   const { board, setBoard } = useBoard();
   const { input, setInputField } = useInput();
   const styles = useStyleConfig("PinInputField", { variant: "secondary" });
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const insertWord = () => {
     if (guesses.length < ATTEMPT_NUMBER) {
@@ -32,6 +34,7 @@ const WordInput = ({ onWordInsert, guesses }: WordInputProps) => {
       else {
         setInputField({ value: "", error: "" });
         onWordInsert(input.value);
+        inputRef.current?.focus();
         // prettier-ignore
         if (guesses.length === (ATTEMPT_NUMBER - 1) || checkResult([...guesses, input.value], board.word).length === board.word.length)
           setBoard({
@@ -51,13 +54,14 @@ const WordInput = ({ onWordInsert, guesses }: WordInputProps) => {
         <HStack>
           <HStack>
             <PinInput
+              autoFocus
               isInvalid={input.error.length > 0}
               value={input.value}
               type="alphanumeric"
               focusBorderColor="#6FA76B"
               onChange={(value) => setInputField({ ...input, value: value.toUpperCase() })}
             >
-              <PinInputField sx={styles} />
+              <PinInputField sx={styles} ref={inputRef} />
               <PinInputField sx={styles} />
               <PinInputField sx={styles} />
               <PinInputField sx={styles} />

@@ -1,4 +1,11 @@
-import { IconButton, Divider, HStack, VStack, Tooltip } from "@chakra-ui/react";
+import {
+  IconButton,
+  Divider,
+  HStack,
+  VStack,
+  Tooltip,
+  Button,
+} from "@chakra-ui/react";
 import { useState } from "react";
 
 import Logo from "./components/Logo";
@@ -7,7 +14,7 @@ import WordInput from "./components/WordInput";
 import { Board, BoardContext } from "./contexts/boardContext";
 import { getRandomWord } from "./utils/getRandomWord";
 import Keyboard from "./components/Keyboard";
-import { RiRestartFill } from "react-icons/ri";
+import { RiRestartLine } from "react-icons/ri";
 import GameResult from "./components/GameResult";
 import { InputContext, InputField } from "./contexts/inputContext";
 
@@ -36,7 +43,7 @@ function App() {
   return (
     <>
       <Logo />
-      <HStack justifyContent="center">
+      <HStack justifyContent="center" bg="#eee" paddingY={8}>
         <BoardContext.Provider value={{ board, setBoard }}>
           <InputContext.Provider value={{ input, setInputField }}>
             <GameResult onRestartGame={restartGame} />
@@ -49,22 +56,35 @@ function App() {
                   setBoard({ ...board, guesses: [...board.guesses, value] })
                 }
               />
-              {board.guesses.length < 5 && <Keyboard /> }
-              <Tooltip label="Restart game" aria-label="A tooltip">
+              {board.guesses.length < 5 && <Keyboard />}
+              <Button
+                leftIcon={<RiRestartLine />}
+                position="absolute"
+                top="0"
+                right="5"
+                fontSize={18}
+                bg="#6FA76B"
+                color="#fff"
+                _hover={{ backgroundColor: "#C9B363" }}
+                onClick={restartGame}
+              >
+                Restart game
+              </Button>
+              {/* <Tooltip label="Restart game" aria-label="A tooltip">
                 <IconButton
                   onClick={restartGame}
                   position="absolute"
                   top="0"
                   right="5"
-                  fontSize={35}
+                  fontSize={26}
                   bg="#6FA76B"
                   color="#fff"
                   _hover={{backgroundColor: "#C9B363"}}
                   aria-label="Restart game"
-                  boxSize="50px"
-                  icon={<RiRestartFill />}
+                  boxSize="45px"
+                  icon={<RiRestartLine />}
                 />
-              </Tooltip>
+              </Tooltip> */}
             </VStack>
           </InputContext.Provider>
         </BoardContext.Provider>

@@ -25,7 +25,7 @@ const Keyboard = () => {
 
   return (
     <Tooltip label={KEYBOARD_MESSAGE} fontSize="md">
-      <VStack marginTop={5} border="1px solid #ddd" padding={5} borderRadius={10}>
+      <VStack marginTop={5} border="1px solid rgba(0,0,0,.1)" padding={5} borderRadius={10}>
         {KEYBOARD_BUTTONS.map((row, index) => {
           return (
             <HStack key={index}>
