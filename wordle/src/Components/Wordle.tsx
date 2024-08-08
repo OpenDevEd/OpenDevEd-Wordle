@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import useWordle from "../hooks/useWordle";
+import Grid from "./Grid";
 
 interface Props {
     wordToGuess: string;
@@ -23,6 +24,7 @@ const Wordle = ({wordToGuess}: Props) => {
         <>
             <div>{wordToGuess}</div>
             <div>{currentGuess}</div>
+            <Grid currentGuess={currentGuess} guesses={guesses} attempts={attempts}/>
         </>
     )
 }

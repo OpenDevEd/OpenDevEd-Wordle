@@ -2,7 +2,7 @@ import { useState } from "react"
 
 type Status = "CORRECT" | "MISPLACED" | "WRONG";
 
-interface Letter {
+export interface Letter {
     value: string;
     state: Status;
 
@@ -13,7 +13,7 @@ const useWordle  = (WordToGuess: string) => {
     const [currentGuess, setCurrentGuess] = useState<string>('');
     const [guesses, setGuesses] = useState([...Array(6)]);
     const [history, setHistory] = useState<string[]>(["hello", "color"]);
-    const [isGuessed, setIsGuessed] = useState<Boolean>(false);
+    const [isGuessed, setIsGuessed] = useState<boolean>(false);
 
     const guessColoring = () => {
         const correctWord: (string | null)[] = WordToGuess.split(''); 
@@ -31,7 +31,7 @@ const useWordle  = (WordToGuess: string) => {
         })
 
         guessesColored.forEach((letter, i) => {
-            if (correctWord.includes(letter.value) && letter.state != "CORRECT")
+            if (correctWord.includes(letter.value) && letter.state !== "CORRECT")
             {
                 guessesColored[i].state = "MISPLACED";
                 correctWord[correctWord.indexOf(letter.value)] = null;
@@ -41,7 +41,7 @@ const useWordle  = (WordToGuess: string) => {
         return (guessesColored);
     }
 
-    const submitGuess = (guess: any) => {
+    const submitGuess = (guess: Letter[]) => {
         if (currentGuess === WordToGuess)
             setIsGuessed(true);
 
@@ -83,7 +83,7 @@ const useWordle  = (WordToGuess: string) => {
                 console.log('word must be 5 characters')
                 return ;
             }
-            const colored = guessColoring();
+            const colored: Letter[] = guessColoring();
             submitGuess(colored);
             // console.log(colored);
         }
