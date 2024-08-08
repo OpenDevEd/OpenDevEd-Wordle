@@ -12,7 +12,7 @@ const useWordle  = (WordToGuess: string) => {
     const [attempts, setAttempts] = useState<number>(0);
     const [currentGuess, setCurrentGuess] = useState<string>('');
     const [guesses, setGuesses] = useState([...Array(6)]);
-    const [history, setHistory] = useState<string[]>(["hello", "color"]);
+    const [history, setHistory] = useState<string[]>([]);
     const [isGuessed, setIsGuessed] = useState<boolean>(false);
 
     const guessColoring = () => {

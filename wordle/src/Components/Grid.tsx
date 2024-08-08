@@ -12,7 +12,10 @@ const Grid = ({guesses, attempts, currentGuess}: Props) => {
     return (
         <div>
             {guesses.map((g: Letter[], i: number) => {
-                return (<Row key={i}/>)
+                if (attempts === i) {
+                    return (<Row key={i}  guess={g} currentGuess={currentGuess}/>)
+                }
+                return (<Row key={i} guess={g} currentGuess={''}/>)
             })}
       </div>
     )

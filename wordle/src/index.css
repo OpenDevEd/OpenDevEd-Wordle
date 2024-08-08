@@ -18,6 +18,7 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
 .row > div {
   display: block;
   width: 60px;
@@ -29,4 +30,30 @@ h1 {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 2.5em;
+}
+
+.row > div.CORRECT {
+  background: #5ac85a;
+  border-color: #5ac85a;
+}
+.row > div.WRONG {
+  background: #a1a1a1;
+  border-color: #a1a1a1;
+}
+.row > div.MISPLACED {
+  background: #e2cc68;
+  border-color: #e2cc68;
+}
+.keyboard {
+  max-width: 500px;
+  margin: 20px auto;
+}
+.keyboard > div {
+  margin: 5px;
+  width: 40px;
+  height: 50px;
+  background: #eee;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 50px;
 }
