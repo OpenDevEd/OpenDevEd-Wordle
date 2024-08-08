@@ -22,16 +22,30 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  text-align: center;
+  z-index: 1000;
+  border-bottom:1px solid lightgray ;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200px;
+  padding: 20px;
 }
 
 .board {
