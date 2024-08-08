@@ -49,7 +49,7 @@ function App() {
                   setBoard({ ...board, guesses: [...board.guesses, value] })
                 }
               />
-              <Keyboard />
+              {board.ongoing && <Keyboard /> }
               <Tooltip label="Restart game" aria-label="A tooltip">
                 <IconButton
                   onClick={restartGame}
