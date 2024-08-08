@@ -5,7 +5,10 @@ type Status = "CORRECT" | "MISPLACED" | "WRONG";
 export interface Letter {
     value: string;
     state: Status;
+}
 
+interface UsedKeys {
+    [key: string]: Status | undefined;   
 }
 
 const useWordle  = (WordToGuess: string) => {
@@ -14,6 +17,7 @@ const useWordle  = (WordToGuess: string) => {
     const [guesses, setGuesses] = useState([...Array(6)]);
     const [history, setHistory] = useState<string[]>([]);
     const [isGuessed, setIsGuessed] = useState<boolean>(false);
+    const [usedKeys, setUsedKeys] = useState<UsedKeys>({});
 
     const guessColoring = () => {
         const correctWord: (string | null)[] = WordToGuess.split(''); 
@@ -57,6 +61,36 @@ const useWordle  = (WordToGuess: string) => {
 
         setAttempts((prevAttempts) => {
             return (prevAttempts + 1)
+        })
+
+        setUsedKeys((prevUsedKeys) => {
+            const newKeys = {...prevUsedKeys};
+
+            guess.forEach((letter) => {
+                const state = newKeys[letter.value];
+
+                if (letter.state === "CORRECT")
+                {
+                    newKeys[letter.value] = "CORRECT";
+                    return ;
+                }
+
+                if (letter.state === "MISPLACED" && state !== "CORRECT")
+                {
+                    newKeys[letter.value] = "MISPLACED";
+                    return ;
+                }
+
+                if (letter.state === "WRONG" && state !== "CORRECT" && state !== "MISPLACED")
+                {
+                    newKeys[letter.value] = "WRONG";
+                    return ;
+                }
+
+                return (newKeys);
+            })
+
+            return newKeys;
         })
 
         setCurrentGuess('');
