@@ -43,10 +43,19 @@ export function newCheat(
 	cheats: string[],
 ) {
 	const characters = randomWord.split("");
-	const bestGuesses = Array(WORD_LENGTH).fill("").map((_, index) => {
-		return attempts.some(attempt => attempt[index] == characters[index]) ? characters[index] : "";
-	});
-	const newCharacterIndex = bestGuesses.findIndex((character, index) => character === "" && cheats[index] != characters[index]);
+	const bestGuesses = Array(WORD_LENGTH)
+		.fill("")
+		.map((_, index) => {
+			return attempts.some(
+				(attempt) => attempt[index] == characters[index],
+			)
+				? characters[index]
+				: "";
+		});
+	const newCharacterIndex = bestGuesses.findIndex(
+		(character, index) =>
+			character === "" && cheats[index] != characters[index],
+	);
 	if (newCharacterIndex === -1) return cheats;
 	const newArray = [...cheats];
 	newArray[newCharacterIndex] = characters[newCharacterIndex];

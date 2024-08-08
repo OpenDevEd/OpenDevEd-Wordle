@@ -1,6 +1,6 @@
 "use client";
 import { SFX } from "@/constants/game";
-import { createContext, useEffect, useRef } from "react";
+import { createContext } from "react";
 
 export const AudioContextProvider = createContext({});
 
@@ -28,11 +28,9 @@ export default function AudioProvider({
 				playSound,
 			}}
 		>
-			{
-				Object.values(SFX).map((sound) => (
-					<audio preload="auto" src={sound} key={sound} />
-				))
-			}
+			{Object.values(SFX).map((sound) => (
+				<audio preload="auto" src={sound} key={sound} />
+			))}
 			{children}
 		</AudioContextProvider.Provider>
 	);

@@ -20,12 +20,12 @@ export default function HintCharacter({
 	return (
 		<div
 			key={index}
-			className="text-text flex flex-col gap-4 text-2xl font-black uppercase"
+			className="flex flex-col gap-4 text-2xl font-black uppercase text-text"
 		>
 			{attemptFoundCharacter || cheatExists ? (
 				<div
 					className={twMerge(
-						"animate-toptobottom flex size-6 items-center justify-center",
+						"flex size-6 animate-toptobottom items-center justify-center",
 						cheatExists && "text-green-600",
 					)}
 				>
@@ -34,7 +34,7 @@ export default function HintCharacter({
 			) : (
 				<div className="size-6"></div>
 			)}
-			<div className="bg-primary h-0.5 w-full"></div>
+			<div className="h-0.5 w-full bg-primary"></div>
 		</div>
 	);
 }

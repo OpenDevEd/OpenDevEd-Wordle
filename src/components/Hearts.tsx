@@ -17,9 +17,9 @@ export default function Hearts({ heartsLeft }: { heartsLeft: number }) {
 						<Component
 							key={index}
 							className={twMerge(
-								"stroke-background-400 dark:stroke-background-300 size-6 fill-red-500 transition-all",
+								"size-6 fill-red-500 stroke-background-400 transition-all dark:stroke-background-300",
 								!active &&
-									"fill-background-300 stroke-background-200 animate-crack",
+									"animate-crack fill-background-300 stroke-background-200",
 							)}
 						/>
 					);

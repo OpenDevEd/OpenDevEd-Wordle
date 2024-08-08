@@ -30,7 +30,7 @@ export default function HintsRow({
 	}, [attempts, randomWord, cheats, setCheats, playSound]);
 
 	return (
-		<div className="flex gap-8 select-none">
+		<div className="flex select-none gap-8">
 			{Array(WORD_LENGTH)
 				.fill(null)
 				.map((_, index) => (
@@ -44,7 +44,7 @@ export default function HintsRow({
 				))}
 			<div
 				onClick={addCheat}
-				className="bg-primary-400 hover:bg-primary-300 relative flex size-11 cursor-pointer items-center justify-center rounded-full transition-all active:scale-95"
+				className="relative flex size-11 cursor-pointer items-center justify-center rounded-full bg-primary-400 transition-all hover:bg-primary-300 active:scale-95"
 			>
 				<Lightbulb className="stroke-text" />
 			</div>

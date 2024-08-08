@@ -20,9 +20,9 @@ export default function CharacterBox({
 	return (
 		<div
 			className={twMerge(
-				"border-primary-500 bg-card text-text dark:border-primary-200 dark:bg-card-200 flex size-16 items-center justify-center rounded border-2 text-2xl font-black uppercase transition-all",
+				"flex size-16 items-center justify-center rounded border-2 border-primary-500 bg-card text-2xl font-black uppercase text-text transition-all dark:border-primary-200 dark:bg-card-200",
 				isCurrentWord && "!bg-card-600",
-				attemptColor == "gray" && "!bg-card-400 border-opacity-25",
+				attemptColor == "gray" && "border-opacity-25 !bg-card-400",
 				attemptColor == "yellow" && "border-opacity-25 !bg-yellow-600",
 				attemptColor == "green" && "border-opacity-25 !bg-green-600",
 				isCurrentCharacter && isKeyDown && "scale-90",

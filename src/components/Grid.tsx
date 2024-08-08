@@ -137,7 +137,7 @@ export default function Grid({
 		heartScope,
 		playSound,
 		setCheats,
-		showGrid
+		showGrid,
 	]);
 
 	return (
