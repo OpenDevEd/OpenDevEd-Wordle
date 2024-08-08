@@ -6,6 +6,12 @@ seiWordle is a word-guessing game inspired by Wordle built with TypeScript and N
 
 Many decisions were made with the goal of creating a smooth and intuitive user experience, such as capturing user input and storing it in state rather than using a traditional `input` field, and opting for a single page application to achieve a more seamless experience. The initial word matching logic did not account for duplicate same correct letter guesses in words with only one instance of that letter and was later updated to account for this edge case. There were also some issues with playing multiple audio instances at the same time due the initial implementation of the audio system as well as audio files not being preloaded, which was later resolved by using the Audio API to create a new audio instance for each sound effect and using the `preload` attribute to ensure the audio files are loaded before they are played.
 
+Much like the original Wordle, seiWordle uses two dictionaries:
+* a large set of only valid words that will never be used as the target word, and
+* a smaller set of common words.
+
+The valid words dictionary is used to check the validity of the user's guess, while the common words dictionary is used to generate the target random word.
+
 ## Features
 
 ### User Interface
