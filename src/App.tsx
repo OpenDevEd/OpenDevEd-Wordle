@@ -1,12 +1,6 @@
-import {
-  IconButton,
-  Divider,
-  HStack,
-  VStack,
-  Tooltip,
-  Button,
-} from "@chakra-ui/react";
+import { Divider, HStack, VStack, Button } from "@chakra-ui/react";
 import { useState } from "react";
+import "./index.css";
 
 import Logo from "./components/Logo";
 import History from "./components/History";
@@ -17,6 +11,7 @@ import Keyboard from "./components/Keyboard";
 import { RiRestartLine } from "react-icons/ri";
 import GameResult from "./components/GameResult";
 import { InputContext, InputField } from "./contexts/inputContext";
+import RestartGameAlert from "./components/RestartGame";
 
 function App() {
   const [input, setInputField] = useState<InputField>({ value: "", error: "" });
@@ -26,7 +21,9 @@ function App() {
     ongoing: true,
     gameResult: [],
   });
+  const [restartModalOpen, setModalStatus] = useState(false);
 
+  console.log(board.guesses);
   const restartGame = () => {
     setInputField({
       error: "",
@@ -46,6 +43,11 @@ function App() {
       <HStack justifyContent="center" bg="#eee" paddingY={8}>
         <BoardContext.Provider value={{ board, setBoard }}>
           <InputContext.Provider value={{ input, setInputField }}>
+            <RestartGameAlert
+              isOpen={restartModalOpen}
+              onRestart={restartGame}
+              onClose={() => setModalStatus(false)}
+            />
             <GameResult onRestartGame={restartGame} />
             <VStack marginTop={2}>
               <History words={board.guesses} />
@@ -66,7 +68,11 @@ function App() {
                 bg="#6FA76B"
                 color="#fff"
                 _hover={{ backgroundColor: "#C9B363" }}
-                onClick={restartGame}
+                onClick={() =>
+                  (board.guesses.length === 5)
+                    ? restartGame()
+                    : setModalStatus(true)
+                }
               >
                 Restart game
               </Button>
