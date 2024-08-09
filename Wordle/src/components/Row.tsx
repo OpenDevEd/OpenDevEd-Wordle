@@ -16,10 +16,10 @@ export default function Row({ guess, input }) {
     );
   }
   if (input.length > 0) {
-    const arr = [...input];
+    const inputArray = [...input];
     return (
       <div className="flex text-center items-center justify-center">
-        {arr.map((item, i) => {
+        {inputArray.map((item, i) => {
           return (
             <div
               key={i}
@@ -29,7 +29,7 @@ export default function Row({ guess, input }) {
             </div>
           );
         })}
-        {[...Array(5 - arr.length)].map((_, i) => {
+        {[...Array(5 - inputArray.length)].map((_, i) => {
           return (
             <div
               key={i}

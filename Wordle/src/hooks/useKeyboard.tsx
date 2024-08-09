@@ -23,7 +23,6 @@ export default function useKeyboard() {
       const newGuesses = [...prev];
 
       newGuesses[6 - attempts] = formattedInput;
-      console.log("log guess in check word ", newGuesses);
       return newGuesses;
     });
     decrementAttempts();

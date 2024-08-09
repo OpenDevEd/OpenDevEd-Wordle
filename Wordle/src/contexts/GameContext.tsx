@@ -9,15 +9,18 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const [input, setInput] = useState("");
   const [attempts, setAttempts] = useState(6);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchWord = async () => {
     try {
+      setIsLoading(true);
       const res = await fetch(
         "https://words.dev-apis.com/word-of-the-day?random=1"
       );
       const data = await res.json();
       const word = data.word;
-      console.log("the word is : ", word);
+      console.log("the word is: ", word);
+      setIsLoading(false);
       setTargetWord(word);
     } catch (err) {
       console.log("error fetching the word, try again later! | ", err.message);
@@ -26,11 +29,13 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const isWord = async (word: string) => {
     try {
+      setIsLoading(true);
       const res = await fetch("https://words.dev-apis.com/validate-word", {
         method: "POST",
         body: JSON.stringify({ word }),
       });
       const data = await res.json();
+      setIsLoading(false);
       return data.validWord;
     } catch (err) {
       console.log("error validating the word | ", err.message);
@@ -48,6 +53,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const contextValue = {
     attempts,
+    setAttempts,
     decrementAttempts,
     input,
     setInput,
@@ -59,6 +65,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setGuesses,
     isCorrect,
     setIsCorrect,
+    fetchWord,
+    isLoading,
+    setIsLoading,
   };
   return (
     <GameContext.Provider value={contextValue}>{children}</GameContext.Provider>
