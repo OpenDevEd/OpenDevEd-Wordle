@@ -71,11 +71,14 @@ The main game logic is contained in the `App` component, with additional compone
 - Fetches random words from a JSON file (`/words.json`).
 - Validates guesses and updates the game state accordingly.
 - Provides feedback on correct letters and positions.
+- Validates only the valid guesses.
 
 ### User Interface
 - Renders a game board with guess lines.
 - Provides an on-screen keyboard that updates based on guessed letters.
 - Displays an animated popup at the end of the game.
+- Shake the board and the keyboard in invalid guess.
+- Provides an screen-mode button.
 
 ## Customization
 

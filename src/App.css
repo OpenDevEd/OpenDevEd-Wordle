@@ -6,6 +6,26 @@
   --color-text: #1a1a1b;
 }
 
+/* Dark Mode Styles */
+.dark-mode {
+  --color-background: #1a1a1b;
+  --color-text: #f5f5f5;
+  --color-correct: #6aaa64;
+  --color-close: #c9b458;
+  --color-incorrect: #787c7e;
+  --color-key-background: #3a3a3c;
+  --color-key-text: #f5f5f5;
+}
+
+.dark-mode .tile {
+  border-color: #3a3a3c;
+}
+
+.dark-mode .key {
+  background-color: var(--color-key-background);
+  color: var(--color-key-text);
+}
+
 body {
   font-family: "Arial", sans-serif;
   display: flex;
@@ -33,11 +53,21 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #f8f9fa;
+  background-color: var(--color-background);
   padding: 10px 20px;
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   z-index: 1000;
   border-bottom: 1px solid lightgray;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
 }
 
 .board-container {
@@ -182,7 +212,7 @@ header {
 }
 
 .popup {
-  background-color: white;
+  background-color: var(--color-background);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -195,7 +225,7 @@ header {
 .popup button {
   background-color: #4caf50;
   border: none;
-  color: white;
+  color: var(--color-text);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -208,6 +238,11 @@ header {
 
 .popup button:hover {
   background-color: #45a049;
+}
+
+.popup button:focus {
+  outline: 2px solid #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.5);
 }
 
 @keyframes popIn {
@@ -245,4 +280,39 @@ header {
 
 .board-container.invalid-word {
   animation: shake 0.5s;
+}
+
+.mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  margin-left: auto;
+}
+
+.mode-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mode-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-text);
+}
+
+.dark-mode .mode-icon {
+  color: var(--color-key-text);
+}
+
+.header-spacer {
+  flex: 1;
 }
