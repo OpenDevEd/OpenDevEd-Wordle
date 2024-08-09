@@ -2,8 +2,8 @@
 
 # How to start the app
 use those commands : 
-                    npm install
-                    npm run start
+-npm install
+-npm run start
 
 # How to play
 
