@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useWordle from "../hooks/useWordle";
 import Grid from "./Grid";
 import KeyBoard from "./KeyBoard"
+import PopUp from "./PopUp"
 
 interface Props {
     wordToGuess: string;
@@ -9,24 +10,35 @@ interface Props {
 
 const Wordle = ({wordToGuess}: Props) => {
 
-    const {currentGuess, handlekeyUp, guesses, isGuessed, attempts} = useWordle(wordToGuess);
+    const [showPopup, setShowPopup] = useState<boolean>(false);
+
+    const {currentGuess, handlekeyUp, guesses, isGuessed, attempts, usedKeys} = useWordle(wordToGuess);
 
     useEffect(() => {
         window.addEventListener('keyup', handlekeyUp);
 
-        return () => window.removeEventListener('keyup', handlekeyUp);
-    }, [handlekeyUp]);
+        if (isGuessed === true)
+        {
+            setTimeout(() => setShowPopup(true), 1000);
+            window.removeEventListener('keyup', handlekeyUp);
+        }
 
-    useEffect(() => {
-        console.log(guesses, attempts, isGuessed);
-    }, [attempts, guesses, isGuessed]);
+        if (attempts > 5)
+        {
+            setTimeout(() => setShowPopup(true), 1000);
+            window.removeEventListener('keyup', handlekeyUp);
+        }
+        
+        return () => window.removeEventListener('keyup', handlekeyUp);
+    }, [handlekeyUp, isGuessed, attempts]);
+
 
     return (
         <>
             <div>{wordToGuess}</div>
-            <div>{currentGuess}</div>
             <Grid currentGuess={currentGuess} guesses={guesses} attempts={attempts}/>
-            <KeyBoard/>
+            <KeyBoard usedKeys={usedKeys}/>
+            {showPopup && <PopUp isGuessed={isGuessed} attempts={attempts} wordToGuess={wordToGuess}/>}
         </>
     )
 }

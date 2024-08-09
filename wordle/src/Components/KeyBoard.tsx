@@ -1,6 +1,11 @@
 import {useState} from 'react'
+import { UsedKeys } from '../hooks/useWordle';
 
-const KeyBoard = () => {
+interface Props {
+    usedKeys: UsedKeys;
+}
+
+const KeyBoard = ({usedKeys}: Props) => {
     const lettersData = [
         { key: 'a' },
         { key: 'b' },
@@ -35,8 +40,9 @@ const KeyBoard = () => {
       return (
         <div className="keyboard">
             {letters && letters.map((l) => {
+                const state = usedKeys[l.key]
                 return (
-                    <div key={l.key}>{l.key}</div>
+                    <div key={l.key} className={state}>{l.key}</div>
                 )
             })}
         </div>

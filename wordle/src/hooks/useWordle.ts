@@ -7,7 +7,7 @@ export interface Letter {
     state: Status;
 }
 
-interface UsedKeys {
+export interface UsedKeys {
     [key: string]: Status | undefined;   
 }
 
@@ -101,25 +101,15 @@ const useWordle  = (WordToGuess: string) => {
         if (event.key === "Enter")
         {
             if (attempts > 5)
-            {
-                console.log('you have no more attempts');
                 return ;
-            }
 
             if (history.includes(currentGuess))
-            {
-                console.log('duplicate word');
                 return ;
-            }
 
             if (currentGuess.length !== 5)
-            {
-                console.log('word must be 5 characters')
                 return ;
-            }
             const colored: Letter[] = guessColoring();
             submitGuess(colored);
-            // console.log(colored);
         }
 
         if (event.key === "Backspace")
@@ -142,7 +132,7 @@ const useWordle  = (WordToGuess: string) => {
         }
     }
 
-    return ({attempts, currentGuess, guesses, isGuessed, handlekeyUp})
+    return ({attempts, currentGuess, guesses, isGuessed, handlekeyUp, usedKeys})
 }
 
 export default useWordle;
