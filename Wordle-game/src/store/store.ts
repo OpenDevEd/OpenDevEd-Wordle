@@ -54,6 +54,10 @@ const useGameStore = create<GameState>((set, get) => ({
       const won = isValidGuess && guess.toLowerCase() === state.word.toLowerCase();
       const lost = !isValidGuess && state.currentGuesses >= 4;
 
+			if (!isValidGuess && state.currentGuesses >= 4)
+	      state.decrementAttempts();
+
+
       return {
         guesses: newGuesses,
         currentGuesses: state.currentGuesses + 1,

@@ -23,15 +23,15 @@
 @keyframes flip {
   0% {
     transform: rotateX(0);
-    background-color: #ccc; /* Temporary color during the flip */
+    background-color: #ccc;
   }
   50% {
     transform: rotateX(90deg);
-    background-color: #ccc; /* Temporary color during the flip */
+    background-color: #ccc;
   }
   100% {
     transform: rotateX(180deg);
-    background-color: inherit; /* Maintain the final color after flip */
+    background-color: inherit;
   }
 }
 
@@ -43,7 +43,7 @@
 }
 
 .word-guess-input {
-  width: 50px; /* Adjust the size as needed */
+  width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -52,5 +52,5 @@
   font-weight: bold;
   color: white;
   transition: background-color 0.9s ease;
-  perspective: 1000px; /* Needed for 3D effect */
+  perspective: 1000px;
 }

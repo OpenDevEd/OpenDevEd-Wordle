@@ -179,7 +179,7 @@ const GuessInput = ({ inputKey, word, guess, isGuessed }: Props) => {
           ? 'bg-green-400'
           : word.includes(guess[i])
           ? 'bg-yellow-400'
-          : 'bg-black';
+          : 'bg-red-400';
         return (
           <div
             key={i}
