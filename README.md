@@ -62,6 +62,7 @@ The valid words dictionary is used to check the validity of the user's guess, wh
 * React 18
 * Framer Motion
 * Tailwind CSS
+* Jest
 
 ## Installation
 

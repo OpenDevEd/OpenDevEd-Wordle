@@ -43,6 +43,7 @@ export default function HintsRow({
 					/>
 				))}
 			<div
+				data-testid="hint-button"
 				onClick={addCheat}
 				className="relative flex size-11 cursor-pointer items-center justify-center rounded-full bg-primary-400 transition-all hover:bg-primary-300 active:scale-95"
 			>

@@ -4,6 +4,7 @@ export type GridProps = {
 	attempts: string[];
 	randomWord: string;
 	setRandomWord: React.Dispatch<React.SetStateAction<string>>;
-	setResetGame: React.Dispatch<React.SetStateAction<() => void>>;
+	resetGame: (() => void) | null;
+	setResetGame: React.Dispatch<React.SetStateAction<(() => void) | null>>;
 	heartsLeft: number;
 };

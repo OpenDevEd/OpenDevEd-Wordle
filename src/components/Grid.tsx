@@ -22,6 +22,7 @@ export default function Grid({
 	attempts,
 	randomWord,
 	setRandomWord,
+	resetGame,
 	setResetGame,
 	heartsLeft,
 }: GridProps) {
@@ -84,7 +85,7 @@ export default function Grid({
 	useEffect(() => {
 		const alphabetRegex = /^[a-zA-Z]$/;
 
-		const resetGame = () => {
+		const resetGameUpdate = () => {
 			setAttempts([]);
 			setAttemptColors([]);
 			setCurrentString("");
@@ -98,7 +99,7 @@ export default function Grid({
 
 		const handleKeyUp = (e: KeyboardEvent) => {
 			setIsKeyDown(false);
-			if (!showGrid) resetGame();
+			if (!showGrid) resetGameUpdate();
 			else if (
 				alphabetRegex.test(e.key) &&
 				currentString.length < WORD_LENGTH
@@ -115,7 +116,10 @@ export default function Grid({
 
 		if (randomWord === "") setRandomWord(generateRandomWord());
 
-		setResetGame(() => resetGame);
+		if (!showGrid && !resetGame)
+			setResetGame(() => resetGameUpdate);
+		else if (showGrid && resetGame)
+			setResetGame(null);
 
 		window.addEventListener("keydown", handleKeyDown);
 		window.addEventListener("keyup", handleKeyUp);
@@ -125,6 +129,7 @@ export default function Grid({
 			window.removeEventListener("keyup", handleKeyUp);
 		};
 	}, [
+		resetGame,
 		currentString,
 		submitWord,
 		randomWord,
@@ -167,6 +172,7 @@ export default function Grid({
 								)}
 							>
 								<div
+									data-testid={`row-${rowIndex}`}
 									className={twMerge(
 										"flex gap-2 transition-all",
 										isCurrentWord &&
@@ -187,6 +193,7 @@ export default function Grid({
 										/>
 									))}
 									<div
+										data-testid="submit-button"
 										onClick={
 											isCurrentWord && canPopOut
 												? submitWord
@@ -206,7 +213,7 @@ export default function Grid({
 						);
 					})}
 			</div>
-			<div ref={heartScope}>
+			<div id="gridHearts" ref={heartScope}>
 				<Hearts heartsLeft={heartsLeft} />
 			</div>
 		</div>

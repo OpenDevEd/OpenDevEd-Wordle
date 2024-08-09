@@ -7,8 +7,8 @@ export type GameState = {
 	setAttempts: React.Dispatch<React.SetStateAction<string[]>>;
 	randomWord: string;
 	setRandomWord: React.Dispatch<React.SetStateAction<string>>;
-	resetGame: () => void;
-	setResetGame: React.Dispatch<React.SetStateAction<() => void>>;
+	resetGame: (() => void) | null;
+	setResetGame: React.Dispatch<React.SetStateAction<(() => void) | null>>;
 	gameState: string;
 	showGrid: boolean;
 	heartsLeft: number;

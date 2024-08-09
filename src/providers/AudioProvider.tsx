@@ -14,8 +14,6 @@ export default function AudioProvider({
 		volume: number = 1,
 		skipAhead: number = 0,
 	) => {
-		if (!sound) return;
-
 		const audio = new Audio(SFX[sound]);
 		audio.volume = volume;
 		audio.currentTime = skipAhead;

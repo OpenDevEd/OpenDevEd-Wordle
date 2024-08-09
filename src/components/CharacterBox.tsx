@@ -19,6 +19,7 @@ export default function CharacterBox({
 
 	return (
 		<div
+			data-testid={`column-${columnIndex}`}
 			className={twMerge(
 				"flex size-16 items-center justify-center rounded border-2 border-primary-500 bg-card text-2xl font-black uppercase text-text transition-all dark:border-primary-200 dark:bg-card-200",
 				isCurrentWord && "!bg-card-600",

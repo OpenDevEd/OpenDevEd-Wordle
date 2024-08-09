@@ -19,6 +19,7 @@ export default function HintCharacter({
 
 	return (
 		<div
+			data-testid={`hint-character`}
 			key={index}
 			className="flex flex-col gap-4 text-2xl font-black uppercase text-text"
 		>

@@ -5,6 +5,7 @@ import { ActiveState, GameState, GridState, Results } from "@/types/game";
 import { useAnimate } from "framer-motion";
 import { AudioContextProvider } from "@/providers/AudioProvider";
 import { AudioContextReturn } from "@/types/AudioContext";
+import { GameContainerProps } from "@/types/GameContainer";
 
 export function useCharacterBox({
 	rowIndex,
@@ -45,10 +46,10 @@ export function useCanPopOut() {
 	return canPopOut;
 }
 
-export function useGameState(): GameState {
+export function useGameState({ presetWord }: GameContainerProps): GameState {
 	const [attempts, setAttempts] = useState<string[]>([]);
-	const [randomWord, setRandomWord] = useState<string>("");
-	const [resetGame, setResetGame] = useState(() => () => {});
+	const [randomWord, setRandomWord] = useState<string>(presetWord ?? "");
+	const [resetGame, setResetGame] = useState<(() => void) | null>(null);
 	const [results, setResults] = useState<Results>(null);
 	const [gameState, showGrid] = useMemo<[ActiveState, boolean]>(() => {
 		let gameState: ActiveState = "playing";
