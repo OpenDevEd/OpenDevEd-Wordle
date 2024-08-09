@@ -9,7 +9,7 @@ A React-based clone of the popular word guessing game, Wordle. This implementati
 - Color-coded feedback for guesses
 - Responsive design
 - End-game popup with play again option
-- Keyboard support for desktop users
+- Keyboard support for mobile users
 
 ## Getting Started
 
