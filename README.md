@@ -4,6 +4,26 @@ seiWordle is a word-guessing game inspired by Wordle built with TypeScript and N
 
 ## Thought Process
 
+State management was handled using React's built-in `useState`, `useEffect`, and `useMemo` hooks spread across `useGameState` and `useGridState` hooks, and the most important state variables are:
+
+* `randomWord` is a state that is initialized to a random word with a `useEffect`,
+* `attempts` is an array of strings that contains the user's previous attempts at guessing the random word, the length of which directly translates to the number of remaining attempts,
+* `currentString` is a string that contains the user's current input, appended to the `attempts` array when the user presses the enter key,
+* `attemptColors` is 2D array of strings that contains the color of each letter in each attempt, set by a `useMemo` hook that calculates the colors at the same time as the `attempts` array is updated.
+* `useAudio` is a hook that provides a function to play sound effects, and is used to play sound effects on user interaction. The `useAudio` hook returns an object with the following type:
+```typescript
+type AudioContextReturn = {
+	playSound: (
+		sound: keyof typeof SFX,
+		volume?: number,
+		skipAhead?: number,
+	) => void;
+};
+```
+* `resetGame` is a function stored in a state variable set by a `useMemo` hook that resets the game state to its initial state. Since resetting the game requires state from `useGridState`, and the grid is a child of a component that also needs to reset the game, the `setResetGame` function is passed down to to `<Grid />` as a prop, allowing the app to reset the game's state on the end game state UI.
+
+The latter could've been improved upon by using `useContext` or a state management library like Redux, but this was deemed unnecessary especially given the small size of the app.
+
 Many decisions were made with the goal of creating a smooth and intuitive user experience, such as capturing user input and storing it in state rather than using a traditional `input` field, and opting for a single page application to achieve a more seamless experience. The initial word matching logic did not account for duplicate same correct letter guesses in words with only one instance of that letter and was later updated to account for this edge case. There were also some issues with playing multiple audio instances at the same time due the initial implementation of the audio system as well as audio files not being preloaded, which was later resolved by using the Audio API to create a new audio instance for each sound effect and using the `preload` attribute to ensure the audio files are loaded before they are played.
 
 Much like the original Wordle, seiWordle uses two dictionaries:
