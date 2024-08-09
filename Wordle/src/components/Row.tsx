@@ -6,7 +6,7 @@ export default function Row({ guess, input }) {
           return (
             <div
               key={i}
-              className={`border - 2 h-16 w-16 m-1 text-6xl font-bold text-center uppercase text-white ${item.color}`}
+              className={`border  rounded shadow selection:h-16 w-16 m-1 text-6xl font-bold text-center uppercase text-white ${item.color}`}
             >
               {item.char}
             </div>
@@ -23,7 +23,7 @@ export default function Row({ guess, input }) {
           return (
             <div
               key={i}
-              className="border-2 h-16 w-16 m-1 text-6xl font-bold text-center uppercase"
+              className="shadow border border-black rounded h-16 w-16 m-1 text-6xl font-bold text-center uppercase"
             >
               {item}
             </div>
@@ -33,7 +33,7 @@ export default function Row({ guess, input }) {
           return (
             <div
               key={i}
-              className="border-2 h-16 w-16 m-1 text-6xl font-bold text-center uppercase"
+              className="shadow border rounded  h-16 w-16 m-1 text-6xl font-bold text-center uppercase"
             ></div>
           );
         })}
@@ -42,11 +42,12 @@ export default function Row({ guess, input }) {
   }
   return (
     <div className="flex text-center items-center justify-center">
-      <div className="border-2 h-16 w-16 m-1 text-6xl font-bold text-center uppercase"></div>
-      <div className="border-2 h-16 w-16 m-1 text-6xl font-bold text-center uppercase"></div>
-      <div className="border-2 h-16 w-16 m-1 text-6xl font-bold text-center uppercase"></div>
-      <div className="border-2 h-16 w-16 m-1 text-6xl font-bold text-center uppercase"></div>
-      <div className="border-2 h-16 w-16 m-1 text-6xl font-bold text-center uppercase"></div>
+      {[...Array(5)].map((_, i) => (
+        <div
+          key={i}
+          className="shadow border rounded  h-16 w-16 m-1 text-6xl font-bold text-center uppercase"
+        ></div>
+      ))}
     </div>
   );
 }

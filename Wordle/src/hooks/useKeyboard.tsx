@@ -50,24 +50,30 @@ export default function useKeyboard() {
     return inputArray;
   };
 
-  const handleInput = async ({ key }) => {
-    if (attempts) {
-      if (key === "Enter" && input.length === targetWord.length) {
-        const correct = await isWord(input); // add loading screen or effect
-        if (correct) {
-          if (!history.includes(input)) {
-            setHistory((prev) => {
-              return [...prev, input];
-            });
-            const formattedInput = formatInput();
-            checkWord(formattedInput);
-          } else {
-            //give feed back
-          }
+  const submitWord = async () => {
+    if (input.length === targetWord.length) {
+      const correct = await isWord(input);
+      if (correct) {
+        if (!history.includes(input)) {
+          setHistory((prev) => {
+            return [...prev, input];
+          });
+          const formattedInput = formatInput();
+          checkWord(formattedInput);
         } else {
-          //reject the word
           //give feed back
         }
+      } else {
+        //reject the word
+        //give feed back
+      }
+    }
+  };
+
+  const handleInput = async ({ key }) => {
+    if (attempts) {
+      if (key === "Enter") {
+        submitWord();
       } else {
         //give feedback
       }
@@ -79,5 +85,5 @@ export default function useKeyboard() {
       }
     }
   };
-  return [handleInput];
+  return [handleInput, submitWord];
 }
