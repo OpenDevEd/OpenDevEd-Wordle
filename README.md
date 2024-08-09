@@ -89,8 +89,14 @@ git checkout wordle-sickerine
 npm install
 ```
 
-5. Start the development server
+5. Build the app
 
 ```bash
-npm run dev
+npm run build
+```
+
+6. Start a production server
+
+```bash
+npm run start
 ```

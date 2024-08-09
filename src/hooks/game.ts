@@ -35,7 +35,7 @@ export function useCanPopOut() {
 	useEffect(() => {
 		let tim = setTimeout(() => {
 			setCanPopOut(true);
-		}, 500);
+		}, 750);
 
 		return () => {
 			clearTimeout(tim);
