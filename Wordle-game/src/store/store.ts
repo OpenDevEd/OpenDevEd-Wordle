@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-import words from '../data/words.json'; // Adjust the path as needed
-import { getRandomWord } from '../App';
+import words from '../data/words.json';
 
 interface GameState {
   word: string;
+	isValidatedWord: Boolean;
 	wonLoseFlag: '' | 'Won' | 'Lost';
   guesses: string[];
   currentGuesses: number;
@@ -20,9 +20,15 @@ interface GameState {
 	getWrongGuesses: () => string[];
 }
 
+function getRandomWord(words: string[]): string {
+  const randomIndex = Math.floor(Math.random() * words.length);
+  return words[randomIndex];
+}
+
 const useGameStore = create<GameState>((set, get) => ({
     word: getRandomWord(words),
 		wonLoseFlag: '',
+		isValidatedWord: false,
     guesses: Array(5).fill(''),
     currentGuesses: 0,
     remainAttempts: 5,
@@ -36,9 +42,12 @@ const useGameStore = create<GameState>((set, get) => ({
 			}
 			return state;
 		}),
-	
 		addGuess: (guess) =>
     set((state) => {
+			if (guess.length < 5){
+				state.isValidatedWord = true;
+				return state;
+			}
       const newGuesses = [...state.guesses];
       const isValidGuess = words.includes(guess.toLowerCase());
       newGuesses[state.currentGuesses] = guess;
@@ -49,6 +58,7 @@ const useGameStore = create<GameState>((set, get) => ({
         guesses: newGuesses,
         currentGuesses: state.currentGuesses + 1,
         wonLoseFlag: won ? 'Won' : lost ? 'Lost' : state.wonLoseFlag,
+				isValidatedWord: false,
       };
     }),
 		updateGuesses: () => 
@@ -93,13 +103,6 @@ const useGameStore = create<GameState>((set, get) => ({
 				.split('')
 				.filter((letter) => state.getAllGuesses().includes(letter));
 		},
-
-	}));
+}));
 		
-		
-		export default useGameStore;
-		
-		
-		// setGuesses: () => set((state) => ({
-		// 	guesses: (state.guesses),
-		// })),
+export default useGameStore;

@@ -2,16 +2,12 @@ import { useEffect } from "react";
 import GuessInput from "./components/GuessInput";
 import KeyBoardButtons from "./components/KeyBoardButtons";
 import useGameStore from "./store/store";
-import words from "./data/words.json";
 
-export function getRandomWord(words: string[]): string {
-  const randomIndex = Math.floor(Math.random() * words.length);
-  return words[randomIndex];
-}
 
 function App() {
   const {
     word,
+    isValidatedWord,
     guesses,
     currentGuesses,
     wonLoseFlag,
@@ -24,28 +20,33 @@ function App() {
   } = useGameStore();
 
   useEffect(() => {
-    // initialStore(setWord, setGuesses);
     const handleKey = (event: KeyboardEvent) => {
-      // const currentGuess = guesses[currentGuesses];
-      // console.log('currentGuess: ', currentGuess, ' currentGuesses: ', currentGuesses);
-
-      if (guesses[currentGuesses].length < 5 && event.key.match(/[A-z]/))
-        setGuess(event.key, currentGuesses);
-      if (event.key === "Enter") {
-        addGuess(guesses[currentGuesses]);
+      if (wonLoseFlag === "Won" || wonLoseFlag === "Lost") {
+        // Ignore any input if the game is won or lost
+        return;
       }
-      if (event.key === "Backspace") {
+      console.log("im in handleKey: ", event);
+  
+      if (event.key.match(/^[a-z]$/i) && guesses[currentGuesses].length < 5) {
+        // Handle letter keys (A-Z or a-z)
+        setGuess(event.key.toLowerCase(), currentGuesses);
+      } else if (event.key === "Enter" && guesses[currentGuesses].length === 5) {
+        // Handle the Enter key
+        event.preventDefault();
+        addGuess(guesses[currentGuesses]);
+      } else if (event.key === "Backspace") {
+        // Handle the Backspace key
+        event.preventDefault();
         updateGuesses();
       }
     };
 
     window.addEventListener("keydown", handleKey);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("keydown", handleKey);
     };
-  }, [word, guesses, currentGuesses]);
+  }, [word, isValidatedWord, guesses, currentGuesses, setGuess, addGuess, updateGuesses]);
 
   useEffect(() => {
     if (wonLoseFlag === "Lost") {
