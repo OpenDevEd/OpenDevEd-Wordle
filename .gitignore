@@ -1,0 +1,52 @@
+# Dependencies
+/node_modules
+
+# Build output
+/build
+/dist
+
+# Runtime data
+/.pnp
+.pnp.js
+
+# IDEs and editors
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Miscellaneous
+*.log
+*.lock
+*.pid
+*.gz
+
+# Coverage reports
+/coverage
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js
+.next
+
+# CRA
+craco.config.js
