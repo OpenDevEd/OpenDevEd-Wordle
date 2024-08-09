@@ -21,6 +21,13 @@ function App() {
 
   const [showPlayAgain, setShowPlayAgain] = useState(false);
   const [timer, setTimer] = useState(20);
+  const [showResultCard, setShowResultCard] = useState(false); // State for result card visibility
+
+  const delayedSetShowResultCard = (value: boolean, delay: number) => {
+    setTimeout(() => {
+      setShowResultCard(value);
+    }, delay);
+  };
 
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
@@ -28,8 +35,6 @@ function App() {
         // Ignore any input if the game is won or lost
         return;
       }
-      console.log("im in handleKey: ", event);
-  
       if (event.key.match(/^[a-z]$/i) && guesses[currentGuesses].length < 5) {
         // Handle letter keys (A-Z or a-z)
         setGuess(event.key.toLowerCase(), currentGuesses);
@@ -67,11 +72,17 @@ function App() {
             return prev - 1;
           });
         }, 1000);
+        delayedSetShowResultCard(true, 900); // 0.9 seconds delay
       } else {
         setShowPlayAgain(true); // Show "Play Again" button if there are attempts left
+        delayedSetShowResultCard(true, 900); // 0.9 seconds delay
       }
+    } else if (wonLoseFlag === "Won") {
+      setShowPlayAgain(true); // Show "Play Again" button if the game is won
+      delayedSetShowResultCard(true, 900); // 0.9 seconds delay
     } else {
-      setShowPlayAgain(false); // Hide "Play Again" button if not in a losing state
+      setShowPlayAgain(false); // Hide "Play Again" button if not in a losing or winning state
+      delayedSetShowResultCard(false, 900); // Hide result card with 0.9 seconds delay
     }
   }, [wonLoseFlag, remainAttempts]);
 
@@ -89,20 +100,25 @@ function App() {
       ))}
       <KeyBoardButtons />
       <p>word: {word}</p>
-
       {/* Conditional Rendering for Game Status */}
-      <GameStatus
-        wonLoseFlag={wonLoseFlag}
-        remainAttempts={remainAttempts}
-        showPlayAgain={showPlayAgain}
-        resetGame={resetGame}
-      />
-      {wonLoseFlag === "Lost" && remainAttempts <= 0 && !showPlayAgain && (
-        <Timer timer={timer} />
-      )}
-      {wonLoseFlag === "Lost" && remainAttempts <= 0 && showPlayAgain && (
-        <PlayAgainButton resetGame={resetGame} />
-      )}
+      {
+        showResultCard && (
+          <>
+            <GameStatus
+              wonLoseFlag={wonLoseFlag}
+              remainAttempts={remainAttempts}
+              showPlayAgain={showPlayAgain}
+              resetGame={resetGame}
+            />
+            {wonLoseFlag === "Lost" && remainAttempts <= 0 && !showPlayAgain && (
+              <Timer timer={timer} />
+            )}
+            {wonLoseFlag === "Lost" && remainAttempts <= 0 && showPlayAgain && (
+              <PlayAgainButton resetGame={resetGame} />
+            )}
+          </>
+        )
+      }
     </div>
   );
 }
