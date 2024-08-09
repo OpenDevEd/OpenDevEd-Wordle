@@ -10,6 +10,8 @@ A React-based clone of the popular word guessing game, Wordle. This implementati
 - Responsive design
 - End-game popup with play again option
 - Keyboard support for mobile users
+- Can guess only valid words
+- screen mode feature
 
 ## Getting Started
 
@@ -60,6 +62,7 @@ The main game logic is contained in the `App` component, with additional compone
 - `Line`: Renders a single guess line
 - `Keyboard`: Renders the on-screen keyboard
 - `EndGamePopup`: Displays the end-game message and play again option
+- `DarkModeToggle`: Switch the screen colors
 
 ## Implementation Details
 
