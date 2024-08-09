@@ -23,7 +23,6 @@ function App() {
   });
   const [restartModalOpen, setModalStatus] = useState(false);
 
-  console.log(board.guesses);
   const restartGame = () => {
     setInputField({
       error: "",
@@ -76,21 +75,6 @@ function App() {
               >
                 Restart game
               </Button>
-              {/* <Tooltip label="Restart game" aria-label="A tooltip">
-                <IconButton
-                  onClick={restartGame}
-                  position="absolute"
-                  top="0"
-                  right="5"
-                  fontSize={26}
-                  bg="#6FA76B"
-                  color="#fff"
-                  _hover={{backgroundColor: "#C9B363"}}
-                  aria-label="Restart game"
-                  boxSize="45px"
-                  icon={<RiRestartLine />}
-                />
-              </Tooltip> */}
             </VStack>
           </InputContext.Provider>
         </BoardContext.Provider>
