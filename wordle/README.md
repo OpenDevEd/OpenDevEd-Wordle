@@ -1,7 +1,9 @@
 # OpenDevEd Wordle
 
 # How to start the app
-use this command : npm run start
+use those commands : 
+                    npm install
+                    npm run start
 
 # How to play
 
