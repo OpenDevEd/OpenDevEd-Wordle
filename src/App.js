@@ -18,6 +18,7 @@ function App() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [usedLetters, setUsedLetters] = useState({});
   const [isWin, setIsWin] = useState(false);
+  const [validWords, setValidWords] = useState([]);
 
   const resetGame = useCallback(() => {
     setGuesses(Array(MAX_GUESSES).fill(null));
@@ -37,10 +38,18 @@ function App() {
       const words = await response.json();
       const randomWord = words[Math.floor(Math.random() * words.length)];
       setSolution(randomWord.toLowerCase());
+      setValidWords(words.map((word) => word.toLowerCase()));
     } catch (error) {
       console.error("Failed to fetch words:", error);
     }
   };
+
+  const isValidWord = useCallback(
+    (word) => {
+      return validWords.includes(word.toLowerCase());
+    },
+    [validWords]
+  );
 
   const handleKeyPress = useCallback(
     (key) => {
@@ -48,6 +57,11 @@ function App() {
 
       if (key === "Enter") {
         if (currentGuess.length !== WORD_LENGTH) return;
+
+        if (!isValidWord(currentGuess)) {
+          animateInvalidWord();
+          return;
+        }
 
         const newGuesses = [...guesses];
         const emptyIndex = newGuesses.findIndex((val) => val == null);
@@ -90,8 +104,18 @@ function App() {
         setCurrentGuess((prev) => prev + key.toLowerCase());
       }
     },
-    [currentGuess, isGameOver, solution, guesses, usedLetters]
+    [isGameOver, currentGuess, isValidWord, guesses, usedLetters, solution]
   );
+
+  const animateInvalidWord = () => {
+    const boardElement = document.querySelector(".board-container");
+    if (boardElement) {
+      boardElement.classList.add("invalid-word");
+      setTimeout(() => {
+        boardElement.classList.remove("invalid-word");
+      }, 500);
+    }
+  };
 
   useEffect(() => {
     const handleType = (event) => handleKeyPress(event.key);
@@ -102,6 +126,7 @@ function App() {
   useEffect(() => {
     fetchNewWord();
   }, []);
+
   return (
     <div className="game-container">
       <header>
