@@ -132,7 +132,7 @@ function App() {
       </motion.h1>
       <GuessBox correctLetters={correctLetters} />
       <BoxesContainer  gameOver={gameOver} strings={strings} string={string} colors={colors} winState={winState} loseState={loseState} />
-      <Button gameOverState={gameOver} setStrings={setStrings} setColors={setColors} setString={setString} setWord={setWord} setGameOver={setGameOver} setCorrectLetters={setCorrectLetters}/>
+      <Button gameOverState={gameOver} setStrings={setStrings} setColors={setColors} setString={setString} setWord={setWord} setGameOver={setGameOver} setWinState={setWinState} setLoseState={setLoseState} setCorrectLetters={setCorrectLetters}/>
       <ToastContainer />
     </div>
   );
