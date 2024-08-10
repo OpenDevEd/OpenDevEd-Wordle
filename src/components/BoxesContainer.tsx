@@ -45,13 +45,12 @@ export default function BoxesContainer({
         initial={{ display: "none", opacity: 0 }}
         animate={{
           opacity: gameOver ? 1 : 0,
-          transition: { duration: 0.5 },
+          transition: { duration: 0.25 },
           display: gameOver ? "block" : "none",
         }}
         style={{
           color: winState ? "green" : loseState ? "red" : "transparent",
         }}
-        transition={{ duration: 0.5 }}
       >
         {winState ? "You Win!" : loseState ? "You Lose!" : ""}
       </motion.h2>

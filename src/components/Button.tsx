@@ -4,16 +4,17 @@ import { VscDebugRestart } from "react-icons/vsc";
 import { motion, useAnimation } from 'framer-motion';
 
 
-function resetGame(setStrings: any, setColors: any, setString: any, setWord: any, setGameOver: any) {
+function resetGame(setStrings: any, setColors: any, setString: any, setWord: any, setGameOver: any, setCorrectLetters: any) {
     setStrings([]);
     setColors([]);
     setString("");
     setWord("");
     setGameOver(false);
+    setCorrectLetters(["", "", "", "", ""]);
 }  
 
 export default function Button(props: any) {
-    const { setStrings, setColors, setString, setWord, setGameOver, gameOverState } = props;
+    const { setStrings, setColors, setString, setWord, setGameOver, gameOverState, setCorrectLetters } = props;
     const controls = useAnimation();
 
     useEffect(() => {
@@ -38,9 +39,9 @@ export default function Button(props: any) {
         <motion.button 
             initial={{ transform: "translateY(0px)", opacity: 0, display: "none" }}
             animate={controls}
-            className="bg-fuchsia-400 hover:bg-fuchsia-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() => resetGame(setStrings, setColors, setString, setWord, setGameOver)}>
-            <VscDebugRestart className="inline-block" />
+            className="bg-fuchsia-400 hover:bg-fuchsia-700 text-white font-bold py-2 px-4 rounded w-[5rem] h-[3rem]"
+            onClick={() => resetGame(setStrings, setColors, setString, setWord, setGameOver, setCorrectLetters)}>
+            <VscDebugRestart className="inline-block w-[1.5rem] h-[1.5rem]" />
         </motion.button>
     );
 }

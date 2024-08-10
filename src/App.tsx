@@ -5,9 +5,10 @@ import { useEffect, useState} from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { motion } from "framer-motion";
 import 'react-toastify/dist/ReactToastify.css';
+import GuessBox from "./components/GuessBox";
 
 
-function checkValidWord(string: string, setStrings: any, setString: any, cont: any, word: string, setColors: any, strings: string[], setGameOver: any, setWinState: any, setLoseState: any) {
+function checkValidWord(string: string, setStrings: any, setString: any, cont: any, word: string, setColors: any, strings: string[], setGameOver: any, setWinState: any, setLoseState: any, setCorrectLetters: any) {
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${string}`)
     .then((res) => res.json())
     .then((data) => {
@@ -35,6 +36,10 @@ function checkValidWord(string: string, setStrings: any, setString: any, cont: a
         let new_colors: string[] = [];
         for (let i = 0; i < string.length; i++) {
           if (string[i] === word_copy[i]) {
+            setCorrectLetters((prev: string[]) => {
+              prev[i] = string[i];
+              return [...prev];
+            });
             new_colors[i] = green;
             word_copy = word_copy.slice(0, i) + " " + word_copy.slice(i + 1);
           }
@@ -75,6 +80,7 @@ function App() {
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [winState, setWinState] = useState<boolean>(false);
   const [loseState, setLoseState] = useState<boolean>(false);
+  const [correctLetters, setCorrectLetters] = useState<string[]>(["", "", "", "", ""]);
 
   const checkIncorrectCharacters = (letter: string) => {
     const regex = /^[a-zA-Z]$/;
@@ -108,7 +114,7 @@ function App() {
           return;
         else if (string.length >= 5)
           setString((prev) => prev.slice(0, 5));
-        checkValidWord(string, setStrings, setString, cont, word, setColors, strings, setGameOver, setWinState, setLoseState);
+        checkValidWord(string, setStrings, setString, cont, word, setColors, strings, setGameOver, setWinState, setLoseState, setCorrectLetters);
       }
     };
 
@@ -124,8 +130,9 @@ function App() {
         className="text-fuchsia-300 text-9xl font-bold">
           Wordle
       </motion.h1>
+      <GuessBox correctLetters={correctLetters} />
       <BoxesContainer  gameOver={gameOver} strings={strings} string={string} colors={colors} winState={winState} loseState={loseState} />
-      <Button gameOverState={gameOver} setStrings={setStrings} setColors={setColors} setString={setString} setWord={setWord} setGameOver={setGameOver}/>
+      <Button gameOverState={gameOver} setStrings={setStrings} setColors={setColors} setString={setString} setWord={setWord} setGameOver={setGameOver} setCorrectLetters={setCorrectLetters}/>
       <ToastContainer />
     </div>
   );
