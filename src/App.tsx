@@ -26,23 +26,27 @@ function checkValidWord(string: string, setStrings: any, setString: any, cont: a
           setGameOver(true);
         }
 
+        const red = "rgba(173, 0, 0, 0.65)";
+        const yellow = "rgba(172, 173, 0, 0.65)";
+        const green = "rgba(42, 173, 0, 0.65)";
+
         let new_colors: string[] = [];
         for (let i = 0; i < string.length; i++) {
           if (string[i] === word_copy[i]) {
-            new_colors[i] = "green";
+            new_colors[i] = green;
             word_copy = word_copy.slice(0, i) + " " + word_copy.slice(i + 1);
           }
         }
 
         for (let i = 0; i < string.length; i++) {
-          if (new_colors[i] === "green") continue;
+          if (new_colors[i] === green) continue;
 
           if (word_copy.includes(string[i])) {
-            new_colors[i] = "yellow";
+            new_colors[i] = yellow;
             word_copy = word_copy.slice(0, word_copy.indexOf(string[i])) + " " + word_copy.slice(word_copy.indexOf(string[i]) + 1);
           }
           else {
-            new_colors[i] = "red";
+            new_colors[i] = red;
           }
         }
         
@@ -96,7 +100,9 @@ function App() {
         setString((prev) => prev.slice(0, -1));
       }
       if (e.key === "Enter") {
-        if (string.length != 5)
+        if (string.length < 5)
+          return;
+        else if (string.length >= 5)
           setString((prev) => prev.slice(0, 5));
         checkValidWord(string, setStrings, setString, cont, word, setColors, strings, setGameOver);
       }
