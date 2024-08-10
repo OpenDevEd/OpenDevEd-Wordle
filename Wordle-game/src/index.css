@@ -18,14 +18,7 @@
   .letter-class {
     @apply h-10 rounded-md m-px flex justify-center items-center uppercase
   }
-} 
-
-/* .body{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
+}
 
 @keyframes flip {
   0% {

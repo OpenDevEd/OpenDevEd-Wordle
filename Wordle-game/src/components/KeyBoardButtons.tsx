@@ -44,6 +44,7 @@ const KeyBoardButtons = () => {
               ? 'bg-gray-400'
               : 'bg-gray-200';
 
+
             const label = letter.replace(/[()]/g, ''); // Remove parentheses for display
             const additionalClasses = letter === "(Enter)" || letter === "(delete)" 
               ? "sm:w-14 w-14" // Wide buttons on desktop, narrower on mobile
