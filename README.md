@@ -1,57 +1,89 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# wordle-game
 
-### User Interface (UI):
+A Wordle-inspired game built using ReactJS, CSS, and Tailwind CSS.
 
-Design a clean and intuitive UI for the game that includes:
+This game allows players to guess a word within a limited number of attempts, providing feedback on the correctness of each guess.
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+The game is designed to work seamlessly on both desktop and mobile devices.
 
-### State Management:
+The game is deployed on Vercel. You can view the live demo here: [Wordle Game Live](https://wordle-game-lilac.vercel.app/)
 
-Implement a robust state management system to handle:
+![Wordle Game Screenshot - Desktop](./Wordle-game/src/assets/desktopWordle.png)
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+*Wordle game running on a desktop*
 
-### User Interaction:
+![Wordle Game Screenshot - Mobile](./Wordle-game/src/assets/phoneWordle.jpg)
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+*Wordle game running on a mobile device*
+
+## Features
+
+- **Responsive Design**: The game is fully responsive, providing an optimal experience on both mobile and desktop devices.
+- **State Management**: The game uses React's useState and Zustand for efficient state management.
+- **Animations**: CSS animations are used to enhance the gameplay experience, such as the flip animation when revealing the letters.
+- **Feedback System**: Players receive feedback on their guesses, indicating correct letters in the correct position, correct letters in the wrong position, and incorrect letters.
+
+## Technologies Used
+
+- **ReactJS**: For building the user interface and handling component-based architecture.
+- **CSS**: For custom styling and animations.
+- **Tailwind CSS**: For utility-first styling and responsive design adjustments.
+- **Zustand**: For managing global state across the application.
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+- Node.js
+- npm or yarn
+
+### Installation
+
+Clone the repository:
+
+git clone https://github.com/your-username/wordle-game.git
+cd wordle-game
 
 
-### Game Logic:
+## Install the dependencies:
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+- bash
+- Copy code
+- npm install
+- npm run dev
 
-## Code Quality:
+# or
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+- bash
+- Copy code
+- yarn install
+- npm run dev
 
-## Submission Guidelines:
+Open http://localhost:5173/ to view the game in the browser.
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+## Deployment
 
-## Evaluation Criteria:
+The game is deployed on Vercel. To deploy your own version, you can follow these steps:
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+1. Push your changes to a GitHub repository.
+2. Link your repository to a new project on Vercel.
+3. Vercel will automatically deploy your project and provide a live URL.
+
+## How to Play
+1. Enter a guess by typing a word or clicking the on-screen keyboard.
+2. Press 'Enter' to submit your guess.
+3. The game will provide feedback:
+   - **Green** indicates a correct letter in the correct position.
+   - **Yellow** indicates a correct letter in the wrong position.
+   - **Red** indicates an incorrect letter.
+4. Continue guessing until you find the correct word or run out of attempts.
+
+## Contributing
+Contributions are welcome! If you have suggestions for improvements or find any bugs, feel free to create an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License.
+
+## Acknowledgements
+Inspired by the popular Wordle game.
