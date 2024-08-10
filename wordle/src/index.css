@@ -1,0 +1,125 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+html {
+	background-color: beige;
+}
+
+.row {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.row > div {
+	height: 60px;
+	width: 60px;
+	/* border: 1px black solid; */
+	border-radius: 10%;
+	margin: 1%;
+	text-align: center;
+	line-height: 60px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: black;
+	background-color: rgb(141, 127, 127);
+}
+
+.row > div.green {
+	--background-color: rgb(33, 116, 33);
+	--border-color: rgb(33, 116, 33);
+	animation: caseFlip 0.5s ease-in forwards;
+}
+
+.row > div.red {
+	--background-color: rgb(218, 30, 30);
+	--border-color: rgb(218, 30, 30);
+	animation: caseFlip 0.5s ease-in forwards;
+}
+
+.row > div.yellow {
+	--background-color: rgb(202, 202, 5);
+	--border-color: rgb(202, 202, 5);
+	animation: caseFlip 0.5s ease-in forwards;
+}
+
+.row > div:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.row > div:nth-child(3) {
+	animation-delay: 0.3s;
+}
+
+.row > div:nth-child(4) {
+	animation-delay: 0.4s;
+}
+
+.row > div:nth-child(5) {
+	animation-delay: 0.5s;
+}
+
+/* .row > div:nth-child(2) { */
+/* 	
+} */
+
+@keyframes caseFlip {
+	0% {
+		background-color: rgb(141, 127, 127);
+		transform: rotateX(0deg);
+	}
+	45% {
+		background-color: rgb(141, 127, 127);
+		transform: rotateX(90deg);
+	}
+	55% {
+		background-color: var(--background-color) ;
+		border-color: var(--border-color);
+		color: white ;
+		transform: rotateX(90deg);
+	}
+	100% {
+		background-color: var(--background-color) ;
+		border-color: var(--border-color);
+		color: white;
+		transform: rotateX(0deg);
+	}
+}
+
+.keyboard {
+	max-width: 500px;
+	margin: 20px auto;
+	/* border: 1px red solid; */
+	text-align: center;
+}
+
+.keyboard > div {
+	margin: 5px;
+	width: 40px;
+	height: 50px;
+	display: inline-block;
+	/* border: 1px red solid; */
+	background-color: #aca6a6;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 6px;
+}
+
+.keyboard > div.green {
+	background-color: rgb(33, 116, 33);
+	transition: background-color 0.3s ease-in;
+}
+
+.keyboard > div.yellow {
+	background-color: rgb(202, 202, 5);
+	transition: background-color 0.3s ease-in;
+}
+
+.keyboard > div.red {
+	background-color: rgb(218, 30, 30);
+	transition: background-color 0.3s ease-in;
+}
