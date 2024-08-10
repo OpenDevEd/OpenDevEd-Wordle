@@ -1,13 +1,20 @@
 import Row from '@components/Row';
 import logo from '@assets/logo.svg';
-import { useEffect, useState } from 'react';
-import { argv0 } from 'process';
+import { useEffect, useRef, useState } from 'react';
+import wordList from '@data/words';
 
 function App() {
+  let SOLUTION = useRef<string>();
+  console.log(SOLUTION);
 
   const [focusedRow, setFocusedRow] = useState<number>(1);
   const [letters, setLetters] = useState<string>("");
   const [words, setWords] = useState<string[]>(["", "", "", "", "", ""]);
+  const [submitted, setSubmitted] = useState<boolean>(false);
+
+  useEffect(() => {
+    SOLUTION.current = [...wordList][Math.floor(Math.random() * wordList.size)];
+  }, []);
 
   useEffect(() => {
     setWords((prev) => {
@@ -20,9 +27,14 @@ function App() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
-        if (letters.length === 5 && focusedRow < 6) {
+        if (letters.length === 5 && focusedRow < 6 && wordList.has(letters)) {
+          setSubmitted(true);
           setFocusedRow((prev) => prev + 1);
           setLetters("");
+          if (letters === SOLUTION.current) {
+            setFocusedRow(7);
+            console.log('win');
+          }
         }
         if (letters.length === 5 && focusedRow === 6) {
           console.log('submit');
@@ -51,9 +63,9 @@ function App() {
     }
   }, [letters, focusedRow]);
 
-  useEffect(() => {
-    console.log(words);
-  }, [words]);
+  //useEffect(() => {
+  //  console.log(words);
+  //}, [words]);
 
   return (
     <>
@@ -61,13 +73,13 @@ function App() {
         <img src={logo} />
       </div>
       <div className='flex gap-12 flex-col justify-center w-full'>
-        <div className='flex items-center justify-center flex-col gap-4'>
-          <Row letters={words[0].split("")} />
-          <Row letters={words[1].split("")} />
-          <Row letters={words[2].split("")} />
-          <Row letters={words[3].split("")} />
-          <Row letters={words[4].split("")} />
-          <Row letters={words[5].split("")} />
+        <div className='flex items-center justify-center flex-col gap-2'>
+          <Row letters={words[0].split("")} solution={SOLUTION.current} submitted={submitted} SetSubmitted={setSubmitted} />
+          <Row letters={words[1].split("")} solution={SOLUTION.current} submitted={submitted} SetSubmitted={setSubmitted} />
+          <Row letters={words[2].split("")} solution={SOLUTION.current} submitted={submitted} SetSubmitted={setSubmitted} />
+          <Row letters={words[3].split("")} solution={SOLUTION.current} submitted={submitted} SetSubmitted={setSubmitted} />
+          <Row letters={words[4].split("")} solution={SOLUTION.current} submitted={submitted} SetSubmitted={setSubmitted} />
+          <Row letters={words[5].split("")} solution={SOLUTION.current} submitted={submitted} SetSubmitted={setSubmitted} />
         </div >
         <div className='w-full flex justify-center'>
           <button className='px-8 py-3 bg-orange text-white font-baloo font-bold rounded-[16px]'>
@@ -75,6 +87,7 @@ function App() {
           </button>
         </div>
       </div>
+      .
     </>
   );
 }
