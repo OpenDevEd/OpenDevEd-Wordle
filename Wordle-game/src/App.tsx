@@ -87,7 +87,7 @@ function App() {
   }, [wonLoseFlag, remainAttempts]);
 
   return (
-    <div className="main-card relative">
+    <div className="main-card">
       <h1 className="header">Wordle</h1>
       {guesses.map((_, i) => (
         <GuessInput
