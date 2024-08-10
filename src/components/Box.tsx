@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function Box({
   row,
   column,
@@ -20,8 +22,9 @@ export default function Box({
   let chosenColor = (colors[row] && colors[row][column]) ?? "transparent";
   
   return (
-    <div className="size-[4.5rem] border border-neutral-400 flex items-center justify-center font-bold text-2xl text-neutral-300 uppercase text-center" style = {{ backgroundColor: chosenColor }}>
+    <motion.div animate={{ translateX: strings.length === row ? 10 : 0 }}
+    className="size-[4.5rem] border border-neutral-400 flex items-center justify-center font-bold text-2xl text-neutral-300 uppercase text-center" style = {{ backgroundColor: chosenColor }}>
       {char}
-    </div>
+    </motion.div>
   );
 }

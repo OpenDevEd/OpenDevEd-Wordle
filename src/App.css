@@ -1,3 +1,9 @@
+:root {
+  --red: rgba(173, 0, 0, 0.65);
+  --yellow: rgba(172, 173, 0, 0.65);
+  --green: rgba(42, 173, 0, 0.65);
+}
+
 body {
   background-color: #000000;
 }

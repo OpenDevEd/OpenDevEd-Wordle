@@ -1,13 +1,13 @@
 import "./App.css";
 import Button from "./components/Button";
 import BoxesContainer from "./components/BoxesContainer";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { motion } from "framer-motion";
 import 'react-toastify/dist/ReactToastify.css';
 
 
-function checkValidWord(string: string, setStrings: any, setString: any, cont: any, word: string, setColors: any, strings: string[], setGameOver: any) {
+function checkValidWord(string: string, setStrings: any, setString: any, cont: any, word: string, setColors: any, strings: string[], setGameOver: any, setWinState: any, setLoseState: any) {
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${string}`)
     .then((res) => res.json())
     .then((data) => {
@@ -21,9 +21,11 @@ function checkValidWord(string: string, setStrings: any, setString: any, cont: a
         setStrings((prev: string) => [...prev, string]);
         if (string === word) {
           setGameOver(true);
+          setWinState(true);
         }
         else if (strings.length === 5) {
           setGameOver(true);
+          setLoseState(true);
         }
 
         const red = "rgba(173, 0, 0, 0.65)";
@@ -71,6 +73,8 @@ function App() {
   const [string, setString] = useState<string>("");
   const [word, setWord] = useState<string>("");
   const [gameOver, setGameOver] = useState<boolean>(false);
+  const [winState, setWinState] = useState<boolean>(false);
+  const [loseState, setLoseState] = useState<boolean>(false);
 
   const checkIncorrectCharacters = (letter: string) => {
     const regex = /^[a-zA-Z]$/;
@@ -104,7 +108,7 @@ function App() {
           return;
         else if (string.length >= 5)
           setString((prev) => prev.slice(0, 5));
-        checkValidWord(string, setStrings, setString, cont, word, setColors, strings, setGameOver);
+        checkValidWord(string, setStrings, setString, cont, word, setColors, strings, setGameOver, setWinState, setLoseState);
       }
     };
 
@@ -114,13 +118,13 @@ function App() {
   }, [string, strings, word]);
   return (
     <div className="flex flex-col gap-5 justify-center items-center h-screen">
-      <motion.h1 
+      <motion.h1
         initial={{ opacity: 0, scale: 0.5, translateY: -100 }}
         animate={{ opacity: 1, scale: 1, transition: { duration: 0.5 }, translateY: 0 }}
         className="text-fuchsia-300 text-9xl font-bold">
           Wordle
       </motion.h1>
-      <BoxesContainer strings={strings} string={string} colors={colors} />
+      <BoxesContainer  gameOver={gameOver} strings={strings} string={string} colors={colors} winState={winState} loseState={loseState} />
       <Button gameOverState={gameOver} setStrings={setStrings} setColors={setColors} setString={setString} setWord={setWord} setGameOver={setGameOver}/>
       <ToastContainer />
     </div>
