@@ -9,6 +9,7 @@ export default function BoxesContainer({
   gameOver,
   winState,
   loseState,
+  word,
 }: {
   strings: string[];
   string: string;
@@ -16,6 +17,7 @@ export default function BoxesContainer({
   gameOver: boolean;
   winState: boolean;
   loseState: boolean;
+  word: string;
 }) {
   return (
     <>
@@ -41,7 +43,7 @@ export default function BoxesContainer({
           )}
       </motion.div>
       <motion.h2
-        className="text-7xl font-bold delay-500"
+        className="text-7xl font-bold delay-500 text-center"
         initial={{ display: "none", opacity: 0 }}
         animate={{
           opacity: gameOver ? 1 : 0,
@@ -51,8 +53,8 @@ export default function BoxesContainer({
         style={{
           color: winState ? "green" : loseState ? "red" : "transparent",
         }}
-      >
-        {winState ? "You Win!" : loseState ? "You Lose!" : ""}
+      >{winState ? "You Win!" : loseState ? "You Lose!" : ""} <br></br>
+      <span className="text-white text-5xl">Correct word is {word}</span>
       </motion.h2>
     </>
   );

@@ -126,12 +126,12 @@ function App() {
     <div className="flex flex-col gap-5 justify-center items-center h-screen">
       <motion.h1
         initial={{ opacity: 0, scale: 0.5, translateY: -100 }}
-        animate={{ opacity: 1, scale: 1, transition: { duration: 0.5 }, translateY: 0 }}
+        animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.35 }, translateY: 0 }}
         className="text-fuchsia-300 text-9xl font-bold">
           Wordle
       </motion.h1>
       <GuessBox correctLetters={correctLetters} />
-      <BoxesContainer  gameOver={gameOver} strings={strings} string={string} colors={colors} winState={winState} loseState={loseState} />
+      <BoxesContainer  gameOver={gameOver} strings={strings} string={string} colors={colors} winState={winState} loseState={loseState} word={word} />
       <Button gameOverState={gameOver} setStrings={setStrings} setColors={setColors} setString={setString} setWord={setWord} setGameOver={setGameOver} setWinState={setWinState} setLoseState={setLoseState} setCorrectLetters={setCorrectLetters}/>
       <ToastContainer />
     </div>

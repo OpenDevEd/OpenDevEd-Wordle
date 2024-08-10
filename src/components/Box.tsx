@@ -22,7 +22,9 @@ export default function Box({
   let chosenColor = (colors[row] && colors[row][column]) ?? "transparent";
   
   return (
-    <motion.div animate={{ translateX: strings.length === row ? 10 : 0 }}
+    <motion.div 
+    initial={{ translateX: 0 }}
+    animate={{ translateX: strings.length === row ? 25 : 0, transition: { duration: 0.25, delay: 0.15, bounce: 0.25 } }}
     className="size-[4.5rem] border border-neutral-400 flex items-center justify-center font-bold text-2xl text-neutral-300 uppercase text-center" style = {{ backgroundColor: chosenColor }}>
       {char}
     </motion.div>
