@@ -3,6 +3,7 @@ import Row from '@components/Row';
 import GameInfo from '@components/GameInfo';
 import Header from '@components/Header';
 import SubmitButton from '@components/SubmitButton';
+import EndGameModal from '@components/EndGameModal';
 import wordList from '@data/words';
 
 function App() {
@@ -42,8 +43,18 @@ function App() {
     }
   }
 
+  const restart = () => {
+    setWin(false);
+    setLose(false);
+    setRemainingAttempts(6);
+    setFocusedRow(1);
+    setWords(Array(6).fill(""));
+    setSubmitted(false);
+  }
+
   useEffect(() => {
     SOLUTION.current = [...wordList][Math.floor(Math.random() * wordList.size)];
+    console.log(SOLUTION.current);
   }, []);
 
   useEffect(() => {
@@ -78,6 +89,7 @@ function App() {
         </div >
         <SubmitButton onClick={submit} />
       </div>
+      <EndGameModal win={win} isHidden={lose} onRestart={restart} />
     </>
   );
 }
