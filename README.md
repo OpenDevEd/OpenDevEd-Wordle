@@ -1,57 +1,41 @@
 # OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
 
-### User Interface (UI):
+## Getting Started
 
-Design a clean and intuitive UI for the game that includes:
+To get the project up and running, follow these steps:
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+### 1. Clone the Repository
 
-### State Management:
+Clone the repository to your local machine using the following command:
 
-Implement a robust state management system to handle:
-
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
-
-### User Interaction:
-
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+```bash
+git clone git@github.com:oussamakrich/OpenDevEd-Wordle.git
 
 
-### Game Logic:
+### 2. Navigate to the project directory
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+```bash
+cd OpenDevEd-Wordle
 
-## Code Quality:
+### 3. Checkout the Desired Branch
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+Switch to the branch you want to work on:
 
-## Submission Guidelines:
+```bash
+git checkout wordle-oussama
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+### 4. Install Dependencies
 
-## Evaluation Criteria:
+Install the project dependencies using npm:
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+```bash
+npm install
+
+## 5. Run the Development Server
+
+Start the development server:
+
+```bash
+npm run dev
+
+## You can access it by navigating to http://localhost:3000 in your web browser.
