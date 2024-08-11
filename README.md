@@ -47,9 +47,7 @@ This is a web-based Wordle game built using React. The game includes two modes: 
   
 ### Mobile View
 
-<video src="./MarkDownAssets/mobile.mp4" width="320" height="240" controls>
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/a1618ec2-cdac-4f10-9932-67c08a272593
 
 ### Desktop View
 https://github.com/user-attachments/assets/1fbce234-66e7-43c0-ade9-18ee2a82df7f
