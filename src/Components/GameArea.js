@@ -94,14 +94,9 @@ const GameArea = () => {
         }
     };
 
-    const playSound = () => {
-        const audio = new Audio('/click.mp3');
-        audio.play();
-    };
 
     const handleChange = (event) => {
         const inputValue = event.target.value;
-        playSound();
         if (!/^[a-zA-Z]*$/.test(inputValue)) {
             setIsError(true);
             setErrorMessage('Input must only contain alphabetic characters.');
@@ -114,7 +109,8 @@ const GameArea = () => {
 
     return (
         <div className="relative w-[70%] p-4">
-            <Link to={'/'} className="-translate-x-20 flex justify-between border-2 text-white w-32 items-center scale-150 py-2 px-4 rounded-lg shadow-2xl hover:bg-blue-600 transition duration-300 ">
+            <Link to={'/'} className="-translate-x-20 flex justify-between border-2 text-white w-32 items-center
+            scale-150 py-2 px-4 rounded-lg shadow-2xl hover:bg-blue-600 transition duration-300 ">
                 <FaArrowAltCircleLeft className='scale-150' />
                 Go back
             </Link>

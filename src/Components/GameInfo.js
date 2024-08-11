@@ -4,7 +4,7 @@ const GameInfo = () => {
 
     const info = [
         {
-            disc : 'The letter P is in the correct position',
+            disc : 'The letter is in the correct position',
             color : 'green'
         },
         {
@@ -12,7 +12,7 @@ const GameInfo = () => {
             color : 'yellow',
         },
         {
-            disc : 'The letter T is not in the word at all',
+            disc : 'The letter is not in the word at all',
             color : 'gray'
         }
     ]

@@ -13,7 +13,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen  ">
+        <div className=" font-lato flex flex-col items-center justify-center h-screen  ">
             <Particles
             id="tsparticles"
             init={particlesInit}
@@ -88,7 +88,8 @@ const Home = () => {
             Each guess provides feedback on your attempt, helping you to refine your guesses. Can you guess the word of the day?
         </p>
 
-        <a href="/game" className=" scale-125 bg-blue-500 text-white py-2 px-4 rounded-lg shadow-2xl hover:bg-blue-600 transition duration-300 ">
+        <a href="/game" className=" scale-125 bg-blue-500 text-white py-2 px-4
+        rounded-lg shadow-2xl hover:bg-blue-600 transition duration-300 ">
             Start Playing
         </a>        
         </div>
