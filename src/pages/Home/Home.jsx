@@ -15,7 +15,7 @@ const Home = () => {
 			<Link to="/game" className={classes.btn}><button className='cairo-bold'>Play Now</button></Link>
 			<div className={classes.instructions}>
 				<h2 className={classes.instructions_title}>How to Play</h2>
-				<p>When you start the game you have to guess a word that is 5 letters long which is generated when the game starts, and you have 6 attempts to guess the word. To make the game easy, I have reduced the time to wait for world to change to 1 minute.
+				<p>When you start the game you have to guess a word that is 5 letters long which is generated when the game starts, and you have 6 attempts to guess the word. To make the game easy, I have reduced the time to wait for a word to change to 1 minute.
 				<br /><br />
 				In each attempt and after you hit submit, you'll get a feedback about the correctness of the letter position using the GREEN, YELLOW, and GRAY colors:</p>
 				<div className={classes.colors}>
