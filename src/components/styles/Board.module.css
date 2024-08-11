@@ -4,16 +4,16 @@
 
 .board {
 	@apply w-[300px] h-[360px] p-2;
-	@apply grid gap-2 grid-rows-6 box-border;
+	@apply grid gap-3 grid-rows-6 box-border;
 }
 
 .row {
-	@apply grid grid-cols-5 gap-2;
+	@apply grid grid-cols-5 gap-3;
 }
 
 .letter {
 	@apply inline-flex items-center justify-center;
 	@apply text-2xl font-bold uppercase text-white;
-	@apply rounded-full bg-[#10bfff8f];
+	@apply rounded-2xl bg-[#10bfff8f];
 	@apply select-none;
 }
