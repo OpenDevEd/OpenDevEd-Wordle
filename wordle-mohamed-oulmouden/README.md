@@ -1,57 +1,45 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# Wordle Game
+This is a web-based Wordle game built using React. The game includes two modes: a daily challenge mode and an unlimited practice mode. The application is designed to be responsive, with support for both dark and light themes, and features animations and a guide page to help users understand the game rules.
+### Features
 
-### User Interface (UI):
+- Two Game Modes:
+  - Daily Challenge Mode: Users can play one word per day. The state of the game is saved in local storage to ensure progress is maintained across sessions.
+  - Practice Mode: Users can play unlimited games to practice and improve their skills.
+- Responsive Design: The game is fully responsive and works well on all devices, including desktops, tablets, and smartphones.
+- State Management: The app uses the Context API to manage the game state across components efficiently.
+- Local Storage: In daily challenge mode, the game state is stored in local storage, allowing users to resume their progress each day.
+- Animations: The game includes cool animations that enhance the user experience.
+- Dark and Light Mode: Users can switch between dark and light modes, providing a comfortable experience in different lighting conditions.
+- Guide Page: A dedicated page that explains the rules of the game, helping new users get started quickly.
 
-Design a clean and intuitive UI for the game that includes:
+### Running the Application
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+#### To run the application, follow these steps:
 
-### State Management:
+1. Clone the repository and navigate to the project folder.
 
-Implement a robust state management system to handle:
+    ```bash
+    git clone
+    cd wordle-mohamed-oulmouden
+    ```
+2. Install the dependencies.
+    
+   ```bash
+   npm install
+   ```
+3. Run the application.
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+   ```bash
+   npm start
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-### User Interaction:
+#### To build the application for production, use the following command:
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
-
-
-### Game Logic:
-
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
-
-## Code Quality:
-
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
-
-## Submission Guidelines:
-
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
-
-## Evaluation Criteria:
-
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+   ```bash
+   docker-compose up --build
+   ```
+### Additional Features
+- Responsive UI: The design is optimized for both desktop and mobile devices.
+- Theme Support: Switch between dark and light modes easily.
+- User-Friendly Guide: Learn how to play with the included guide page.
