@@ -70,7 +70,7 @@
 		color: 'white',
 		fontFamily: 'sans-serif',
 		margin: 'auto',
-		width: '13%',
+		width: '6%',
 		padding: '10px'
 	};
 
