@@ -52,4 +52,4 @@ This is a web-based Wordle game built using React. The game includes two modes: 
 </video>
 
 ### Desktop View
-[Watch Desktop View on YouTube](https://youtu.be/VW2tGr20swQ)
+https://github.com/user-attachments/assets/1fbce234-66e7-43c0-ade9-18ee2a82df7f
