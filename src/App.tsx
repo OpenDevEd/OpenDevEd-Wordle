@@ -1,20 +1,21 @@
 import "./App.css";
 import Button from "./components/Button";
 import BoxesContainer from "./components/BoxesContainer";
-import { useEffect, useState} from "react";
+import { MutableRefObject, useEffect, useRef, useState} from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { motion } from "framer-motion";
 import 'react-toastify/dist/ReactToastify.css';
 import GuessBox from "./components/GuessBox";
+import GameAudio  from "./Audio";
 
 
-function checkValidWord(string: string, setStrings: any, setString: any, cont: any, word: string, setColors: any, strings: string[], setGameOver: any, setWinState: any, setLoseState: any, setCorrectLetters: any) {
+function checkValidWord(string: string, setStrings: any, setString: any, cont: any, word: string, setColors: any, strings: string[], setGameOver: any, setWinState: any, setLoseState: any, setCorrectLetters: any, gameSounds: MutableRefObject<GameAudio>) {
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${string}`)
     .then((res) => res.json())
     .then((data) => {
       if (data.title === "No Definitions Found") {
-        console.log("Invalid word");
         toast("Invalid word", { type: "error" });
+        gameSounds.current.playSound("invalidWord");
       } else {
         if (!cont.state) return;
 
@@ -23,10 +24,14 @@ function checkValidWord(string: string, setStrings: any, setString: any, cont: a
         if (string === word) {
           setGameOver(true);
           setWinState(true);
+          gameSounds.current.playSound("youWin");
+          return ;
         }
         else if (strings.length === 5) {
           setGameOver(true);
           setLoseState(true);
+          gameSounds.current.playSound("youLose");
+          return ;
         }
 
         const red = "rgba(173, 0, 0, 0.65)";
@@ -37,6 +42,8 @@ function checkValidWord(string: string, setStrings: any, setString: any, cont: a
         for (let i = 0; i < string.length; i++) {
           if (string[i] === word_copy[i]) {
             setCorrectLetters((prev: string[]) => {
+              if (prev[i] === "")
+                gameSounds.current.playSound("correctGuess");
               prev[i] = string[i];
               return [...prev];
             });
@@ -81,6 +88,7 @@ function App() {
   const [winState, setWinState] = useState<boolean>(false);
   const [loseState, setLoseState] = useState<boolean>(false);
   const [correctLetters, setCorrectLetters] = useState<string[]>(["", "", "", "", ""]);
+  const gameSounds = useRef(new GameAudio(0.1));
 
   const checkIncorrectCharacters = (letter: string) => {
     const regex = /^[a-zA-Z]$/;
@@ -101,6 +109,7 @@ function App() {
 
     window.onkeydown = (e) => {
       const letter = e.key;
+      gameSounds.current.playSound("keystroke");
       if (!checkIncorrectCharacters(letter)) {
         if (string.length < 6) {
           setString((prev) => prev + letter);
@@ -114,7 +123,7 @@ function App() {
           return;
         else if (string.length >= 5)
           setString((prev) => prev.slice(0, 5));
-        checkValidWord(string, setStrings, setString, cont, word, setColors, strings, setGameOver, setWinState, setLoseState, setCorrectLetters);
+        checkValidWord(string, setStrings, setString, cont, word, setColors, strings, setGameOver, setWinState, setLoseState, setCorrectLetters, gameSounds);
       }
     };
 
@@ -130,7 +139,7 @@ function App() {
         className="text-fuchsia-300 text-9xl font-bold">
           Wordle
       </motion.h1>
-      <GuessBox correctLetters={correctLetters} />
+      <GuessBox correctLetters={correctLetters} gameOver={gameOver}/>
       <BoxesContainer  gameOver={gameOver} strings={strings} string={string} colors={colors} winState={winState} loseState={loseState} word={word} />
       <Button gameOverState={gameOver} setStrings={setStrings} setColors={setColors} setString={setString} setWord={setWord} setGameOver={setGameOver} setWinState={setWinState} setLoseState={setLoseState} setCorrectLetters={setCorrectLetters}/>
       <ToastContainer />

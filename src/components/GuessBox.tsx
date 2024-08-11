@@ -1,9 +1,15 @@
 
 import { motion } from 'framer-motion';
 
-export default function GuessBox({correctLetters}:{correctLetters: string[]}) {
+export default function GuessBox({correctLetters, gameOver}:{correctLetters: string[], gameOver: boolean}) {
     return (
-        <motion.div className='flex gap-2 items-center justify-between'>
+        <motion.div 
+            animate={{ 
+                        opacity: gameOver ? 0 : 1, 
+                        transition: { duration: 0.5 },
+                        height: gameOver ? 0 : ""
+                    }}
+        className='flex gap-2 items-center justify-between'>
         {
             correctLetters.map((letter, index) => (
                 <motion.div 
