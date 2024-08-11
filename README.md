@@ -9,8 +9,6 @@ This is a Wordle game built using React.js and styled with TailwindCSS. The game
 3. Run `npm run dev`.
 4. Now you can see the app in your localhost `http://localhost:5173/`
 
-   I have deployed version in vercel here: [OpenDev-Wordle]()
-
 ## Some features
 
 - Simple UI/UX
