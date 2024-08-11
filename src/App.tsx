@@ -1,6 +1,8 @@
-import Row from '@components/Row';
-import logo from '@assets/logo.svg';
 import { useEffect, useRef, useState } from 'react';
+import Row from '@components/Row';
+import GameInfo from '@components/GameInfo';
+import Header from '@components/Header';
+import SubmitButton from '@components/SubmitButton';
 import wordList from '@data/words';
 
 function App() {
@@ -11,10 +13,7 @@ function App() {
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [remainingAttempts, setRemainingAttempts] = useState<number>(6);
   const [win, setWin] = useState<boolean>(false);
-
-  useEffect(() => {
-    SOLUTION.current = [...wordList][Math.floor(Math.random() * wordList.size)];
-  }, []);
+  const [lose, setLose] = useState<boolean>(false);
 
   const submit = () => {
     if (letters.length === 5 && focusedRow <= 6 && wordList.has(letters)) {
@@ -25,34 +24,39 @@ function App() {
       if (letters === SOLUTION.current) {
         setWin(true);
       }
+      if (remainingAttempts === 0) {
+        setLose(true);
+      }
     }
   }
 
-  useEffect(() => {
-    setWords((prev) => {
-      const newWords = [...prev];
-      newWords[focusedRow - 1] = letters;
-      return newWords;
-    });
-  }, [letters]);
-
   const handleKeyDown = (e: KeyboardEvent) => {
+    if (win || lose) return;
+
     if (e.key === 'Enter') {
       submit();
-    }
-    else if (e.key === 'Backspace') {
+    } else if (e.key === 'Backspace') {
       setLetters(letters.slice(0, -1));
-    } else if (e.key.match(/^[a-zA-Z]$/) && letters.length < 5 && remainingAttempts > 0 && !win) {
+    } else if (e.key.match(/^[a-zA-Z]$/) && letters.length < 5) {
       setLetters((prev) => { return prev + e.key; });
     }
   }
-  // console log stete for debugging
-  //useEffect(() => {
-  //console.log(letters, words, focusedRow, submitted, remainingAttempts, win);
-  //}, [letters, words, focusedRow, submitted, remainingAttempts, win]);
+
+  useEffect(() => {
+    SOLUTION.current = [...wordList][Math.floor(Math.random() * wordList.size)];
+  }, []);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
+
+    if (focusedRow > 0 && focusedRow <= 6) {
+      setWords((prev) => {
+        const newWords = [...prev];
+        newWords[focusedRow - 1] = letters;
+        return newWords;
+      });
+    }
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     }
@@ -60,13 +64,9 @@ function App() {
 
   return (
     <>
-      <div className='w-full flex justify-center mt-16 mb-20'>
-        <img src={logo} />
-      </div>
+      <Header />
       <div className='flex gap-12 flex-col justify-center w-full'>
-        <div className='w-full flex justify-center'>
-          <p className='text-2xl font-baloo font-bold'>Attempts Remaining: {remainingAttempts}</p>
-        </div>
+        <GameInfo remainingAttempts={remainingAttempts} />
         <div className='flex items-center justify-center flex-col gap-2'>
           {
             words.map((word, index) => {
@@ -76,11 +76,7 @@ function App() {
             })
           }
         </div >
-        <div className='w-full flex justify-center'>
-          <button className='px-8 py-3 bg-orange text-white font-baloo font-bold rounded-[16px]' onClick={submit}>
-            <p className='text-2xl'>submit</p>
-          </button>
-        </div>
+        <SubmitButton onClick={submit} />
       </div>
     </>
   );
