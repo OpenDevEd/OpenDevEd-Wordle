@@ -10,8 +10,7 @@ Welcome to the Wordle Game! This web-based application, crafted with React, prov
 ### 🌟 Animations
 - Enjoy visually appealing animations that make the gameplay more exciting and dynamic.
 
-### 📚 Guide Page
-- New to Wordle? Visit our guide page for a comprehensive overview of the game rules and get started quickly.
+
 
 ### 🔄 State Management
 - The Context API manages state across components efficiently, ensuring a smooth and consistent experience.
