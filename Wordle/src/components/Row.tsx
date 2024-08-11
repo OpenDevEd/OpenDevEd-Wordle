@@ -1,4 +1,5 @@
-export default function Row({ guess, input }) {
+const WORD_LENGTH = 5;
+export default function Row({ guess, input, isInvalid }) {
   if (guess.length > 0) {
     return (
       <div className="flex text-center items-center justify-center">
@@ -16,33 +17,26 @@ export default function Row({ guess, input }) {
     );
   }
   if (input.length > 0) {
-    const inputArray = [...input];
+    const items = [...input, ...Array(WORD_LENGTH - input.length)];
+
     return (
       <div className="flex text-center items-center justify-center">
-        {inputArray.map((item, i) => {
-          return (
-            <div
-              key={i}
-              className="shadow border border-black rounded h-16 w-16 m-1 text-6xl font-bold text-center uppercase"
-            >
-              {item}
-            </div>
-          );
-        })}
-        {[...Array(5 - inputArray.length)].map((_, i) => {
-          return (
-            <div
-              key={i}
-              className="shadow border rounded  h-16 w-16 m-1 text-6xl font-bold text-center uppercase"
-            ></div>
-          );
-        })}
+        {items.map((item, i) => (
+          <div
+            key={i}
+            className={`shadow border rounded h-16 w-16 m-1 text-6xl font-bold text-center uppercase ${
+              isInvalid ? "animate-shake border-red-500" : ""
+            } ${item ? "border-black" : ""}`}
+          >
+            {item || ""}
+          </div>
+        ))}
       </div>
     );
   }
   return (
     <div className="flex text-center items-center justify-center">
-      {[...Array(5)].map((_, i) => (
+      {[...Array(WORD_LENGTH)].map((_, i) => (
         <div
           key={i}
           className="shadow border rounded  h-16 w-16 m-1 text-6xl font-bold text-center uppercase"

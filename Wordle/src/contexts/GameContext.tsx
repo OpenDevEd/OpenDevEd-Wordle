@@ -10,6 +10,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const [attempts, setAttempts] = useState(6);
   const [isCorrect, setIsCorrect] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isInvalid, setIsInvalid] = useState(false);
 
   const fetchWord = async () => {
     try {
@@ -68,6 +69,8 @@ export function GameProvider({ children }: { children: ReactNode }) {
     fetchWord,
     isLoading,
     setIsLoading,
+    isInvalid,
+    setIsInvalid,
   };
   return (
     <GameContext.Provider value={contextValue}>{children}</GameContext.Provider>

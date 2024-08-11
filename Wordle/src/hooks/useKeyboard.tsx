@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GameContext } from "../contexts/GameContext";
 
 export default function useKeyboard() {
@@ -13,7 +13,16 @@ export default function useKeyboard() {
     setIsCorrect,
     setGuesses,
     decrementAttempts,
+    setIsInvalid,
+    isInvalid,
   } = useContext(GameContext);
+
+  useEffect(() => {
+    if (isInvalid) {
+      const animationTimer = setTimeout(() => setIsInvalid(false), 800);
+      return () => clearTimeout(animationTimer);
+    }
+  }, [isInvalid]);
 
   const checkWord = (formattedInput) => {
     if (input === targetWord) {
@@ -61,21 +70,18 @@ export default function useKeyboard() {
           const formattedInput = formatInput();
           checkWord(formattedInput);
         } else {
-          //give feed back
+          setIsInvalid(true);
         }
       } else {
-        //reject the word
-        //give feed back
+        setIsInvalid(true);
       }
-    }
+    } else setIsInvalid(true);
   };
 
   const handleInput = async ({ key }) => {
     if (attempts) {
       if (key === "Enter") {
         submitWord();
-      } else {
-        //give feedback
       }
       if (key === "Backspace") {
         setInput((prev) => prev.slice(0, -1));
