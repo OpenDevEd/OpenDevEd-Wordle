@@ -75,7 +75,7 @@ const WordInput = ({ onWordInsert, guesses }: WordInputProps) => {
             color="#fff"
             _hover={{backgroundColor: "#C9B363"}}
             aria-label="Delete"
-            fontSize={35}
+            fontSize={{sm: 26, md: 30}}
             onClick={() =>
               setInputField({ ...input, value: input.value.slice(0, -1) })
             }
@@ -90,7 +90,7 @@ const WordInput = ({ onWordInsert, guesses }: WordInputProps) => {
           color="#fff"
           _hover={{backgroundColor: "#C9B363"}}
           size="lg"
-          fontSize={26}
+          fontSize={{sm: 20, md: 26}}
           onClick={() => insertWord()}
         >
           Submit

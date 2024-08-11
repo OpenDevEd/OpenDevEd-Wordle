@@ -64,7 +64,7 @@ function App() {
                 position="absolute"
                 top="0"
                 right="5"
-                fontSize={18}
+                fontSize={{sm: 13, md: 16}}
                 bg="#6FA76B"
                 color="#fff"
                 _hover={{ backgroundColor: "#C9B363" }}
