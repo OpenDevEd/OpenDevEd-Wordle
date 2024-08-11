@@ -1,4 +1,4 @@
-# octicode-assignment
+# OpenDev-Wordle
 
 This is a Wordle game built using React.js and styled with TailwindCSS. The game challenges players to guess a hidden word within six attempts. Each guess provides feedback on letter accuracy, helping players deduce the correct word. The project demonstrates the use of React for dynamic, interactive user interfaces and TailwindCSS for modern, responsive design.
 
