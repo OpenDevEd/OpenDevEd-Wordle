@@ -47,7 +47,6 @@ function App() {
 
   useEffect(() => {
     SOLUTION.current = [...wordList][Math.floor(Math.random() * wordList.size)];
-    console.log(SOLUTION.current);
   }, []);
 
   useEffect(() => {

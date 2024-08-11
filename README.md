@@ -26,7 +26,8 @@ To install and run the project locally, follow these steps:
 
 3. Start the development server:
     ```sh
-    npm run dev
+    npm run
+
     ```
 
 ## Usage
