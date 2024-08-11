@@ -1,16 +1,11 @@
-interface RowProps {
-	guess: {key: string, color: string}[],
-	currentGuess?: string,
-}
+import { RowProps } from "../interfaces/interface";
 
 function Row({guess, currentGuess}: RowProps) {
-
-
 	if (guess) {
 		return (
 			<div className="row">
 				{
-					guess.map((letter: any, index: number) => {
+					guess.map((letter: {key: string, color: string}, index: number) => {
 						return (
 							<div className={letter.color} key={index}>
 								{letter.key}
@@ -23,7 +18,9 @@ function Row({guess, currentGuess}: RowProps) {
 	}
 
 	if (currentGuess) {
-		let letters = currentGuess.split('');
+		console.log(" blablabla ", currentGuess);
+		const letters = currentGuess.split('');
+		console.log(letters.length);
 		return (
 			<div className="row">
 				{

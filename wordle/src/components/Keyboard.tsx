@@ -1,5 +1,5 @@
-function Keyboard( {usedKeys}: {usedKeys: any} ) {
-	let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+function Keyboard( {usedKeys}: {usedKeys: {[key: string]: string}} ) {
+	const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 	return (
 		<div className="keyboard">

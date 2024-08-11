@@ -1,12 +1,13 @@
 import Row from "./Row";
+import { GridProps } from "../interfaces/interface";
 
-function Grid({currentGuess, guesses, turns}: {currentGuess: any, guesses: any, turns: number}) {
+function Grid({currentGuess, guesses, turns}: GridProps) {
 
-	console.log("Grid : ", guesses, turns);
+	console.log("Grid : ", currentGuess, guesses, turns);
 	return (
 		<div>
 			{
-				guesses.map((guess: any, index: number) => {
+				guesses.map((guess: {key: string, color: string}[], index: number) => {
 					if (index == turns) {
 						return <Row key={index} guess={guess} currentGuess={currentGuess}/>;
 					}

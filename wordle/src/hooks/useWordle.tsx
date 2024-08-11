@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormatedGuess}  from '../interfaces/interface';
 
 const useWordle = (word: string) => {
 	const [turns, setTurns] = useState(0);
@@ -11,7 +12,7 @@ const useWordle = (word: string) => {
 
 	const formatGuess = () => {
 		let newLetter: {key: string, color: string};
-		let formatedGuess: {key: string, color: string}[] = [];
+		const formatedGuess: {key: string, color: string}[] = [];
 		setCurrentGuess(prevCurrentGuess => prevCurrentGuess.toUpperCase());
 		word = word.toLowerCase();
 		for (let i = 0; i < currentGuess.length; i++) {
@@ -44,18 +45,18 @@ const useWordle = (word: string) => {
 		return formatedGuess;
 	}
 
-	const addNewGuesses = (formatedGuess: {key: string, color: string}[]) => {
+	const addNewGuesses = (formatedGuess: FormatedGuess[]) => {
 		if (currentGuess === word) {
 			setIsCorrect(true);
 		}
-		let newGuesses = [...guesses];
+		const newGuesses = [...guesses];
 		newGuesses[turns] = formatedGuess;
 		setGuesses(newGuesses);
 		setTurns(prevTurns => prevTurns + 1);
 		setHistory(prevHistory => [...prevHistory, currentGuess]);
 		setCurrentGuess('');
 		setUsedKeys(prevUsedKeys => {
-			let newKeys = {...prevUsedKeys};
+			const newKeys = {...prevUsedKeys};
 			formatedGuess.forEach((letter) => {
 				const currentColor = newKeys[letter.key];
 				if (letter.color === 'green') {
@@ -74,9 +75,10 @@ const useWordle = (word: string) => {
 
 	const handleKeyUp = ({key} : {key: React.Key}) =>{
 		if (key == 'Enter') {
+			console.log("Enter");
 			if (currentGuess.length == 5) {
 				if (!history.includes(currentGuess)) {
-					let formatedGuess = formatGuess();
+					const formatedGuess = formatGuess();
 					addNewGuesses(formatedGuess);
 				} else {
 					console.log("Already guessed");
@@ -89,12 +91,12 @@ const useWordle = (word: string) => {
 			console.log("Backspace");
 			setCurrentGuess(prevCurrentGuess => prevCurrentGuess.slice(0, -1));
 		}
-		else if ((key >= 'a' && key <= 'z')
-			|| (key >= 'A' && key <= 'Z')) {
+		else if (/^[a-zA-Z]$/.test(key.toString())) {
 			if (currentGuess.length < 5) {
+				console.log("Letter");
 				setCurrentGuess(prevCurrentGuess => prevCurrentGuess + key);
 			}
-		} 
+		}
 	}
 
 	return {
