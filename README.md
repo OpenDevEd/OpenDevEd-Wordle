@@ -52,6 +52,4 @@ This is a web-based Wordle game built using React. The game includes two modes: 
 </video>
 
 ### Desktop View
-<video src="./MarkDownAssets/desktop.mp4" width="320" height="240" controls>
-  Your browser does not support the video tag.
-</video>
+[Watch Desktop View on YouTube](https://youtu.be/VW2tGr20swQ)
