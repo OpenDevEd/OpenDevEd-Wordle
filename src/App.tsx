@@ -25,9 +25,6 @@ function App() {
       if (letters === SOLUTION.current) {
         setWin(true);
       }
-      if (remainingAttempts === 0) {
-        setLose(true);
-      }
     }
   }
 
@@ -41,15 +38,6 @@ function App() {
     } else if (e.key.match(/^[a-zA-Z]$/) && letters.length < 5) {
       setLetters((prev) => { return prev + e.key; });
     }
-  }
-
-  const restart = () => {
-    setWin(false);
-    setLose(false);
-    setRemainingAttempts(6);
-    setFocusedRow(1);
-    setWords(Array(6).fill(""));
-    setSubmitted(false);
   }
 
   useEffect(() => {
@@ -73,6 +61,12 @@ function App() {
     }
   }, [letters]);
 
+  useEffect(() => {
+    if (remainingAttempts === 0) {
+      setLose(true);
+    }
+  }, [remainingAttempts])
+
   return (
     <>
       <Header />
@@ -89,7 +83,7 @@ function App() {
         </div >
         <SubmitButton onClick={submit} />
       </div>
-      <EndGameModal win={win} isHidden={lose} onRestart={restart} />
+      {(win || lose) && <EndGameModal win={win} lose={lose} />}
     </>
   );
 }
