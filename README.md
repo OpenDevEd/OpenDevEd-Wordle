@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
+# Wordle Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a clone of the popular word-guessing game Wordle, built using React, TypeScript, and Vite. The application allows users to guess a five-letter word within six attempts.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Approach and Decisions](#approach-and-decisions)
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To install and run the project locally, follow these steps:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/your-username/wordle-clone.git
+    cd wordle-clone
+    ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. Start the development server:
+    ```sh
+    npm run dev
+    ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Usage
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Open your browser and navigate to `http://localhost:5173` to start playing the game.
+
+## Features
+
+- **Word Guessing**: Users can guess a five-letter word within six attempts.
+- **Keyboard Input**: Users can type their guesses using the keyboard.
+- **Win/Lose Modal**: Displays a modal when the user wins or loses the game.
+- **Remaining Attempts**: Shows the number of remaining attempts.
+- **Animating Wrong Row**: include Animtion when user type a non existing word
+
+
+## Approach and Decisions
+
+### State Management
+
+The application uses React's `useState` and `useEffect` hooks for state management. Key states include:
+
+- `focusedRow`: Tracks the current row being edited.
+- `letters`: Stores the current letters typed by the user.
+- `words`: An array of words guessed by the user.
+- `submitted`: A boolean indicating if the current guess has been submitted.
+- `remainingAttempts`: Tracks the number of remaining attempts.
+- `win` and `lose`: Booleans indicating the game status.
+
+### Event Handling
+
+- **Keyboard Events**: The `handleKeyDown` function handles keyboard events for typing letters, submitting guesses, and deleting letters.
+- **Submit Button**: The `SubmitButton` component triggers the `submit` function to validate and submit the user's guess.
+
+### Random Word Selection
+
+The solution word is randomly selected from a predefined list of words in [`src/data/words.ts`](src/data/words.ts)
+
+### Component Structure
+
+- **Header**: Displays the game logo.
+- **GameInfo**: Shows the number of remaining attempts.
+- **Row**: Represents each row of the game where the user types their guess.
+- **SubmitButton**: A button to submit the current guess.
+- **EndGameModal**: Displays a modal when the game ends, indicating whether the user won or lost.
+- **LetterBox**: Displays a single letter box. 
+
+### Styling
+
+The project uses Tailwind CSS for styling

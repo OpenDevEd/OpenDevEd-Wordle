@@ -15,8 +15,12 @@ function App() {
   const [remainingAttempts, setRemainingAttempts] = useState<number>(6);
   const [win, setWin] = useState<boolean>(false);
   const [lose, setLose] = useState<boolean>(false);
+  const [wrong, setWrong] = useState<boolean>(false);
 
   const submit = () => {
+    if (!wordList.has(letters)) {
+      setWrong(true);
+    }
     if (letters.length === 5 && focusedRow <= 6 && wordList.has(letters)) {
       setSubmitted(true);
       setRemainingAttempts((prev) => prev - 1);
@@ -36,6 +40,7 @@ function App() {
     } else if (e.key === 'Backspace') {
       setLetters(letters.slice(0, -1));
     } else if (e.key.match(/^[a-zA-Z]$/) && letters.length < 5) {
+      setWrong(false);
       setLetters((prev) => { return prev + e.key; });
     }
   }
@@ -76,7 +81,16 @@ function App() {
           {
             words.map((word, index) => {
               return (
-                <Row key={index} letters={word.split("")} solution={SOLUTION.current} submitted={submitted} setSubmitted={setSubmitted} />
+                <Row
+                  key={index}
+                  letters={word.split("")}
+                  solution={SOLUTION.current}
+                  submitted={submitted}
+                  setSubmitted={setSubmitted}
+                  focusedRow={focusedRow}
+                  index={index + 1}
+                  wrong={wrong}
+                />
               );
             })
           }
