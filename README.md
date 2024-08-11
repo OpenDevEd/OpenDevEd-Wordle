@@ -11,5 +11,9 @@ In each attempt and after you hit submit, you'll get a feedback about the correc
 ### How to run the application:
 
 1- clone the project
-2- run npm install
-3- run localhost:3000 in the browser
+
+2- run **npm install**
+
+3- run **npm start**
+
+4- Go to localhost:3000
