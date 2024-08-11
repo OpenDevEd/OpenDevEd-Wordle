@@ -3,6 +3,7 @@
 ## How to run the app:
 
 Clone the repository locally.</br>
+Switch branch to wordle-youness-abtaouri.</br>
 Change the directory to wordle.</br>
 Run the command npm install.</br>
 Run the command npm run build.</br>
