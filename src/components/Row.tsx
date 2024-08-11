@@ -5,20 +5,28 @@ interface RowProps {
   letters: string[];
   solution: string | undefined;
   submitted: boolean;
-  SetSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
+  setSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Row: React.FC<RowProps> = ({ letters, solution, submitted, SetSubmitted }) => {
+const Row: React.FC<RowProps> = ({ letters, solution, submitted, setSubmitted }) => {
   const [lettersStatus, setLettersStatus] = useState<string[]>(new Array(5).fill(""));
   const refi = React.useRef(false);
 
   useEffect(() => {
     if (submitted && letters.length === 5 && solution) {
+      let solutionFreq = new Map<string, number>();
+
+      solution.split("").forEach((letter) => {
+        solutionFreq.set(letter, (solutionFreq.get(letter) || 0) + 1);
+      });
+
       const newLettersStatus = new Array(5).fill("");
       for (let i = 0; i < 5; i++) {
         if (letters[i] === solution[i]) {
+          solutionFreq.set(letters[i], solutionFreq.get(letters[i])! - 1);
           newLettersStatus[i] = 'bg-green';
-        } else if (solution.includes(letters[i])) {
+        } else if (solution.includes(letters[i]) && solutionFreq.get(letters[i])! > 0) {
+          solutionFreq.set(letters[i], solutionFreq.get(letters[i])! - 1);
           newLettersStatus[i] = 'bg-yellow';
         } else {
           newLettersStatus[i] = 'bg-grey';
@@ -26,15 +34,14 @@ const Row: React.FC<RowProps> = ({ letters, solution, submitted, SetSubmitted })
         setLettersStatus(newLettersStatus);
         refi.current = true;
       }
-      if (letters.length === 5) {
-        SetSubmitted(false);
-      }
+
+      setSubmitted(false);
     }
   }, [submitted]);
 
-  useEffect(() => {
-    console.log(lettersStatus);
-  }, [lettersStatus]);
+  //useEffect(() => {
+  //console.log(lettersStatus);
+  //}, [lettersStatus]);
 
   return (
     <div className='flex gap-2 flex-row'>
