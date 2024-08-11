@@ -1,57 +1,41 @@
 # OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
 
-### User Interface (UI):
+## How to run the app:
 
-Design a clean and intuitive UI for the game that includes:
+Clone the repository locally.</br>
+Switch branch to wordle-youness-abtaouri.</br>
+Change the directory to wordle.</br>
+Run the command npm install.</br>
+Run the command npm run build.</br>
+Run the command npm run preview.</br>
+Copy the URL displayed in the terminal and open it in your browser.</br>
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+## Components:
 
-### State Management:
+Grid and Row Components: Used for displaying the input fields and the previous guesses.</br>
+Keyboard Component: Keeps track of the used keys.</br>
+Wordle Component: Contains the entire game UI.</br>
 
-Implement a robust state management system to handle:
+## Game logic:
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+The user is shown a grid to input letters.</br>
+When the user presses Enter, the typed word is evaluated letter by letter and colored depending on the correctness of the letters.</br>
+The user wins the game by correctly guessing all the letters in the word in the right positions.</br>
+The user loses if they fail to guess the word in 6 attempts.</br>
 
-### User Interaction:
+## States:
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+turns: Keeps track of the number of guesses evaluated.</br>
+guesses: Stores the user's guesses to display them.</br>
+currentGuess: Tracks the user's current input.</br>
+isCorrect: Changes to true when the user guesses the correct word, and is used to show the end-game modal.</br>
+usedKeys: Stores the state of the keyboard letters and their corresponding colors.</br>
 
+## Implementation:
 
-### Game Logic:
-
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
-
-## Code Quality:
-
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
-
-## Submission Guidelines:
-
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
-
-## Evaluation Criteria:
-
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+The Wordle component has a keyup event listener that triggers the handleKeyUp function. This function decides whether to delete the last character or start evaluating the guess. As long as the user hasn't pressed Enter, we keep storing the pressed letters in currentGuess.</br></br>
+When the user hits Enter, we evaluate the currentGuess. If it matches the correct word, we set isCorrect to true. We then create an array of objects containing each letter and its color, add it to the guess history, and use the same formatted guess array to update the usedKeys accordingly.</br></br>
+All of this logic is handled in the useWordle hook, which returns these states, making them accessible in the Wordle component.</br></br>
+The Wordle component is responsible for the display, utilizing the Grid and Keyboard components.</br></br>
+The Grid component loops over the guesses and uses the Row component to create rows for displaying the guesses.</br></br>
+The Keyboard component loops over the usedKeys and displays them.
