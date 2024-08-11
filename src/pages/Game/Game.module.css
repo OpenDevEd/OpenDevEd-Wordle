@@ -1,0 +1,100 @@
+.game {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.game_content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+	margin-top: 100px;
+}
+
+.game_row {
+	display: flex;
+	gap: 5px;
+}
+
+.col_container {
+	display: inline-block;
+    perspective: 1000px;
+}
+
+.game_col {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	font-size: 1.5rem;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+	border-radius: var(--border-radius);
+}
+
+.col_container.flip_letter .game_col {
+	animation: flip 0.6s forwards;
+}
+
+.flip_front, .flip_back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	border-radius: var(--border-radius);
+}
+
+.flip_back {
+    transform: rotateY(180deg);
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+.game_col .empty {
+	background-color: var(--light-color);
+	color: var(--primary-color);
+	border: 1px solid var(--primary-color);
+}
+
+.game.dark_mode .game_col .empty {
+	background-color: var(--dark-mode-bg);
+	color: var(--dark-mode-text);
+	border: 1px solid var(--dark-mode-text);
+}
+
+.game_col .correct {
+	background-color: var(--correct-color);
+	color: var(--light-color);
+}
+
+.game_col .included {
+	background-color: var(--included-color);
+	color: var(--light-color);
+}
+
+.game_col .wrong {
+	background-color: var(--wrong-color);
+	color: var(--light-color);
+}
+
+.wrong_guess[iswrongguess='1'] {
+	animation: horizontal-shaking 0.5s;
+}
+
+@keyframes horizontal-shaking {
+	0% { transform: translateX(0) }
+	25% { transform: translateX(5px) }
+	50% { transform: translateX(-5px) }
+	75% { transform: translateX(5px) }
+	100% { transform: translateX(0) }
+}
