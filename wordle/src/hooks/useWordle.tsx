@@ -46,14 +46,14 @@ const useWordle = (word: string) => {
 
 	const addNewGuesses = (formatedGuess: {key: string, color: string}[]) => {
 		if (currentGuess === word) {
-			setIsCorrect(prebIsCorrect => true);
+			setIsCorrect(true);
 		}
 		let newGuesses = [...guesses];
 		newGuesses[turns] = formatedGuess;
-		setGuesses(prevGuesses => newGuesses);
+		setGuesses(newGuesses);
 		setTurns(prevTurns => prevTurns + 1);
 		setHistory(prevHistory => [...prevHistory, currentGuess]);
-		setCurrentGuess(prevCurrentGuess => '');
+		setCurrentGuess('');
 		setUsedKeys(prevUsedKeys => {
 			let newKeys = {...prevUsedKeys};
 			formatedGuess.forEach((letter) => {

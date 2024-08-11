@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
 function Keyboard( {usedKeys}: {usedKeys: any} ) {
-	const [letter, setLetter] = useState(null);
 	let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 	return (
