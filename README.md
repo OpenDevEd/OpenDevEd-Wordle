@@ -1,57 +1,43 @@
 # OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+## How to run the app:
+1 -> clone the repo locally
+2 -> chnage directoy to wordle
+3 -> run command "npm install"
+4 -> run command "npm run build"
+5 -> run command "npm run preview"
+6 -> copy the url in the browser
 
-### User Interface (UI):
+### Components:
+ -> Grid and Row components for the input fields and the previous guesses
+ -> Keyboard component to keep track of the used keys
+ -> Worlde component containing the whole game UI
 
-Design a clean and intuitive UI for the game that includes:
+### Game logic:
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+-> the user is shown a grid to input letters
+-> when the user hits enter, the typed word gets evaluated letter by letter
+	 and it gets colored dependiong on the correctness of the letters
+-> the user win the game when he gets all the word letters in the right positions
+-> the user loses when he doesn't guess the word in 6 attempts
 
-### State Management:
+### States:
 
-Implement a robust state management system to handle:
+-> turns state keeps track of the number of guesses evaluated
+-> guesses stores the user guesses to show them to the user
+-> currentGuess is used to keep track of the user input
+-> isCorrect changes when the user guesses the right word and it's used to show the end 	 game modal
+-> usedKeys is responsible to store the state of the keyboard letters and their colors
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+### Implementation:
 
-### User Interaction:
+-> the Worlde component has a keyup event listener that triggers the handleKeyUp function that decides weither we should delete the last character or start evaluating the guess, as long as the user hasn't pressed Enter yet we keep storing the pressed letters the currentGuess.
+	
+-> when the user hits Enter we evaluate the currentGuess (if it's equal to the word we flag the isCorrect to true) and we create an array of objects that has a key which is the letter and the color, we add it to the guesses history, and then we use that same formatedGuess array to update the usedKeys accordinally
+	
+-> all of this happens in the useWordle hook that returns these states which makes them accessible in the Wordle component
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+-> the wordle component is responsible for the display, it uses the Grid and keyboard components.
 
+-> the Grid component loops over the guesses and uses the Row component to create rows to display the guesses
 
-### Game Logic:
-
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
-
-## Code Quality:
-
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
-
-## Submission Guidelines:
-
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
-
-## Evaluation Criteria:
-
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+-> the keyboard Component loops over the usedKeys and display them
