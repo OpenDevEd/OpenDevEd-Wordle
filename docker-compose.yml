@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  wordle:
+    container_name: Wordle
+    build: .
+    ports:
+      - 3000:4173
+    volumes:
+      - .:/app
