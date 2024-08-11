@@ -4,9 +4,46 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>My Wordle</title>
   </head>
   <body>
+		<header>
+			<button>
+				<a href="#rules">
+					rules
+				</a>
+			</button>
+		</header>
+		<div class="modal" id="rules">
+			<div class="rulesModal">
+				<button class="close-button" aria-label="Close">
+					<a href="#">X</a>
+				</button>
+				<h2>
+					How to play the game
+				</h2>
+				<div>
+					<p>
+						- try a word
+					</p>
+					<p>
+						- green letter means the right letter at the right position
+					</p>
+					<p>
+						- yellow letter means the right letter at the wrong position
+					</p>
+					<p>
+						- red card means the letter does not exist
+					</p>
+					<p>
+						- you have 6 attempts to guess the word
+					</p>
+					<p>
+						- refresh the page for a new word
+					</p>
+				</div>
+			</div>
+		</div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -6,7 +6,6 @@ function Keyboard( {usedKeys}: {usedKeys: {[key: string]: string}} ) {
 			{
 				alphabet.map((letter, index) => {
 					const color = usedKeys[letter.toLowerCase()];
-					console.log("color : ", color);
 					return (
 						<div key={index} className={color}>
 							{letter}

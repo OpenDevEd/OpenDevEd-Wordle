@@ -3,7 +3,6 @@ import { GridProps } from "../interfaces/interface";
 
 function Grid({currentGuess, guesses, turns}: GridProps) {
 
-	console.log("Grid : ", currentGuess, guesses, turns);
 	return (
 		<div>
 			{

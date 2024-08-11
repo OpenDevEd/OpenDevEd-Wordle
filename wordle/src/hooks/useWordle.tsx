@@ -75,25 +75,18 @@ const useWordle = (word: string) => {
 
 	const handleKeyUp = ({key} : {key: React.Key}) =>{
 		if (key == 'Enter') {
-			console.log("Enter");
 			if (currentGuess.length == 5) {
 				if (!history.includes(currentGuess)) {
 					const formatedGuess = formatGuess();
 					addNewGuesses(formatedGuess);
-				} else {
-					console.log("Already guessed");
 				}
-			} else {
-				console.log("Invalid guess");
 			}
 		}
 		else if (key == 'Backspace') {
-			console.log("Backspace");
 			setCurrentGuess(prevCurrentGuess => prevCurrentGuess.slice(0, -1));
 		}
 		else if (/^[a-zA-Z]$/.test(key.toString())) {
 			if (currentGuess.length < 5) {
-				console.log("Letter");
 				setCurrentGuess(prevCurrentGuess => prevCurrentGuess + key);
 			}
 		}

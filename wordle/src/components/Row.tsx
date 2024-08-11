@@ -18,9 +18,7 @@ function Row({guess, currentGuess}: RowProps) {
 	}
 
 	if (currentGuess) {
-		console.log(" blablabla ", currentGuess);
 		const letters = currentGuess.split('');
-		console.log(letters.length);
 		return (
 			<div className="row">
 				{

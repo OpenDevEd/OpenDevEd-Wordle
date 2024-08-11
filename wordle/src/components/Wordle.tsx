@@ -19,9 +19,7 @@ function Wordle( {word}: { word: string } ) {
 	}, [handleKeyUp]);
 
 	useEffect(() => {
-		// console.log(guesses, turns, isCorrect);
 		if (isCorrect || turns === 6) {
-			// isCorrect ? console.log('You win!') : console.log('You lose!');
 			document.removeEventListener('keyup', handleKeyUp);
 			setTimeout(() => {
 				setShowModal(true);
@@ -31,7 +29,9 @@ function Wordle( {word}: { word: string } ) {
 
 		return (
 				<div>
-						<h1>{word}</h1>
+						<div className="remainingAttempts">
+							{`${6 - turns}`}
+						</div>
 						<Grid currentGuess={currentGuess} guesses={guesses} turns={turns}/>
 						<Keyboard usedKeys={usedKeys}/>
 						{
