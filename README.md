@@ -1,57 +1,90 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# Wordle Clone
 
-### User Interface (UI):
+A React-based clone of the popular word guessing game, Wordle. This implementation features a clean UI, keyboard support, and an end-game popup.
 
-Design a clean and intuitive UI for the game that includes:
+## Features
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+- Random word selection from a JSON file
+- Interactive on-screen keyboard
+- Color-coded feedback for guesses
+- Responsive design
+- End-game popup with play again option
+- Keyboard support for mobile users
+- Can guess only valid words
+- screen mode feature
 
-### State Management:
+## Getting Started
 
-Implement a robust state management system to handle:
+### Prerequisites
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+- Node.js (v12 or higher)
+- npm (v6 or higher)
 
-### User Interaction:
+### Installation
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+1. Clone the repository:
+```
+git clone https://github.com/megrisse/OpenDevEd-Wordle.git
+```
+2. Navigate to the project directory:
+```
+cd OpenDevEd-Wordle
+```
+3. swith to my branch
+```
+git checkout wordle-megrisse
+```
+4. Install dependencies:
+```
+npm install
+```
+5. Start the development server:
+```
+npm run start
+```
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+## How to Play
 
-### Game Logic:
+1. The game selects a random five-letter word.
+2. Type your guess using the on-screen keyboard or your physical keyboard.
+3. Press 'Enter' to submit your guess.
+4. The tiles will change color to show how close your guess was:
+- Green: The letter is correct and in the right position.
+- Yellow: The letter is in the word but in the wrong position.
+- Gray: The letter is not in the word.
+5. Keep guessing until you solve the word or run out of attempts.
+6. After the game ends, you can click 'Play Again' to start a new game.
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+## Project Structure
 
-## Code Quality:
+The main game logic is contained in the `App` component, with additional components for:
+- `Line`: Renders a single guess line
+- `Keyboard`: Renders the on-screen keyboard
+- `EndGamePopup`: Displays the end-game message and play again option
+- `DarkModeToggle`: Switch the screen colors
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+## Implementation Details
 
-## Submission Guidelines:
+### State Management
+- Uses React's `useState` and `useEffect` hooks for state management.
+- Tracks the solution, guesses, current guess, game over state, and used letters.
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+### Game Logic
+- Fetches random words from a JSON file (`/words.json`).
+- Validates guesses and updates the game state accordingly.
+- Provides feedback on correct letters and positions.
+- Validates only the valid guesses.
 
-## Evaluation Criteria:
+### User Interface
+- Renders a game board with guess lines.
+- Provides an on-screen keyboard that updates based on guessed letters.
+- Displays an animated popup at the end of the game.
+- Shake the board and the keyboard in invalid guess.
+- Provides an screen-mode button.
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+## Customization
+
+- To change the word list, modify the `words.json` file (ensure it's in the `public` directory).
+- Adjust the `WORD_LENGTH` and `MAX_GUESSES` constants in `App.js` to change game parameters.
+- Modify the CSS (assumed to be in `App.css`) to change the game's appearance.
