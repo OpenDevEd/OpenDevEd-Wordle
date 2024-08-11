@@ -1,5 +1,5 @@
-import React from 'react';
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react';
+import LetterBox from '@components/LetterBox'
 
 interface RowProps {
   letters: string[];
@@ -9,59 +9,53 @@ interface RowProps {
 }
 
 const Row: React.FC<RowProps> = ({ letters, solution, submitted, setSubmitted }) => {
-  const [lettersStatus, setLettersStatus] = useState<string[]>(new Array(5).fill(""));
-  const refi = React.useRef(false);
+  const [lettersStatus, setLettersStatus] = useState<string[]>(Array(5).fill(""));
+  const hasStatus = useRef(false);
 
   useEffect(() => {
     if (submitted && letters.length === 5 && solution) {
-      let solutionFreq = new Map<string, number>();
+      const solutionFreq = new Map<string, number>();
 
-      solution.split("").forEach((letter) => {
+      solution.split("").forEach(letter => {
         solutionFreq.set(letter, (solutionFreq.get(letter) || 0) + 1);
       });
 
-      const newLettersStatus = new Array(5).fill("");
-      for (let i = 0; i < 5; i++) {
-        if (letters[i] === solution[i]) {
-          solutionFreq.set(letters[i], solutionFreq.get(letters[i])! - 1);
-          newLettersStatus[i] = 'bg-green';
-        } else if (solution.includes(letters[i]) && solutionFreq.get(letters[i])! > 0) {
-          solutionFreq.set(letters[i], solutionFreq.get(letters[i])! - 1);
-          newLettersStatus[i] = 'bg-yellow';
+      const newLettersStatus = letters.map((letter, index) => {
+        if (letter === solution[index]) {
+          solutionFreq.set(letter, solutionFreq.get(letter)! - 1);
+          return 'bg-green';
+        } else if (solution.includes(letter) && solutionFreq.get(letter)! > 0) {
+          solutionFreq.set(letter, solutionFreq.get(letter)! - 1);
+          return 'bg-yellow';
         } else {
-          newLettersStatus[i] = 'bg-grey';
+          return 'bg-grey';
         }
-        setLettersStatus(newLettersStatus);
-        refi.current = true;
-      }
+      });
 
+      setLettersStatus(newLettersStatus);
+      hasStatus.current = true;
       setSubmitted(false);
     }
-  }, [submitted]);
-
-  //useEffect(() => {
-  //console.log(lettersStatus);
-  //}, [lettersStatus]);
+  }, [submitted, letters, solution]);
 
   return (
     <div className='flex gap-2 flex-row'>
-      <div className={`w-14 h-14 ${refi.current ? lettersStatus[0] : "bg-bg border-2"} ${letters.length >= 1 ? 'border-lightgrey' : 'border-grey'}  flex items-center justify-center rounded-[8px] font-baloo font-bold text-4xl uppercase`} >
-        {letters.length >= 1 && letters[0]}
-      </div>
-      <div className={`w-14 h-14 ${refi.current ? lettersStatus[1] : "bg-bg border-2"} ${letters.length >= 2 ? 'border-lightgrey' : 'border-grey'}  flex items-center justify-center rounded-[8px] font-baloo font-bold text-4xl uppercase`}>
-        {letters.length >= 2 && letters[1]}
-      </div>
-      <div className={`w-14 h-14 ${refi.current ? lettersStatus[2] : "bg-bg border-2"} ${letters.length >= 3 ? 'border-lightgrey' : 'border-grey'}  flex items-center justify-center rounded-[8px] font-baloo font-bold text-4xl uppercase`}>
-        {letters.length >= 3 && letters[2]}
-      </div>
-      <div className={`w-14 h-14 ${refi.current ? lettersStatus[3] : "bg-bg border-2"} ${letters.length >= 4 ? 'border-lightgrey' : 'border-grey'}  flex items-center justify-center rounded-[8px] font-baloo font-bold text-4xl uppercase`}>
-        {letters.length >= 4 && letters[3]}
-      </div>
-      <div className={`w-14 h-14 ${refi.current ? lettersStatus[4] : "bg-bg border-2"} ${letters.length >= 5 ? 'border-lightgrey' : 'border-grey'}  flex items-center justify-center rounded-[8px] font-baloo font-bold text-4xl uppercase`}>
-        {letters.length >= 5 && letters[4]}
-      </div>
+      {Array.from({ length: 5 }, (_, index) => {
+        const letter = letters[index] || '';
+        const status = hasStatus.current ? lettersStatus[index] : "bg-bg border-2";
+        const borderColor = letters.length > index ? 'border-lightgrey' : 'border-grey';
+
+        return (
+          <LetterBox
+            key={index}
+            letter={letter}
+            status={status}
+            borderColor={borderColor}
+          />
+        );
+      })}
     </div>
   );
-}
+};
 
 export default Row;
