@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* css for line and each tile */
+
+.line {
+   display: flex;
+   justify-content: center;
+   gap: 5px;
+}
+
+.tile {
+    background-color: #66A5AD;
+    color: #FFF6E9;
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    border: none;
+    border-radius: 15px;
+}
+
+.correct {
+    background-color: #6ca965;
+}
+
+.incorrect {
+    background-color: #787c7f;
+}
+
+.close {
+    background-color: #c8b653;
+}
+
+/* night mode day mode toggle btn */
+
+.day-mode {
+    background-color: #C4DFE6;
+}
+  
+.night-mode {
+    background-color: #121212;
+}
+
+.toggle-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+.night-btn {
+    background-color: #121212;
+    color: #C4DFE6;
+}
+  
+.day-btn {
+    background-color: #C4DFE6;
+    color: #121212;
+}
+
+/* css for title area */
+
+.title-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.title {
+    color: #66A5AD;
+    text-align: center;
+    font-weight: 900;
+    font-size: 48px;
+}
+
+.how-to-play-title {
+    color: #66A5AD;
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 5px;
+}
+
+
+/* css for input guess and sumbit */
+
+.input {
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+}
+  
+.input:focus {
+    border-color: #ccc;
+    outline: none;
+}
+  
+.input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+label {
+    font-size: 20px;
+}
+
+.guess-button {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #66A5AD;
+    color: #C4DFE6;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.guess-button:hover {
+    border: 3px solid #66A5AD;
+    background-color: #C4DFE6;
+    color: #66A5AD;
+}
+
+/* play again button css */
+
+.play-again-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* css for the modal */
+
+.modal-content {
+    position: absolute;
+    background-color: #fff;
+    border: 5px solid #000;
+    border-radius: 5%;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+}
