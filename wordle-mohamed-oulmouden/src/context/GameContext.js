@@ -12,7 +12,7 @@ export const GameProvider = ({ children }) => {
   const [gameFinished, setGameFinished] = useState(false);
   const [currentGameType, setCurrentGameType] = useState("NONE");
   const [winState, setWinState] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const [cellContent, setCellContent] = useState([
     ["", "", "", "", ""],
@@ -285,6 +285,15 @@ export const GameProvider = ({ children }) => {
     });
     setCurrentColumn((prevColumn) => prevColumn + 1);
   }
+
+  useEffect(() => {
+    const savedState = localStorage.getItem("darkMode")
+    if (savedState) {
+      setDarkMode(savedState === "true");
+    }
+  }, []);
+
+
 
   useEffect(() => {
     const handleKeyDown = (event) => {

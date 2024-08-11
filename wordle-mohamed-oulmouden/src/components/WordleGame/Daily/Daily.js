@@ -44,7 +44,6 @@ export default function Daily() {
         setCellContent(savedState.cellContent);
         setCellsResult(savedState.cellsResult);
         setGameFinished(savedState.gameFinished);
-        setDarkMode(savedState.darkMode);
         setFirstRow(savedState.firstRow);
         setSecondRow(savedState.secondRow);
         setThirdRow(savedState.thirdRow);
@@ -68,6 +67,7 @@ export default function Daily() {
     // eslint-disable-next-line
   }, []);
 
+ 
   useEffect(() => {
     console.log("1", word, currentGameType);
     if (word === "NONE" || currentGameType !== "DAILY") return;
@@ -82,7 +82,6 @@ export default function Daily() {
           cellContent,
           cellsResult,
           gameFinished,
-          darkMode,
           firstRow,
           secondRow,
           thirdRow,
