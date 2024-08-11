@@ -43,3 +43,15 @@ This is a web-based Wordle game built using React. The game includes two modes: 
 - Responsive UI: The design is optimized for both desktop and mobile devices.
 - Theme Support: Switch between dark and light modes easily.
 - User-Friendly Guide: Learn how to play with the included guide page.
+- Drag-and-Drop: Easily move letters around the board to form words.
+  
+### Mobile View
+
+<video src="MarkDownAssets/mobile.mp4" width="320" height="240" controls>
+  Your browser does not support the video tag.
+</video>
+
+### Desktop View
+<video src="MarkDownAssets/desktop.mp4" width="320" height="240" controls>
+  Your browser does not support the video tag.
+</video>
