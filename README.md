@@ -1,57 +1,48 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+## Running the Project Locally
 
-### User Interface (UI):
+To get the project up and running on your local machine, follow these steps:
 
-Design a clean and intuitive UI for the game that includes:
+### 1. Clone the Repository
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+Start by cloning the repository to your local machine. Replace `[YOUR_USERNAME]` with your GitHub username if you forked the repository:
 
-### State Management:
+```bash
+git clone https://github.com/iqabbal/wordle-IlyasQabbal.git
+```
 
-Implement a robust state management system to handle:
+### 2. Navigate to the Project Directory
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+Change into the project directory:
 
-### User Interaction:
+```bash
+cd wordle-IlyasQabbal
+```
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+### 3. Switch to Your Branch
+
+If you’re working on a specific branch, switch to it using:
+
+```bash
+git checkout wordle-IlyasQabbal
+```
 
 
-### Game Logic:
+### 4. Install Dependencies
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+Install the necessary dependencies for the project:
 
-## Code Quality:
+```bash
+npm install
+```
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+### 5. Start the Development Server
 
-## Submission Guidelines:
+Run the development server to start the project:
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+```bash
+npm start
+```
 
-## Evaluation Criteria:
+The application should now be running on [http://localhost:3000](http://localhost:3000). Open this URL in your web browser to view the app.
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+
