@@ -13,13 +13,13 @@
   ```
     git clone git@github.com:Leonidasabiri/OpenDevEd-Wordle.git
   ```
-  Checkout to wordle-smounir branch
-  ```
-    git checkout wordle-smounir
-  ```
   Navigate to OpenDevEd-Wordle directory
   ```
     cd /OpenDevEd-Wordle
+  ```
+  Checkout to wordle-smounir branch
+  ```
+    git checkout wordle-smounir
   ```
   Run npm install
   ```
