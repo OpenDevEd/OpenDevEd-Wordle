@@ -1,0 +1,88 @@
+
+.GuideContainer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.instructions {
+    padding: 30px;
+    position: relative;
+    background-color: #1d2331;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    color: white;
+    max-width: 600px;
+  }
+
+  @media (max-width: 550px) {
+    .instructions{
+      width: 80%;
+    }
+    .instructions h1 {
+      font-size: 18px !important;
+    }
+  }
+  
+  .instructions h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .Examples{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    gap: 5px;
+  }
+
+  .Example{
+    display: flex;
+    gap: 5px;
+  }
+
+  .char{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 30px;
+    height: 30px;
+    border: solid 1px #484848;
+    border-radius: 10px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .correct {
+    background-color: #30AD23;
+  }
+  
+  .present {
+    background-color: #E0C12B;
+  }
+  
+  .absent {
+    background-color: #405069;
+  }
