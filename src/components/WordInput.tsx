@@ -54,7 +54,7 @@ const WordInput = ({ onWordInsert, guesses }: WordInputProps) => {
               isInvalid={input.error.length > 0}
               value={input.value}
               type="alphanumeric"
-              focusBorderColor="teal.500"
+              focusBorderColor="#6FA76B"
               onChange={(value) => setInputField({ ...input, value: value.toUpperCase() })}
             >
               <PinInputField sx={styles} />
@@ -67,7 +67,9 @@ const WordInput = ({ onWordInsert, guesses }: WordInputProps) => {
           <IconButton
             width={90}
             height="60px"
-            colorScheme="teal"
+            bg="#6FA76B"
+            color="#fff"
+            _hover={{backgroundColor: "#C9B363"}}
             aria-label="Delete"
             fontSize={35}
             onClick={() =>
@@ -80,7 +82,9 @@ const WordInput = ({ onWordInsert, guesses }: WordInputProps) => {
           marginTop={4}
           width={170}
           height="50px"
-          colorScheme="teal"
+          bg="#6FA76B"
+          color="#fff"
+          _hover={{backgroundColor: "#C9B363"}}
           size="lg"
           fontSize={26}
           onClick={() => insertWord()}

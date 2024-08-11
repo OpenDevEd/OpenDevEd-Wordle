@@ -20,18 +20,18 @@ interface GameResultProps {
   onRestartGame: () => void;
 }
 
-const GameResult = ({onRestartGame}: GameResultProps) => {
+const GameResult = ({ onRestartGame }: GameResultProps) => {
   // prettier-ignore
   const { board: { ongoing, word, gameResult, guesses }, setBoard } = useBoard();
 
   const cancelRestart = () => {
     setBoard({
-        ongoing: true,
-        word,
-        gameResult,
-        guesses
-    })
-  }
+      ongoing: true,
+      word,
+      gameResult,
+      guesses,
+    });
+  };
 
   return (
     <Box>
@@ -42,7 +42,9 @@ const GameResult = ({onRestartGame}: GameResultProps) => {
             {word.length === gameResult.length ? "Victory 🎉" : "Game over"}
           </ModalHeader>
           <ModalBody>
-            <Text fontSize="18" fontWeight="600" textAlign="center">{word.length === gameResult.length ? WIN_MESSAGE : LOST_MESSAGE}</Text>
+            <Text fontSize="18" fontWeight="600" textAlign="center">
+              {word.length === gameResult.length ? WIN_MESSAGE : LOST_MESSAGE}
+            </Text>
             <HStack marginY={3}>
               {getColors(word.split(""), gameResult).map((data, index) => (
                 <LetterDisplay
@@ -52,11 +54,26 @@ const GameResult = ({onRestartGame}: GameResultProps) => {
                 />
               ))}
             </HStack>
-            <Text color="orange.600" textAlign="center" fontSize="16" fontWeight="600">{GAME_MESSAGE[gameResult.length]}</Text>
+            <Text
+              color="orange.600"
+              textAlign="center"
+              fontSize="16"
+              fontWeight="600"
+            >
+              {GAME_MESSAGE[gameResult.length]}
+            </Text>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" onClick={cancelRestart}>Cancel</Button>
-            <Button colorScheme="teal" ml={3} onClick={onRestartGame}>
+            <Button variant="ghost" onClick={cancelRestart}>
+              Cancel
+            </Button>
+            <Button
+              bg="#6FA76B"
+              color="#fff"
+              _hover={{ backgroundColor: "#C9B363" }}
+              ml={3}
+              onClick={onRestartGame}
+            >
               Restart game
             </Button>
           </ModalFooter>

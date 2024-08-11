@@ -1,10 +1,11 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Heading, Image, VStack } from "@chakra-ui/react";
 
 const Logo = () => {
   return (
-    <Box display="flex" justifyContent="center">
-      <Image src="/logo.svg" />
-    </Box>
+    <VStack display="flex" justifyContent="center" marginY={5}>
+      <Image src="/Wordle-thumb.png" width={200} height={30} />
+      <Heading color="gray.500" fontSize={14}>Just another way to have fun</Heading>
+    </VStack>
   );
 };
 

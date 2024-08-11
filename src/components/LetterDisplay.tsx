@@ -12,8 +12,8 @@ const LetterDisplay = ({ letter, status }: LetterProps) => {
         status === "normal"
           ? "gray.400"
           : status === "correct"
-          ? "green.500"
-          : "yellow.500"
+          ? "#6FA76B"
+          : "#C9B363"
       }
       height="55px"
       width="55px"

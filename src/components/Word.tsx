@@ -24,7 +24,7 @@ const Word = ({ active, display, attempt }: WordProps) => {
     <VStack>
       <HStack
         border={active ? "5px solid" : "none"}
-        borderColor="teal.400"
+        borderColor="#6FA76B"
         borderRadius={12}
       >
         {display.split("").map((letter, index) => (
@@ -35,7 +35,7 @@ const Word = ({ active, display, attempt }: WordProps) => {
           />
         ))}
       </HStack>
-      {active && <Text fontWeight="600" color="teal.400">Remaining attemps: {4 - attempt}</Text>}
+      {active && <Text fontWeight="600" color="#6FA76B">Remaining attemps: {4 - attempt}</Text>}
     </VStack>
   );
 };

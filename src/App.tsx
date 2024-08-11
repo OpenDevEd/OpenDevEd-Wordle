@@ -49,15 +49,17 @@ function App() {
                   setBoard({ ...board, guesses: [...board.guesses, value] })
                 }
               />
-              {board.ongoing && <Keyboard /> }
+              {board.guesses.length < 5 && <Keyboard /> }
               <Tooltip label="Restart game" aria-label="A tooltip">
                 <IconButton
                   onClick={restartGame}
                   position="absolute"
-                  top="5"
+                  top="0"
                   right="5"
                   fontSize={35}
-                  color="teal"
+                  bg="#6FA76B"
+                  color="#fff"
+                  _hover={{backgroundColor: "#C9B363"}}
                   aria-label="Restart game"
                   boxSize="50px"
                   icon={<RiRestartFill />}

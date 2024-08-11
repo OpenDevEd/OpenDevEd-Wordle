@@ -8,7 +8,7 @@ interface HistoryData {
 const History = ({ words }: HistoryData) => {
   if (!words.length)
     return (
-      <Heading marginY={4} fontSize="30px" color="teal.500">
+      <Heading marginY={4} fontSize="22px" color="#6FA76B">
         You still haven't made any guesses
       </Heading>
     );
