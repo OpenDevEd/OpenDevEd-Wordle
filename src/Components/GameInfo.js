@@ -26,7 +26,7 @@ const GameInfo = () => {
                     style={{ backgroundColor: item.color }}
                     className="mx-4 w-10 h-10 rounded-md border inline-block"
                 ></span>
-                <a>{item.disc}</a>
+                <p>{item.disc}</p>
                 </li>
             ))}
             </ul>

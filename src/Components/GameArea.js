@@ -3,8 +3,10 @@ import { Input, Button, FormErrorMessage, FormControl } from '@chakra-ui/react';
 import PastGuesses from './PastGuesses';
 import Letter from './Letter';
 import initList from './InitList';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GameInfo from './GameInfo';
+import { FaArrowAltCircleLeft } from "react-icons/fa";
+
 
 const GameArea = () => {
     const MAX_GUESSES = 6;
@@ -112,13 +114,17 @@ const GameArea = () => {
 
     return (
         <div className="relative w-[70%] p-4">
+            <Link to={'/'} className="-translate-x-20 flex justify-between border-2 text-white w-32 items-center scale-150 py-2 px-4 rounded-lg shadow-2xl hover:bg-blue-600 transition duration-300 ">
+                <FaArrowAltCircleLeft className='scale-150' />
+                Go back
+            </Link>
             <form onSubmit={handleSubmit} className="mt-20  flex gap-y-4 flex-col justify-around items-center">
                 <FormControl sx={{ '@media (min-width: 1024px)': { width: '50%' }, width: '100%' }} 
                 isInvalid={isError}>
                     <Input
                         id="word-input"
                         size={"lg"}
-                        className="slide-down text-center focus:text-black focus:text-white text-black scale-125 font-bold"
+                        className="slide-down text-center focus:text-white text-black scale-125 font-bold"
                         variant="filled"
                         maxLength={6}
                         placeholder="Guess a word with 6 characters"
@@ -133,6 +139,7 @@ const GameArea = () => {
                 <PastGuesses pastGuesses={pastGuessObjs} />
             </div>
             <GameInfo/>
+
         </div>
     );
 };

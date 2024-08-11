@@ -13,7 +13,7 @@ export default function Winning() {
       <h1 className="slide-down  text-green-400 text-4xl font-bold mt-10">Congratulations!</h1>
       <p className="slide-down font-bold text-white text-lg mt-4">You won the game!</p>
       <Button 
-        onClick={()=>{navigate('/')}} 
+        onClick={()=>{navigate('/game')}} 
         colorScheme="teal" 
         size="lg" 
         className='slide-down '
