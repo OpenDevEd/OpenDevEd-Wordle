@@ -1,8 +1,19 @@
-# React + Vite
+# octicode-assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Wordle game built using React.js and styled with TailwindCSS. The game challenges players to guess a hidden word within six attempts. Each guess provides feedback on letter accuracy, helping players deduce the correct word. The project demonstrates the use of React for dynamic, interactive user interfaces and TailwindCSS for modern, responsive design.
 
-Currently, two official plugins are available:
+# How to run?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. After cloning the repo: switch branch by typing `git checkout wordle-azedine-ouhadou` in your terminal from the root project directory.
+2. Then run `npm install`.
+3. Run `npm run dev`.
+4. Now you can see the app in your localhost `http://localhost:5173/`
+
+   I have deployed version in vercel here: [OpenDev-Wordle]()
+
+## Some features
+
+- Simple UI/UX
+- Landing page, with how to play explaining modal.
+- The normal wordle-game page.
+- Some statistics and scores, all statistics and scores are save in localStorage.
