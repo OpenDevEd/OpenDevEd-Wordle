@@ -1,43 +1,43 @@
 # OpenDevEd-Wordle
 ## How to run the app:
-1 -> clone the repo locally
-2 -> chnage directoy to wordle
-3 -> run command "npm install"
-4 -> run command "npm run build"
-5 -> run command "npm run preview"
-6 -> copy the url in the browser
+Clone the repository locally.
+Change the directory to wordle.
+Run the command npm install.
+Run the command npm run build.
+Run the command npm run preview.
+Copy the URL displayed in the terminal and open it in your browser.
 
 ### Components:
- -> Grid and Row components for the input fields and the previous guesses
- -> Keyboard component to keep track of the used keys
- -> Worlde component containing the whole game UI
+
+Grid and Row Components: Used for displaying the input fields and the previous guesses.
+Keyboard Component: Keeps track of the used keys.
+Wordle Component: Contains the entire game UI.
 
 ### Game logic:
 
--> the user is shown a grid to input letters
--> when the user hits enter, the typed word gets evaluated letter by letter
-	 and it gets colored dependiong on the correctness of the letters
--> the user win the game when he gets all the word letters in the right positions
--> the user loses when he doesn't guess the word in 6 attempts
+The user is shown a grid to input letters.
+When the user presses Enter, the typed word is evaluated letter by letter and colored depending on the correctness of the letters.
+The user wins the game by correctly guessing all the letters in the word in the right positions.
+The user loses if they fail to guess the word in 6 attempts.
 
 ### States:
 
--> turns state keeps track of the number of guesses evaluated
--> guesses stores the user guesses to show them to the user
--> currentGuess is used to keep track of the user input
--> isCorrect changes when the user guesses the right word and it's used to show the end 	 game modal
--> usedKeys is responsible to store the state of the keyboard letters and their colors
+turns: Keeps track of the number of guesses evaluated.
+guesses: Stores the user's guesses to display them.
+currentGuess: Tracks the user's current input.
+isCorrect: Changes to true when the user guesses the correct word, and is used to show the end-game modal.
+usedKeys: Stores the state of the keyboard letters and their corresponding colors.
 
 ### Implementation:
 
--> the Worlde component has a keyup event listener that triggers the handleKeyUp function that decides weither we should delete the last character or start evaluating the guess, as long as the user hasn't pressed Enter yet we keep storing the pressed letters the currentGuess.
-	
--> when the user hits Enter we evaluate the currentGuess (if it's equal to the word we flag the isCorrect to true) and we create an array of objects that has a key which is the letter and the color, we add it to the guesses history, and then we use that same formatedGuess array to update the usedKeys accordinally
-	
--> all of this happens in the useWordle hook that returns these states which makes them accessible in the Wordle component
+The Wordle component has a keyup event listener that triggers the handleKeyUp function. This function decides whether to delete the last character or start evaluating the guess. As long as the user hasn't pressed Enter, we keep storing the pressed letters in currentGuess.
 
--> the wordle component is responsible for the display, it uses the Grid and keyboard components.
+When the user hits Enter, we evaluate the currentGuess. If it matches the correct word, we set isCorrect to true. We then create an array of objects containing each letter and its color, add it to the guess history, and use the same formatted guess array to update the usedKeys accordingly.
 
--> the Grid component loops over the guesses and uses the Row component to create rows to display the guesses
+All of this logic is handled in the useWordle hook, which returns these states, making them accessible in the Wordle component.
 
--> the keyboard Component loops over the usedKeys and display them
+The Wordle component is responsible for the display, utilizing the Grid and Keyboard components.
+
+The Grid component loops over the guesses and uses the Row component to create rows for displaying the guesses.
+
+The Keyboard component loops over the usedKeys and displays them.
