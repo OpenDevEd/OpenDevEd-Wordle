@@ -1,6 +1,3 @@
-Here's an updated version of your README file with the note added:
-
-```markdown
 ## Running the Project Locally
 
 To get the project up and running on your local machine, follow these steps:
@@ -67,4 +64,3 @@ In this clone of Wordle, several features have been implemented to enhance the g
 - **Game Statistics:** A state feature displays key statistics, including win/loss totals, total games played, and win rate, giving players insight into their performance.
 - **Hints:** Offers clues that help players get closer to the correct answer, guiding them with targeted suggestions to refine their guesses.
 - **Share Feature:** When a game ends, players can generate a shareable link to challenge their friends.
-```
