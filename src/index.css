@@ -1,0 +1,29 @@
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: 'Baloo 2', sans-serif;
+  scroll-behavior: smooth;
+}
+.centered {
+  @apply flex justify-center items-center;
+}
+
+.cell {
+  @apply w-[60px] h-[60px] border-solid border-[2px] border-borderLight rounded-[10px] text-white text-[33px] centered uppercase font-bold;
+
+}
+.correct {
+  @apply bg-green-500; /* Green color */
+}
+
+.close {
+  @apply bg-yellow-500; /* Yellow color */
+}
+
+.incorrect {
+  @apply bg-gray-700; /* Grey color */
+}
+
