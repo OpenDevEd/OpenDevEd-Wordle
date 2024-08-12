@@ -2,11 +2,20 @@ import { MAX_ATTEMPTS } from "@/constants/game";
 import { Heart, HeartCrack } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-export default function Hearts({ heartsLeft }: { heartsLeft: number }) {
+export default function Hearts({
+	heartsLeft,
+	history,
+}: {
+	heartsLeft: number;
+	history?: boolean;
+}) {
 	return (
 		<div
 			id="heartList"
-			className="flex w-full items-center justify-center gap-4"
+			className={twMerge(
+				"flex w-full items-center justify-center gap-2 sm:gap-4",
+				history && "!gap-1",
+			)}
 		>
 			{Array(MAX_ATTEMPTS)
 				.fill(null)

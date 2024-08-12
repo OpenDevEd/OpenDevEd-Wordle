@@ -9,3 +9,9 @@ export const SFX = {
 	victory: "/victory.wav",
 	lose: "/lose.wav",
 };
+export const KeyboardKeys = [
+	["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+	["a", "s", "d", "f", "g", "h", "j", "k", "l"],
+	["z", "x", "c", "v", "b", "n", "m"],
+];
+export const alphabetRegex = /^[a-zA-Z]$/;

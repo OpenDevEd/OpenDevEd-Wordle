@@ -1,41 +1,29 @@
 "use client";
 import { twMerge } from "tailwind-merge";
-import { useAudio, useGameState } from "@/hooks/game";
+import { useGameState } from "@/hooks/game";
 import Grid from "@/components/Grid";
 import Hearts from "@/components/Hearts";
-import { useEffect } from "react";
-import AudioProvider from "@/providers/AudioProvider";
-import { GameContainerProps } from "@/types/GameContainer";
 
-export default function GameContainer(props: GameContainerProps) {
+export default function GameContainer({ presetWord }: { presetWord?: string }) {
 	const {
 		attempts,
 		setAttempts,
+		attemptColors,
+		setAttemptColors,
 		randomWord,
 		setRandomWord,
 		resetGame,
 		setResetGame,
-		gameState,
 		showGrid,
 		heartsLeft,
 		results,
 		setResults,
-	} = useGameState(props);
-	const { playSound } = useAudio();
-
-	useEffect(() => {
-		if (gameState === "win" || gameState === "lose") {
-			playSound(gameState === "win" ? "victory" : "lose");
-			setResults({
-				gameState: gameState,
-				heartsLeft,
-				randomWord,
-			});
-		}
-	}, [gameState, heartsLeft, randomWord, playSound, setResults]);
+		savedHistory,
+		setSavedHistory,
+	} = useGameState(presetWord);
 
 	return (
-		<main className="flex h-screen flex-col">
+		<main className="flex h-svh flex-col">
 			<div className="flex-1 overflow-hidden bg-background dark:bg-background-100">
 				<div className="relative flex h-full animate-popin items-center justify-center">
 					<Grid
@@ -45,14 +33,19 @@ export default function GameContainer(props: GameContainerProps) {
 						setAttempts={setAttempts}
 						attempts={attempts}
 						randomWord={randomWord}
+						attemptColors={attemptColors}
+						setAttemptColors={setAttemptColors}
 						setRandomWord={setRandomWord}
 						heartsLeft={heartsLeft}
+						savedHistory={savedHistory}
+						setSavedHistory={setSavedHistory}
+						setResults={setResults}
 					/>
 					<div
 						data-testid="end-screen"
 						onClick={resetGame ?? undefined}
 						className={twMerge(
-							"absolute inset-0 flex flex-1 translate-x-full scale-0 items-center justify-center gap-12 opacity-0 transition-all duration-500",
+							"absolute inset-0 flex flex-1 translate-x-full scale-0 select-none flex-col items-center justify-center gap-12 opacity-0 transition-all duration-500 sm:flex-row",
 							!showGrid && "-translate-x-0 scale-100 opacity-100",
 						)}
 					>
@@ -64,8 +57,8 @@ export default function GameContainer(props: GameContainerProps) {
 							</h1>
 							<Hearts heartsLeft={results?.heartsLeft || 0} />
 						</div>
-						<div className="h-44 w-[0.05rem] bg-text"></div>
-						<div className="select-none">
+						<div className="h-[0.05rem] w-full bg-text sm:h-44 sm:w-[0.05rem]"></div>
+						<div className="flex flex-col items-center sm:items-start">
 							<p className="text-2xl font-bold text-text">
 								The word was
 								<span className="ml-2 text-2xl font-black text-text-400">
@@ -74,7 +67,7 @@ export default function GameContainer(props: GameContainerProps) {
 								.
 							</p>
 							<p className="font-light text-text-400">
-								Press any key to play again.
+								Press any key or tap to play again.
 							</p>
 						</div>
 					</div>

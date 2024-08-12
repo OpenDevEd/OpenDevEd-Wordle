@@ -12,7 +12,7 @@ describe("CharacterBox", () => {
             columnIndex={2}
             rowIndex={0}
             currentString=""
-            isKeyDown={false}
+            keysDown={new Map()}
         />)
         expect(screen.getByTestId(`column-2`)).toHaveTextContent("l");
         expect(screen.getByTestId(`column-2`)).toHaveClass("!bg-card-400");

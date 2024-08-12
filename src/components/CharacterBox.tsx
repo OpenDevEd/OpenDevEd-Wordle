@@ -3,12 +3,16 @@ import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 import { useCharacterBox } from "@/hooks/game";
 import type { CharacterBoxProps } from "@/types/CharacterBox";
+import { alphabetRegex } from "@/constants/game";
 
 export default function CharacterBox({
-	isKeyDown,
+	keysDown,
 	attemptColors,
 	...props
-}: CharacterBoxProps & { isKeyDown: boolean; attemptColors: string[][] }) {
+}: CharacterBoxProps & {
+	keysDown: Map<string, boolean>;
+	attemptColors: string[][];
+}) {
 	const { rowIndex, columnIndex } = props;
 	const { isCurrentWord, isCurrentCharacter, character, attemptExists } =
 		useCharacterBox(props);
@@ -16,12 +20,15 @@ export default function CharacterBox({
 		if (attemptExists) return attemptColors[rowIndex][columnIndex];
 		return "";
 	}, [attemptColors, rowIndex, columnIndex, attemptExists]);
+	const isKeyDown = Array.from(keysDown.keys()).some((key) =>
+		key.match(alphabetRegex),
+	);
 
 	return (
 		<div
 			data-testid={`column-${columnIndex}`}
 			className={twMerge(
-				"flex size-16 items-center justify-center rounded border-2 border-primary-500 bg-card text-2xl font-black uppercase text-text transition-all dark:border-primary-200 dark:bg-card-200",
+				"flex size-10 items-center justify-center rounded border-2 border-primary-500 bg-card font-black uppercase text-text transition-all sm:size-16 sm:text-2xl dark:border-primary-200 dark:bg-card-200",
 				isCurrentWord && "!bg-card-600",
 				attemptColor == "gray" && "border-opacity-25 !bg-card-400",
 				attemptColor == "yellow" && "border-opacity-25 !bg-yellow-600",

@@ -30,7 +30,7 @@ export default function HintsRow({
 	}, [attempts, randomWord, cheats, setCheats, playSound]);
 
 	return (
-		<div className="flex select-none gap-8">
+		<div className="flex select-none gap-4 sm:gap-8">
 			{Array(WORD_LENGTH)
 				.fill(null)
 				.map((_, index) => (

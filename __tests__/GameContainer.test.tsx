@@ -1,9 +1,9 @@
-import Home from "@/app/page";
 import { describe } from "node:test";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { MAX_ATTEMPTS } from "@/constants/game";
+import MainContainer from "@/components/MainContainer";
 
 describe("GameContainer", () => {
 	const user = userEvent.setup();
@@ -17,27 +17,27 @@ describe("GameContainer", () => {
 	};
 
 	const correctGuess = async () => {
-		render(<Home presetWord={correctWord} />);
+		render(<MainContainer presetWord={correctWord} />);
 		await guessWord(correctWord);
 		expect(screen.getByTestId("end-screen")).toHaveClass("opacity-100");
 		expect(screen.queryByText("You win!")).toBeInTheDocument();
 	};
 
 	test("should fill the cell on input", async () => {
-		render(<Home />);
+		render(<MainContainer />);
 		await user.keyboard("a");
-		expect(screen.queryByText("a")).toBeInTheDocument();
+		expect(screen.queryAllByText("a")).toHaveLength(2);
 	});
 
 	test("should clear the cell on backspace", async () => {
-		render(<Home />);
+		render(<MainContainer />);
 		await user.keyboard("a");
 		await user.keyboard("[Backspace]");
-		expect(screen.queryByText("a")).toBeNull();
+		expect(screen.queryAllByText("a")).toHaveLength(1);
 	});
 
 	test("no character that isn't alphabetical, enter, or backspace should be accepted", async () => {
-		render(<Home />);
+		render(<MainContainer />);
 		const characters = [
 			"1",
 			"!",
@@ -71,7 +71,7 @@ describe("GameContainer", () => {
 	});
 
 	test("shouldn't do anything when the word is invalid", async () => {
-		const home = render(<Home />);
+		const home = render(<MainContainer />);
 		await guessWord("aaaaa");
 		expect(screen.queryAllByTestId("submit-button")[0]).toBeVisible();
 	});
@@ -93,7 +93,7 @@ describe("GameContainer", () => {
 	});
 
 	test("should show the lose screen when the maximum attempts are reached", async () => {
-		render(<Home presetWord={correctWord} />);
+		render(<MainContainer presetWord={correctWord} />);
 		for (let i = 0; i < MAX_ATTEMPTS; i++) {
 			await guessWord("meted");
 		}
@@ -102,7 +102,7 @@ describe("GameContainer", () => {
 	});
 
 	test("should display the right colors for each character", async () => {
-		render(<Home presetWord={correctWord} />);
+		render(<MainContainer presetWord={correctWord} />);
 		await guessWord("meted");
 		const classes = [
 			"!bg-card-400",
@@ -118,7 +118,7 @@ describe("GameContainer", () => {
 	});
 
 	test("should show the correct amount of hearts", async () => {
-		const { container } = render(<Home presetWord={correctWord} />);
+		const { container } = render(<MainContainer presetWord={correctWord} />);
 		for (let i = 0; i < MAX_ATTEMPTS; i++) {
 			await guessWord("meted");
 			expect(
@@ -130,7 +130,7 @@ describe("GameContainer", () => {
 	});
 
 	test("should show all the correct letters when using the hint button", async () => {
-		render(<Home presetWord={correctWord} />);
+		render(<MainContainer presetWord={correctWord} />);
 		for (let i = 0; i < correctWord.length; i++) {
 			await userEvent.click(screen.getByTestId("hint-button"));
 			expect(
@@ -140,7 +140,7 @@ describe("GameContainer", () => {
 	});
 
 	test("should show the remainder of the correct letters when using the hint button", async () => {
-		render(<Home presetWord={correctWord} />);
+		render(<MainContainer presetWord={correctWord} />);
 		await guessWord("meted");
 		expect(screen.getAllByTestId("hint-character")[1]).toHaveTextContent(
 			correctWord[1],
@@ -154,7 +154,7 @@ describe("GameContainer", () => {
 	});
 
 	test("should show win screen even when theres only one heart remaining", async () => {
-		render(<Home presetWord={correctWord} />);
+		render(<MainContainer presetWord={correctWord} />);
 		for (let i = 0; i < MAX_ATTEMPTS - 1; i++) {
 			await guessWord("meted");
 		}

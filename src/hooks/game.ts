@@ -1,11 +1,16 @@
 import { CharacterBoxProps } from "@/types/CharacterBox";
 import { useState, useEffect, useMemo, useContext } from "react";
 import { MAX_ATTEMPTS } from "@/constants/game";
-import { ActiveState, GameState, GridState, Results } from "@/types/game";
+import {
+	ActiveState,
+	GameState,
+	GridState,
+	HistoryEntry,
+	Results,
+} from "@/types/game";
 import { useAnimate } from "framer-motion";
 import { AudioContextProvider } from "@/providers/AudioProvider";
 import { AudioContextReturn } from "@/types/AudioContext";
-import { GameContainerProps } from "@/types/GameContainer";
 
 export function useCharacterBox({
 	rowIndex,
@@ -46,17 +51,19 @@ export function useCanPopOut() {
 	return canPopOut;
 }
 
-export function useGameState({ presetWord }: GameContainerProps): GameState {
+export function useGameState(presetWord?: string): GameState {
+	const [savedHistory, setSavedHistory] = useState<HistoryEntry[]>([]);
 	const [attempts, setAttempts] = useState<string[]>([]);
+	const [attemptColors, setAttemptColors] = useState<string[][]>([]);
 	const [randomWord, setRandomWord] = useState<string>(presetWord ?? "");
 	const [resetGame, setResetGame] = useState<(() => void) | null>(null);
 	const [results, setResults] = useState<Results>(null);
-	const [gameState, showGrid] = useMemo<[ActiveState, boolean]>(() => {
+	const showGrid = useMemo<boolean>(() => {
 		let gameState: ActiveState = "playing";
 		if (randomWord === "") gameState = "loading";
 		else if (attempts.includes(randomWord)) gameState = "win";
 		else if (attempts.length === MAX_ATTEMPTS) gameState = "lose";
-		return [gameState, gameState === "playing" || gameState === "loading"];
+		return gameState === "playing" || gameState === "loading";
 	}, [randomWord, attempts]);
 	const heartsLeft = useMemo(
 		() =>
@@ -65,18 +72,31 @@ export function useGameState({ presetWord }: GameContainerProps): GameState {
 		[attempts, randomWord],
 	);
 
+	useEffect(() => {
+		const history = localStorage.getItem("history");
+		if (history) setSavedHistory(JSON.parse(history));
+	}, []);
+
+	useEffect(() => {
+		if (savedHistory.length > 0)
+			localStorage.setItem("history", JSON.stringify(savedHistory));
+	}, [savedHistory]);
+
 	return {
 		attempts,
 		setAttempts,
+		attemptColors,
+		setAttemptColors,
 		randomWord,
 		setRandomWord,
 		resetGame,
 		setResetGame,
-		gameState,
 		showGrid,
 		heartsLeft,
 		results,
 		setResults,
+		savedHistory,
+		setSavedHistory,
 	};
 }
 
@@ -84,9 +104,10 @@ export function useGridState(): GridState {
 	const [scope, animate] = useAnimate();
 	const [heartScope, heartAnimate] = useAnimate();
 	const [attemptColors, setAttemptColors] = useState<string[][]>([]);
-	const [isKeyDown, setIsKeyDown] = useState(false);
+	const [keysDown, setKeysDown] = useState<Map<string, boolean>>(new Map());
 	const [currentString, setCurrentString] = useState("");
 	const [cheats, setCheats] = useState<string[]>([]);
+	const [showHistory, setShowHistory] = useState(false);
 	const canPopOut = useCanPopOut();
 
 	return {
@@ -94,8 +115,8 @@ export function useGridState(): GridState {
 		animate,
 		attemptColors,
 		setAttemptColors,
-		isKeyDown,
-		setIsKeyDown,
+		keysDown,
+		setKeysDown,
 		currentString,
 		setCurrentString,
 		canPopOut,
@@ -103,6 +124,8 @@ export function useGridState(): GridState {
 		heartAnimate,
 		cheats,
 		setCheats,
+		showHistory,
+		setShowHistory,
 	};
 }
 
