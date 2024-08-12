@@ -13,7 +13,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className=" font-lato flex flex-col items-center justify-center h-screen  ">
+        <div className="font-lato flex flex-col items-center justify-center min-h-screen  ">
             <Particles
             id="tsparticles"
             init={particlesInit}

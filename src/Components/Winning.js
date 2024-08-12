@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Winning() {
   const { width, height } = useWindowSize();
   const navigate = useNavigate();
+
+
   return (
     <div className="flex flex-col items-center justify-center">
       <Confetti width={width} height={height} />
