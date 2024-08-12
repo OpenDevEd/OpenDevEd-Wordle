@@ -20,13 +20,19 @@ OpenDevEd-Wordle is a web-based Wordle game built using React. It provides an in
    ```bash
    cd OpenDevEd-Wordle
 
-3. **Install Dependencies**:
+3. **Checkout the Branch**:
+   Before installing dependencies and starting the development server, switch to the branch with the Wordle implementation:
+
+   ```bash
+   git checkout wordle-Taha-Naceur
+
+4. **Install Dependencies**:
    Ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your system. Then, run the following command to install the project dependencies:
 
    ```bash
    npm install
 
-4. **Start the Development Server**:
+5. **Start the Development Server**:
    After installing the dependencies, start the development server with the following command:
 
    ```bash
