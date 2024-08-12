@@ -79,7 +79,7 @@ npm install
 Start the development server:
 
 ```bash
-npm run dev
+npm run start
 ```
 
 ### You can access it by navigating to http://localhost:3000 in your web browser.
