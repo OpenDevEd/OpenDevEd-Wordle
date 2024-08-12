@@ -1,0 +1,17 @@
+version: '3.3'
+
+services: 
+  game:
+    image: wrd
+    container_name: wrd
+    build:
+      context: ./Game
+      dockerfile: Dockerfile
+    networks:
+      - sharedWordleWis
+    ports:
+      - "3000:3000"
+
+networks:
+  sharedWordleWis:
+    driver: bridge
