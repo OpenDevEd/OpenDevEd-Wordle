@@ -12,6 +12,13 @@ This is a web-based Wordle game built using React. The game includes two modes: 
 - Dark and Light Mode: Users can switch between dark and light modes, providing a comfortable experience in different lighting conditions.
 - Guide Page: A dedicated page that explains the rules of the game, helping new users get started quickly.
 
+### <div style="color:#f22c3d; font-size: 1.4rem; ">Deployment Link</div>
+
+The application is deployed on Vercel and can be accessed using the following link:
+
+[Wordle Game](https://wordle-game-hazel.vercel.app/)
+
+
 ### Running the Application
 
 #### To run the application, follow these steps:
@@ -19,7 +26,15 @@ This is a web-based Wordle game built using React. The game includes two modes: 
 1. Clone the repository and navigate to the project folder.
 
     ```bash
-    git clone
+    git clone git@github.com:oulmdev/OpenDevEd-Wordle.git
+    ```
+    ```bash
+    cd OpenDevEd-Wordle
+    ```
+    ```bash
+    git checkout wordle-mohamed-oulmouden
+    ```
+    ```bash
     cd wordle-mohamed-oulmouden
     ```
 2. Install the dependencies.
@@ -34,24 +49,22 @@ This is a web-based Wordle game built using React. The game includes two modes: 
    ```
 4. Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-#### To build the application for production, use the following command:
+#### Or you can run the application using Docker:
 
    ```bash
    docker-compose up --build
    ```
+
 ### Additional Features
 - Responsive UI: The design is optimized for both desktop and mobile devices.
 - Theme Support: Switch between dark and light modes easily.
 - User-Friendly Guide: Learn how to play with the included guide page.
 - Drag-and-Drop: Easily move letters around the board to form words.
 
+
 ### Mobile View
 
-<video src="../MarkDownAssets/mobile.mp4" width="720" height="420" controls>
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/a1618ec2-cdac-4f10-9932-67c08a272593
 
 ### Desktop View
-<video src="../MarkDownAssets/desktop.mp4" width="720" height="420" controls>
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/1fbce234-66e7-43c0-ade9-18ee2a82df7f
