@@ -29,6 +29,7 @@
 .replay{
     width: 100px;
     height: 40px;
+    margin-top: 10px;
     background-color: #30AD23;
     border-radius: 30px;
     outline: none;
@@ -37,4 +38,10 @@
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
+}
+.answer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
 }

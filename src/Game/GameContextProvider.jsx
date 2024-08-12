@@ -12,15 +12,14 @@ function GameContextProvider({children}) {
   const [words, setWords] = useState(() => Array(6).fill(""));
   const [results, setResults] = useState(() => Array(6).fill({}));
   const [index, setIndex] = useState(0);
-  const [win, setWin] = useState('play');
-  const [notInList, setNotInList] = useState(false);
+  const [win, setWin] = useState('lose');
 
 
   useEffect(() => {
     InitGame(setWords, setTarget, setResults, setIndex);
   }, []);
 
-  const handleKey = (alpha) => handleKeyCallBack(alpha, index, setIndex, words, setWords, setResults, setWin, target, setNotInList);
+  const handleKey = (alpha) => handleKeyCallBack(alpha, index, setIndex, words, setWords, setResults, setWin, target, win);
 
   useEffect(() => {
     const keyDownHandler = (event) => handleKey(event.key);
@@ -30,10 +29,10 @@ function GameContextProvider({children}) {
     return () => {
       window.removeEventListener('keydown', keyDownHandler);
     };
-  }, [index, words, target]);
+  }, [index, words, target, win]);
   
   return (
-      <GameContext.Provider value={{words, results, index, win, handleKey, setWin, setIndex, setTarget, setResults, setWords, notInList}}>
+      <GameContext.Provider value={{words, target, results, index, win, handleKey, setWin, setIndex, setTarget, setResults, setWords}}>
         {children}
       </GameContext.Provider>
   )

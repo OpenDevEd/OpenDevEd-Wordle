@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import styles from './win.module.css';
+import WordStyles from "../Guide/Guide.module.css";
 import getRandomWord from '../Game/RandomWords';
 import * as TrophyAnimation from './assets/trophy.json';
 import * as ArtificeAnimation from './assets/artifice.json';
@@ -48,8 +49,10 @@ function WinCard(){
 
 function LoseCard(){
   
+  const {target} =  useContext(GameContext);
+
   const LoseOptions = {
-    loop: false,
+    loop: true,
     autoplay: true, 
     animationData: LoseAnimation,
     rendererSettings: {
@@ -63,8 +66,18 @@ function LoseCard(){
 	      options={LoseOptions}
         height={200}
         width={200}
-      />
+        />
       <h1>Good try! You almost had it. Keep going!</h1>
+      <div className={styles.answer}>
+        <h3>The word was : </h3>
+        <div className={WordStyles.Example}>
+          <div className={WordStyles.char}>{target[0]}</div>
+          <div className={WordStyles.char}>{target[1]}</div>
+          <div className={WordStyles.char}>{target[2]}</div>
+          <div className={WordStyles.char}>{target[3]}</div>
+          <div className={WordStyles.char}>{target[4]}</div>
+        </div>
+      </div>
     </>
   )
 }

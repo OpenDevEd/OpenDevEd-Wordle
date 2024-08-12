@@ -1,5 +1,4 @@
 import toast from "react-hot-toast";
-import { Words } from "./RandomWords";
 import { Target } from "./initGame";
 
 function StoreItemState(target, words, results, index){
@@ -14,22 +13,14 @@ function StoreItemState(target, words, results, index){
   localStorage.setItem('state' , JSON.stringify(itemJson));
 }
 
-function evaluate(index, setIndex, words, setWords, setResults, setWin, target, setNotInList){
-    const input = words[index].toLowerCase();
-    if (input.length < 5) return;
+function evaluate(index, setIndex, words,setResults, setWin, target){
+
+  const input = words[index].toLowerCase();
     
-    if (!Words.includes(input)){
-      toast.error(`${input}: Not in the word list.`)
-      setNotInList(true);
-      setTimeout(() => setNotInList(false), 1000);
-      setWords(prev => {
-        const newWords = [...prev];
-        newWords[index] = "";
-        return newWords;
-      });
+    if (input.length < 5){
       return;
     }
-    
+
     setResults(prev => {
       const newResults = [...prev];
       newResults[index] = input.split('').reduce((acc, char, i) => {
@@ -41,20 +32,20 @@ function evaluate(index, setIndex, words, setWords, setResults, setWin, target, 
     });
 
     if (input === target) {
-      setTimeout(() => setWin('win'), 1500);
+      setTimeout(() => setWin('win'), 500);
       return;
     }
         
     if (index < 5) setIndex(prev => prev + 1);
-    else  setTimeout(() => setWin('lose'), 1500);
+    else  setTimeout(() => setWin('lose'), 500);
 }
 
 
-export default function handleKeyCallBack(alpha, index, setIndex, words, setWords, setResults, setWin, target, setNotInList){
+export default function handleKeyCallBack(alpha, index, setIndex, words, setWords, setResults, setWin, target, win){
 
   const key = alpha.toUpperCase();
   if (key === 'ENTER'){
-    evaluate(index, setIndex, words,setWords, setResults, setWin, target, setNotInList);
+    evaluate(index, setIndex, words, setResults, setWin, target);
   }
   else if (key === 'BACKSPACE'){
     setWords(
@@ -71,5 +62,10 @@ export default function handleKeyCallBack(alpha, index, setIndex, words, setWord
         newWord[index] = prev[index] + key;
         return newWord;
     })
+  }
+  else{
+    if (win == 'play'){
+      toast.error('only accepts alphabetic characters')
+    }
   }
 }

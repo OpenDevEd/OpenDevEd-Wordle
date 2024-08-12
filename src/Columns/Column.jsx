@@ -13,11 +13,11 @@ function Cell({alpha, result}){
 }
 
 
-function Column({word, evaluate, notInList}) {
+function Column({word, evaluate}) {
 
 
   return (
-    <div className={`${notInList ? styles.Shake : ''} ${styles.Cell}`}>
+    <div className={styles.Cell}>
         <Cell alpha={word[0]} result={evaluate[0]}/>
         <Cell alpha={word[1]} result={evaluate[1]}/>
         <Cell alpha={word[2]} result={evaluate[2]}/>
