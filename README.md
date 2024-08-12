@@ -1,4 +1,6 @@
-# Wordle Game (https://www.youtube.com/watch?v=OfiXDqDYm4o)
+# Wordle Game 
+
+https://www.youtube.com/watch?v=OfiXDqDYm4o
 
 Welcome to the Wordle Game! This web-based application, crafted with React, provides a fun and interactive way to test and improve your word skills. Whether you're a seasoned player or new to Wordle, this game offers an engaging experience for everyone.
 
