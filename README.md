@@ -11,9 +11,16 @@ In each attempt and after you hit submit, you'll get a feedback about the correc
 ### How to run the application:
 
 1- clone the project
+```bash
+git clone git@github.com:AbdellahBahsine/OpenDevEd-Wordle.git
+```
 
-2- run **npm install**
+2- change branch
+```bash
+git checkout wordle-abdellah-Bahsine
+```
 
-3- run **npm start**
-
-4- Go to localhost:3000
+3- run app using docker
+```bash
+docker-compose up --build
+```
