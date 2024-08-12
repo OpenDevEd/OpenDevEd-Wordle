@@ -43,18 +43,18 @@ export const GameProvider = ({ children }) => {
     {id:8, letter: "I", color: "#ffffff26" },
     {id:9, letter: "O", color: "#ffffff26" },
     {id:10, letter: "P", color: "#ffffff26" },
-  ]);
+  ])
 
-  const [secondRow, setSecondRow] = useState([
-    { letter: 11, color: "#ffffff26" },
-    { letter: 13, color: "#ffffff26" },
-    { letter: 14, color: "#ffffff26" },
-    { letter: 15, color: "#ffffff26" },
-    { letter: 16, color: "#ffffff26" },
-    { letter: 17, color: "#ffffff26" },
-    { letter: 18, color: "#ffffff26" },
-    { letter: 19, color: "#ffffff26" },
-    { letter: 20, color: "#ffffff26" },
+    const [secondRow, setSecondRow] = useState([
+    {id:11, letter: "A", color: "#ffffff26" },
+    {id:12, letter: "S", color: "#ffffff26" },
+    {id:13, letter: "D", color: "#ffffff26" },
+    {id:14, letter: "F", color: "#ffffff26" },
+    {id:15, letter: "G", color: "#ffffff26" },
+    {id:16, letter: "H", color: "#ffffff26" },
+    {id:17, letter: "J", color: "#ffffff26" },
+    {id:18, letter: "K", color: "#ffffff26" },
+    {id:19, letter: "L", color: "#ffffff26" },
   ]);
 
   const [thirdRow, setThirdRow] = useState([
