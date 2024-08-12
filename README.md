@@ -18,8 +18,8 @@ To run the application using Docker and Docker Compose, follow these steps:
 
    ```bash
    git clone https://github.com/OpenDevEd/OpenDevEd-Wordle.git
-   cd your-repository
-   go to the branche wordle-walid_oumechtak
+   cd OpenDevEd-Wordle
+   create folder inside frontend/ called: node_modules   
    
 3. **Build and Run the Application**
 
