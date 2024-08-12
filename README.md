@@ -1,57 +1,90 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# Word Guessing Game
 
-### User Interface (UI):
+## Overview
+This project is a simple word-guessing game built using React. The game allows users to guess a random word within six attempts. The game provides feedback on each guess, indicating whether the letters are correct and in the correct position.
 
-Design a clean and intuitive UI for the game that includes:
+## Features
+- Random word generation for each game.
+- Six attempts to guess the word.
+- Feedback on each guess indicating correct letters and their positions.
+- Win/Lose state management.
+- Handling of words not in the list.
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+## Approach
 
-### State Management:
+### State Management
+The game uses React's `useState` hook to manage the following states:
+- `target`: The randomly selected word that the user needs to guess.
+- `words`: An array to store the user's guesses.
+- `results`: An array to store the results of each guess.
+- `index`: The current attempt index.
+- `win`: The game state indicating whether the game is in progress, won, or lost.
+- `notInList`: A boolean to handle words not in the list.
 
-Implement a robust state management system to handle:
+### Random Word Generation
+The `getRandomWord` function is used to select a random word from a predefined list. The word is converted to lowercase to ensure case insensitivity.
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+### User Interaction
+Users can input their guesses, and the game provides immediate feedback on each guess. The feedback includes:
+- Correct letters in the correct position.
+- Correct letters in the wrong position.
+- Incorrect letters.
 
-### User Interaction:
+### Win/Lose Conditions
+The game checks if the user's guess matches the target word. If the user guesses the word correctly within six attempts, the game state is set to 'win'. If the user exhausts all attempts without guessing the word, the game state is set to 'lose'.
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+## Decisions Made
+
+### State Initialization
+The initial states for `target`, `words`, and `results` are set using functions to ensure that the random word is generated only once and the arrays are properly initialized.
+
+### Feedback Mechanism
+The feedback mechanism is designed to provide clear and immediate feedback to the user. This helps in improving the user experience and makes the game more engaging.
+
+### Error Handling
+The `notInList` state is used to handle cases where the user inputs a word that is not in the predefined list. This ensures that the game can provide appropriate feedback and maintain a consistent user experience.
+
+## How to Run the Project
+
+To get the project up and running, follow these steps:
+
+### 1. Clone the Repository
+
+Clone the repository to your local machine using the following command:
+
+```bash
+git clone git@github.com:oussamakrich/OpenDevEd-Wordle.git
+```
 
 
-### Game Logic:
+### 2. Navigate to the project directory:
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+```bash
+cd OpenDevEd-Wordle
+```
 
-## Code Quality:
+### 3. Checkout the Desired Branch
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+Switch to the branch you want to work on:
 
-## Submission Guidelines:
+```bash
+git checkout wordle-oussama
+```
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+### 4. Install Dependencies
 
-## Evaluation Criteria:
+Install the project dependencies using npm:
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+```bash
+npm install
+```
+
+### 5. Run the Development Server
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+### You can access it by navigating to http://localhost:3000 in your web browser.
