@@ -36,6 +36,7 @@
 	color: var(--primary-color);
 	cursor: pointer;
 	font-weight: 700;
+	font-size: 1.2rem;
 }
 
 .keyboard.dark_mode .key {
@@ -48,6 +49,10 @@
 	width: 80px;
 }
 
+.key.clear img {
+	width: 20px;
+}
+
 .key.enter:hover, .key.clear:hover {
 	background-color: transparent;
 }
@@ -56,14 +61,29 @@
 	width: 50px;
 }
 
+.key.enter img {
+	width: 20px;
+}
+
 .key:hover {
 	background-color: var(--primary-color);
 	color: #fff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 590px) {
+
+	.keyboard {
+		min-width: 320px;
+		width: 100%;
+	}
+
+	.keyboard_row {
+		gap: 5px;
+	}
+
 	.key {
-		width: 30px;
+		width: calc(100% / 10);
 		height: 30px;
+		font-size: 0.8rem;
 	}
 }

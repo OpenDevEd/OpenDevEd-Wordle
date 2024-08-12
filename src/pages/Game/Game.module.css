@@ -98,3 +98,15 @@
 	75% { transform: translateX(5px) }
 	100% { transform: translateX(0) }
 }
+
+@media (max-width: 590px) {
+	.game_content {
+		margin-top: 30px;
+	}
+
+	.game_col {
+		width: 40px;
+		height: 40px;
+		font-size: 1rem;
+	}
+}

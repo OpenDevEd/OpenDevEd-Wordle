@@ -40,3 +40,9 @@ header.dark_mode {
 header.dark_mode .btn {
 	border: 1px solid var(--dark-mode-text);
 }
+
+@media (max-width: 590px) {
+	header {
+		height: 60px;
+	}
+}
