@@ -122,7 +122,7 @@ const GameArea = () => {
     };
 
     return (
-        <div className="relative w-[70%] p-4">
+        <div className="relative min-h-screen w-[70%] p-4">
     
             <Link to={'/'} className="lg:-translate-x-20 flex justify-between border-2 text-white w-32 items-center
             scale-150 py-2 px-4 rounded-lg shadow-2xl hover:bg-blue-600 transition duration-300 ">

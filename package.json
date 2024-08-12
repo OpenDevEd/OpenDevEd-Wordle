@@ -2,7 +2,6 @@
   "name": "wordle",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sben-ela.github.io/wordle-SalahEddinBenElarradia",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.0",
@@ -14,7 +13,6 @@
     "@testing-library/user-event": "^13.5.0",
     "an-array-of-english-words": "^2.0.0",
     "framer-motion": "^11.3.24",
-    "gh-pages": "^6.1.1",
     "react": "^18.3.1",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.3.1",
@@ -54,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "tailwindcss": "^3.4.9"
   }
 }

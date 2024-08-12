@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import Particles from "react-particles";
+import { Link } from 'react-router-dom';
 import { loadSlim } from 'tsparticles-slim';
 
 const Home = () => {
@@ -88,10 +89,10 @@ const Home = () => {
             Each guess provides feedback on your attempt, helping you to refine your guesses. Can you guess the word of the day?
         </p>
 
-        <a href="/game" className=" scale-125 bg-blue-500 text-white py-2 px-4
+        <Link to="/game" className=" scale-125 bg-blue-500 text-white py-2 px-4
         rounded-lg shadow-2xl hover:bg-blue-600 transition duration-300 ">
             Start Playing
-        </a>        
+        </Link>        
         </div>
     );
 }
