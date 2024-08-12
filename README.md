@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# Wordle Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This project is a Wordle game built with React. Users are challenged to guess a five-letter word within six attempts. Feedback on guesses is provided through color-coded tiles, indicating whether a letter is:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- In the correct position
+- In the word but in the wrong position
+- Not in the word at all
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Color-Coded Feedback:** Provides visual cues for guess accuracy.
+- **Hints:** Allows users to reveal letters from the word.
+- **Sound Effects:** Enhances interactions with sound cues.
+- **Popup Messages:** Displays game results and other notifications.
 
-- Configure the top-level `parserOptions` property like this:
+## State Management
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+For this project, state management is handled primarily through:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **React Hooks:** `useState` and `useEffect` are used for local state management.
+- **Props:** Data is passed between components via props.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Approach
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Props:** To manage and share data between components.
+- **Local State:** Managed within components using React’s built-in hooks.
+
+## Future Considerations
+
+As the project scales, consider the following state management solutions:
+
+- **Redux:** A predictable state container for managing complex state interactions and global state.
+- **Zustand:** A small, fast, and scalable state management library, offering a lightweight alternative to Redux.
+- **React Context API:** For managing global state and passing data through the component tree without prop drilling.
+
+## Installation
+
+To set up the project locally:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/wordle-game.git
+
+2. **Navigate to the Project Directory:**
+   ```bash
+   git clone https://github.com/yourusername/wordle-game.git
+
+3. **go this branch:**
+    ```bash
+    git checkout wordle-yousseftijani
+4. **Install Dependencies:**
+    ```bash
+    npm Install
+5. **Start the Development Server:**
+    ```bash
+    npm run dev
+Open Your Browser: Visit http://localhost:5173/ to play the game.
+
+
