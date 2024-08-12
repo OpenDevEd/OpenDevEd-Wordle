@@ -1,0 +1,9 @@
+.app_container {
+	@apply h-screen flex justify-center items-center;
+}
+
+.game_container {
+	@apply w-[600px] h-[700px] py-5;
+	@apply flex flex-col justify-center items-center;
+	@apply rounded-3xl shadow-2xl backdrop-blur bg-black/20;
+}
