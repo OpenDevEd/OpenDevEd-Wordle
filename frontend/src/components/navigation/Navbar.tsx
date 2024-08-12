@@ -33,7 +33,7 @@ function Navbar({ darkMode, toggleDarkMode } : NavbarProps) {
                 onClick={closeModal}
                 />
                     <h2 className='mb-4'>How to Play?</h2>
-                    <p className='mb-5'>Enter your word and check these rules: </p>
+                    <p className='mb-5'>Enter your 5 characters word and check these rules: </p>
                     <ul>
                         <li className='flex items-center mb-4'>
                             <FaHackerNewsSquare size={30} color='green'/>
