@@ -27,9 +27,9 @@ export const WinModal = () => {
     <div className={` w-full h-full ml-auto mr-auto  md:w-[500px] md:h-[700px] shadow-2xl ${color.background} ${color.text}   md:border-2 md:rounded-3xl p-5 flex flex-col justify-center items-center gap-16`}>
     <TfiCup size={130}/>
     <Confetti
-        //  className='relative w-[500px] h-[700px]'
+        
          numberOfPieces={300}
-         recycle={false}
+         recycle={true}
     />
     <h1 className="text-xl sm:text-5xl font-bold">Congratulations!</h1>
     <p className="text-2xl ">! You guessed the word!</p>
