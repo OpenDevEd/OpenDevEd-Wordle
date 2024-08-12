@@ -38,10 +38,12 @@ The valid words dictionary is used to check the validity of the user's guess, wh
 
 * Intuitive user interface with pixel perfect spacing.
 * Smooth animations to elevate interactivity and feedback.
+* Built to be completely mobile friendly.
 
 ### User Experience
 
 * A clear display of correctly positioned letters making it easier to focus on the task at hand.
+* An on-screen keyboard not only enabling mobile play, but also clearly displaying used and unused characters.
 * Color coding for right letters in their correct positions, correct letters in wrong positions and incorrect letters.
 * The ability to start a new round without taking your hands off the keyboard.
 
@@ -49,6 +51,7 @@ The valid words dictionary is used to check the validity of the user's guess, wh
 
 * A variety of sound effects for enhanced immersion.
 * The ability to request hints on a letter by letter basis.
+* Each attempt is saved in localStorage and cleanly displayed, providing a simple but effective history system.
 
 ### Theming
 
