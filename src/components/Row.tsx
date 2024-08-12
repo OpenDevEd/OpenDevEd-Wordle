@@ -28,17 +28,21 @@ const Row: React.FC<RowProps> = ({ letters, solution, submitted, setSubmitted, f
   useEffect(() => {
     if (submitted && letters.length === 5 && solution) {
       const solutionFreq = new Map<string, number>();
+      const lettersFreq = new Map<string, number>();
 
       solution.split("").forEach(letter => {
         solutionFreq.set(letter, (solutionFreq.get(letter) || 0) + 1);
       });
 
+      letters.forEach(letter => {
+        lettersFreq.set(letter, (lettersFreq.get(letter) || 0) + 1);
+      });
+
+
       const newLettersStatus = letters.map((letter, index) => {
         if (letter === solution[index]) {
-          solutionFreq.set(letter, solutionFreq.get(letter)! - 1);
           return 'bg-green';
-        } else if (solution.includes(letter) && solutionFreq.get(letter)! > 0) {
-          solutionFreq.set(letter, solutionFreq.get(letter)! - 1);
+        } else if (solution.includes(letter) && lettersFreq.get(letter)! <= solutionFreq.get(letter)!) {
           return 'bg-yellow';
         } else {
           return 'bg-grey';
