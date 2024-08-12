@@ -36,7 +36,6 @@ function GuessInput({ onGuess }: GuessInputProps) {
         type="text"
         value={guess}
         onChange={(e) => setGuess(e.target.value)}
-        maxLength={5}
         // pattern="[A-Za-z]{5}"
         placeholder='Enter your guess'
         required
