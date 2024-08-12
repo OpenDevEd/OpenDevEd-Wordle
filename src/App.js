@@ -11,7 +11,6 @@ export default function App() {
     <div style={{backgroundImage : `url(https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`}} className={`min-h-screen flex flex-1 justify-center items-center`}>
       <ChakraProvider>
         <BrowserRouter> 
-          {/* just to make it easier to navigate between all the pages without playing the Game (for tester) */}
           <Routes>
             <Route index element={<Home />} />
             <Route path="game" element={<GameArea />} />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Input, Button, FormErrorMessage, FormControl, useToast } from '@chakra-ui/react';
+import { Input, Button, FormControl, useToast } from '@chakra-ui/react';
 import PastGuesses from './PastGuesses';
 import Letter from './Letter';
 import initList from './InitList';
@@ -111,6 +111,7 @@ const GameArea = () => {
 
     const handleChange = (event) => {
         const inputValue = event.target.value;
+        
         if (!/^[a-zA-Z]*$/.test(inputValue)) { // if not alpha ERROR 
             setIsError(true);
             showError('Input must only contain alphabetic characters.');
