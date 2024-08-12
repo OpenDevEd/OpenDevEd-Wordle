@@ -32,4 +32,4 @@ To get started with the Wordle Game, follow these steps:
    ```bash
    npm start
 
-Check out this video: [Watch on YouTube]([https://youtu.be/VIDEO_ID](https://www.youtube.com/watch?v=OfiXDqDYm4o))
+Check out this video: [Watch on YouTube](https://www.youtube.com/watch?v=OfiXDqDYm4o)
