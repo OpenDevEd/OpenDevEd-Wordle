@@ -45,7 +45,7 @@ export default function BoxesContainer({
     if (winState) {
       setTimeout(() => {
         setIsExploding(true);
-      }, 5000);
+      }, 1500);
     }
   }, [gameOver]);
 

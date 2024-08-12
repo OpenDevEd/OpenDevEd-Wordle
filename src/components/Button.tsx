@@ -42,9 +42,10 @@ export default function Button(props: any) {
         <motion.button 
             initial={{ transform: "translateY(0px)", opacity: 0, display: "none" }}
             animate={controls}
-            className="hover:bg-neutral-900 text-white font-bold py-2 px-4 rounded w-[5rem] h-[3rem] border border-neutral-200 transition-all"
+            className="hover:bg-neutral-900 text-white font-bold py-2 px-4 rounded gap-3 flex items-center h-[3rem] border border-neutral-200 transition-all"
             onClick={() => resetGame(setStrings, setColors, setString, setWord, setGameOver, setCorrectLetters, setWinState, setLoseState, setIncorrectLetters)}>
             <VscDebugRestart className="inline-block w-[1.5rem] h-[1.5rem]" />
+            Play Again
         </motion.button>
     );
 }
