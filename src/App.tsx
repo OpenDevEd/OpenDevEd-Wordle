@@ -5,11 +5,7 @@ import { Keyboard } from "./components/Keyboard";
 import { checkWord, selectTargetWord } from "./tools/helper";
 
 function App() {
-	const [TargetWord] = useState(() => {
-		const tr = selectTargetWord();
-		console.log(tr);
-		return tr;
-	});
+	const [TargetWord] = useState(() => selectTargetWord());
 	const [Tries, setTries] = useState<number>(0);
 	const [words, setWords] = useState<string[][]>(new Array(6).fill([]));
 	const [results, setResults] = useState<string[][]>(new Array(6).fill([]));
@@ -41,7 +37,6 @@ function App() {
 
 	const handleKeyPress = useCallback(
 		(key: string) => {
-			console.log(key);
 			if (Tries === 6) return;
 			if (key === "Enter" && words[Tries].length === 5) {
 				words[Tries].map((letter, index) => {
@@ -51,7 +46,6 @@ function App() {
 						const newResults = prev.map((word, i) =>
 							i === Tries ? [...word, result] : word
 						);
-						console.log(newResults);
 						return newResults;
 					});
 				});
@@ -75,7 +69,7 @@ function App() {
 	return (
 		<div className="app_container">
 			<div className="game_container">
-				<Board Words={words} Results={results}/>
+				<Board Words={words} Results={results} />
 				<Keyboard onKeyPress={handleKeyPress} />
 			</div>
 		</div>
