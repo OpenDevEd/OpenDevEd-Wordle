@@ -1,57 +1,80 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# 🎮 Word Guessing Game 🟩
 
-### User Interface (UI):
+## 📝 Description 🟦
 
-Design a clean and intuitive UI for the game that includes:
+A word guessing game built with React, providing visual feedback for correct guesses to create an engaging and interactive experience.
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+## 🌟 Features 🟨
 
-### State Management:
+- **✨ Interactive UI:** Clean and responsive interface for an enjoyable user experience.
+- **👀 Visual Feedback:** Real-time feedback for each guess.
+- **🛠️ Customizable Word List:** Easily modify the word list.
 
-Implement a robust state management system to handle:
+## 🧠 Approach and Decisions 🟧
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+### 🚀 Approach 🟪
 
-### User Interaction:
+1. **⚛️ React for Frontend:** 
+   - Leveraged React’s component-based architecture for a modular and maintainable codebase. Used React’s built-in state management to handle dynamic interactions required for the game.
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+2. **🎨 Animation:** 
+   - Added CSS animations for letter movements and a flip effect after each key entry to improve visual appeal and user experience.
 
+3. **👁️‍🗨️ Visual Feedback Mechanism:** 
+   - Focused on implementing real-time visual feedback to enhance user engagement by providing immediate responses to guesses.
 
-### Game Logic:
+4. **🐋 Docker and Docker Compose:** 
+   - Used Docker to containerize the application, eliminating the need to install Node.js or other dependencies locally. Docker Compose was employed to streamline the configuration and execution of the project.
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+5. **🔧 Makefile for Automation:** 
+   - Simplified the development process with a Makefile. The `make` command runs the project, while `make down` stops it. Additional commands are available for cleaning up containers and other tasks.
 
-## Code Quality:
+### 🛠️ Decisions Made 🟫
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+1. **📊 State Management:**
+   - Opted for React’s built-in state management for simplicity and ease of integration.
 
-## Submission Guidelines:
+2. **📘 React Principles:**
+   - Utilized React hooks like `useState` and `useEffect` for state and lifecycle management.
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+3. **🕹️ Game Logic:**
+   - Designed the logic to fetch a random word, compare guessed words, and generate an array of objects representing each character's status (correct, wrong place, or incorrect). This logic supports dynamic UI updates and keyboard color coding.
 
-## Evaluation Criteria:
+4. **🎨 UI/UX Design:**
+   - Focused on simplicity and smooth visuals, avoiding excessive colors to maintain a clean look.
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+### 🔥 Additional Features Implemented 🟪
+
+1. **📜 Customizable Word List:** 
+   - Allows for easy modification of the word list, adapting the game to different themes or difficulty levels.
+
+2. **❌ Error Handling and Validation:**
+   - Enforced rules such as five-letter words, no duplicate letters, and a limited number of attempts.
+
+## 🚀 Getting Started 🟦
+
+To get started with the project, follow these steps:
+
+1. **📂 Clone the repository and switch to the branch:**
+
+    ```bash
+    git clone git@github.com:W1ESD/OpenDevEd-Wordle.git
+    cd OpenDevEd-Wordle
+    git checkout wordle-Wissam_Essaiydy
+    ```
+
+2. **🐳 Build and start the containers:**
+
+    ```bash
+    make
+    ```
+
+   This will build the Docker containers and start the development server.
+
+3. **🛑 Stopping the containers:**
+
+    To stop and remove the containers, run:
+
+    ```bash
+    make down
+    ```
