@@ -1,57 +1,66 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# Wordle Game 
 
-### User Interface (UI):
+https://www.youtube.com/watch?v=OfiXDqDYm4o
 
-Design a clean and intuitive UI for the game that includes:
+Welcome to the Wordle Game! This web-based application, crafted with React, provides a fun and interactive way to test and improve your word skills. Whether you're a seasoned player or new to Wordle, this game offers an engaging experience for everyone.
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+## Features
 
-### State Management:
+### 📱 Responsive Design
+- Experience a seamless game interface across all devices—desktops, tablets, and smartphones. The game adjusts beautifully to any screen size.
 
-Implement a robust state management system to handle:
-
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
-
-### User Interaction:
-
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+### 🌟 Animations
+- Enjoy visually appealing animations that make the gameplay more exciting and dynamic.
 
 
-### Game Logic:
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+### 🔄 State Management
+- The Context API manages state across components efficiently, ensuring a smooth and consistent experience.
 
-## Code Quality:
+## Running the Application
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+To get started with the Wordle Game, follow these steps:
 
-## Submission Guidelines:
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/sben-ela/wordle-SalahEddinBenElarradia.git
+   cd wordle-SalahEddinBenElarradia
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+2. **Navigate to My Branch:**:
+   ```bash
+   git checkout wordle-SALAHEDDINEBENELARRADIA
+   
+3. **Install the Dependencies**:
+   ```bash
+   npm install
 
-## Evaluation Criteria:
+4. **Run the Application**:
+   ```bash
+   npm start
+## Approach Overview
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+### Component Structure
+- **`GameArea`**: The main component where users interact with the game. It manages state, handles user input, and controls game flow.
+- **`PastGuesses`**: Displays past guesses and their results. Utilizes `React.memo` to optimize performance by avoiding unnecessary re-renders.
+- **`LettersList`**: A helper component that visualizes each letter in a guess with different colors based on correctness.
+- **`Letter`**: A simple class used to model a letter with its corresponding color.
+
+### State Management
+- **`useState`**: Manages various pieces of state such as the current word to guess, user input, error states, and past guesses.
+- **`useEffect`**: Fetches a random word from an external API when the component mounts.
+
+### Form Handling
+- **`handleSubmit`**: Validates the input word against the external API and updates the game state or shows error messages if the input is invalid.
+- **`handleChange`**: Updates the input value and checks for invalid characters.
+
+### Navigation and Error Handling
+- **`useNavigate`**: Allows for client-side navigation between components without reloading the page.
+- **Error Handling**: Displays error messages using Chakra UI's `useToast` when the input is invalid or already used.
+
+### Styling and Animations
+- Utilizes Tailwind CSS classes for styling and animations, ensuring responsive and visually appealing UI elements.
+
+### Optimization
+- **`React.memo`**: Prevents unnecessary re-renders of the `PastGuesses` component by memoizing it based on its props.
+
+Check out this video: [Watch on YouTube](https://www.youtube.com/watch?v=OfiXDqDYm4o)
