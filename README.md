@@ -1,57 +1,51 @@
 # OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
 
-### User Interface (UI):
+## Overview
+OpenDevEd-Wordle is a web-based Wordle game built using React. It provides an interactive word-guessing experience similar to the popular Wordle game.
 
-Design a clean and intuitive UI for the game that includes:
+## Features
+- **Interactive UI**: Clean and user-friendly interface for guessing words.
+- **State Management**: Robust system to handle word selection, user guesses, and tracking attempts.
+- **Game Logic**: Real-time feedback on guesses, indicating correct and incorrect letter positions.
+- **End Game State**: Displays a win/lose message based on performance.
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+## Installation
+1. Clone the repository:
 
-### State Management:
+   ```bash
+   git clone https://github.com/tnaceur/OpenDevEd-Wordle.git
 
-Implement a robust state management system to handle:
+2. Navigate to the project directory:
+   
+   ```bash
+   cd OpenDevEd-Wordle
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+3. **Checkout the Branch**:
+   Before installing dependencies and starting the development server, switch to the branch with the Wordle implementation:
 
-### User Interaction:
+   ```bash
+   git checkout wordle-Taha-Naceur
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+4. **Install Dependencies**:
+   Ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your system. Then, run the following command to install the project dependencies:
+
+   ```bash
+   npm install
+
+5. **Start the Development Server**:
+   After installing the dependencies, start the development server with the following command:
+
+   ```bash
+   npm start
+
+## Usage
+
+Once the development server is running, you can interact with the Wordle game through your web browser. 
+
+- **Play the Game**: Enter your guesses into the input field and click the "Submit" button to check your guesses.
+- **Feedback**: The game will provide feedback on your guesses, indicating which letters are correct and whether they are in the right position.
+- **Responsive Design**: The application is designed to be responsive, so you can play on various devices, including desktops, tablets, and smartphones.
+
+Feel free to make changes to the game or customize it as needed.
 
 
-### Game Logic:
-
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
-
-## Code Quality:
-
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
-
-## Submission Guidelines:
-
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
-
-## Evaluation Criteria:
-
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.

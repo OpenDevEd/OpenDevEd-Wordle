@@ -1,0 +1,93 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+input {
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+  text-transform: uppercase;
+  width: 200px;
+  border: black solid 2px;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+button:hover {background-color: #3e8e41}
+
+#retry-btn {
+  margin-left: 10px;
+  background-color: #666;
+}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.message {
+  font-size: 18px;
+  margin: 10px;
+  color: red;
+}
+
+.guesses {
+  margin: 20px 0;
+}
+
+.guess {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.letter {
+  font-size: 24px;
+  padding: 10px;
+  margin: 2px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ddd;
+  text-transform: uppercase;
+}
+
+.letter.correct {
+  background-color: green;
+  color: white;
+}
+
+.letter.present {
+  background-color: orange;
+  color: white;
+}
+
+.letter.absent {
+  background-color: grey;
+  color: white;
+}
+
+.remaining-attempts {
+  font-size: 18px;
+  margin: 10px;
+}
+
+.end-game {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 20px;
+}
