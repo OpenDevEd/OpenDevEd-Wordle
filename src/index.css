@@ -1,0 +1,50 @@
+:root {
+	--primary-color : #3990AC;
+	--text-color: #707070;
+	--light-color: #fff;
+	--dark-color: #4B4B4B;
+	--border-radius: 5px;
+
+	--active-area-width: 860px;
+
+	--correct-color: #69AA63;
+	--included-color: #C9B358;
+	--wrong-color: #787C7E;
+
+	--dark-mode-bg: #333;
+	--dark-mode-text: #989898;
+}
+
+*, *::before, *::after { 
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body, #root {
+	height: 100%;
+	min-height: 100vh;
+}
+
+body {
+	font-size: 18px;
+	line-height: 1.5;
+	letter-spacing: 1px;
+	color: var(--text-color);
+}
+
+.cairo-regular {
+	font-family: "Cairo", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	font-variation-settings: "slnt" 0;
+}
+
+.cairo-bold {
+	font-family: "Cairo", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
+	font-variation-settings: "slnt" 0;
+}

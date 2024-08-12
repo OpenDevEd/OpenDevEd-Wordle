@@ -1,0 +1,89 @@
+.keyboard {
+	background-color: #fff;
+	border: 1px solid var(--primary-color);
+	padding: 16px;
+	border-radius: var(--border-radius);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 60px;
+}
+
+.keyboard.dark_mode {
+	background-color: var(--dark-mode-bg);
+	border: 1px solid var(--dark-mode-text);
+}
+
+.game_finished {
+	margin-top: 40px;
+}
+
+.keyboard_row {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.key {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: var(--border-radius);
+	background-color: #fff;
+	border: 1px solid var(--primary-color);
+	color: var(--primary-color);
+	cursor: pointer;
+	font-weight: 700;
+	font-size: 1.2rem;
+}
+
+.keyboard.dark_mode .key {
+	background-color: var(--dark-mode-bg);
+	border: 1px solid var(--dark-mode-text);
+	color: var(--dark-mode-text);
+}
+
+.key.clear {
+	width: 80px;
+}
+
+.key.clear img {
+	width: 20px;
+}
+
+.key.enter:hover, .key.clear:hover {
+	background-color: transparent;
+}
+
+.key.enter {
+	width: 50px;
+}
+
+.key.enter img {
+	width: 20px;
+}
+
+.key:hover {
+	background-color: var(--primary-color);
+	color: #fff;
+}
+
+@media (max-width: 590px) {
+
+	.keyboard {
+		min-width: 320px;
+		width: 100%;
+	}
+
+	.keyboard_row {
+		gap: 5px;
+	}
+
+	.key {
+		width: calc(100% / 10);
+		height: 30px;
+		font-size: 0.8rem;
+	}
+}

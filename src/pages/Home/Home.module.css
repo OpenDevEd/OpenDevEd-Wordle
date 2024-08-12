@@ -1,0 +1,121 @@
+.home {
+	padding: 30px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+p {
+	max-width: 600px;
+}
+
+.description {
+	margin-top: 20px;
+}
+
+.btn {
+	margin: 20px 0 10px 0;
+}
+
+.btn button {
+	padding: 9px 28px;
+	border-radius: var(--border-radius);
+	border: none;
+	background-color: var(--primary-color);
+	color: #fff;
+	cursor: pointer;
+	border-bottom: 4px solid #2d7a8d;
+	transition: all 0.3s ease;
+}
+
+.home.dark_mode .btn button {
+	background-color: var(--dark-color);
+	border-bottom: 4px solid #3e3e3e;
+	color: var(--dark-mode-text);
+}
+
+.btn:hover {
+	transform: translateY(-2px);
+	transition: all 0.3s ease;
+}
+
+.instructions {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.instructions_title {
+	margin-bottom: 20px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 20px;
+}
+
+.home.dark_mode .instructions_title {
+	border-top: 1px solid var(--dark-mode-text);
+	border-bottom: 1px solid var(--dark-mode-text);
+}
+
+.color {
+	margin-top: 20px;
+}
+
+.green_title span {
+	color: var(--correct-color);
+	text-decoration: underline;
+}
+
+.green_letter, .yellow_letter, .gray_letter, .letter {
+	width: 40px;
+	height: 40px;
+	border-radius: var(--border-radius);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px 0;
+}
+
+.green, .yellow, .gray {
+	display: flex;
+	gap: 5px;
+	margin-left: 20px;
+}
+
+.letter {
+	background-color: var(--light-color);
+	border: 1px solid var(--primary-color);
+	color: var(--primary-color);
+}
+
+.home.dark_mode .letter {
+	background-color: var(--dark-mode-bg);
+	border: 1px solid var(--dark-mode-text);
+	color: var(--dark-mode-text);
+}
+
+.green_letter {
+	background-color: var(--correct-color);
+	color: var(--light-color);
+}
+
+.yellow_title span {
+	color: var(--included-color);
+	text-decoration: underline;
+}
+
+.yellow_letter {
+	background-color: var(--included-color);
+	color: var(--light-color);
+}
+
+.gray_title span {
+	color: var(--wrong-color);
+	text-decoration: underline;
+}
+
+.gray_letter {
+	background-color: var(--wrong-color);
+	color: var(--light-color);
+}

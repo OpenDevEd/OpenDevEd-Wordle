@@ -1,57 +1,34 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# Wordle
+## About the game
+Wordle is a word puzzle game where users have six chances to guess a five-letter word of the day.
 
-### User Interface (UI):
+The game is composed of two pages:
+- The home page which contain information about the game and how to play the game.
+- The game page where you can play wordle. You have 6 rows of 5 columns where you have to guess the word by using the keyboard provided in the game page. You can use the mouse or the keyboard to write letters into the boxes, after you have entered 5 letters you have to click enter.
 
-Design a clean and intuitive UI for the game that includes:
+If the word is correct, the game will end and you will have to wait 1 minute to play again.
+If the word is inccorrect, you have 5 attempts to guess the right one.
+If the word does not exist, you can't submit your answer. The word should be valid.
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+### How to play
 
-### State Management:
+When you start the game you have to guess a word that is 5 letters long which is generated when the game starts, and you have 6 attempts to guess the word. To make the game easy, I have reduced the time to wait for a word to change to 1 minute.
 
-Implement a robust state management system to handle:
+In each attempt and after you hit submit, you'll get a feedback about the correctness of the letter position using the GREEN, YELLOW, and GRAY colors.
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+### How to run the application
 
-### User Interaction:
+1- clone the project
+```bash
+git clone git@github.com:AbdellahBahsine/OpenDevEd-Wordle.git
+```
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+2- change branch
+```bash
+git checkout wordle-abdellah-Bahsine
+```
 
-
-### Game Logic:
-
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
-
-## Code Quality:
-
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
-
-## Submission Guidelines:
-
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
-
-## Evaluation Criteria:
-
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+3- run app using docker
+```bash
+docker-compose up --build
+```
