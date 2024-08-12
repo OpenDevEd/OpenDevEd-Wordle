@@ -1,57 +1,39 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# Word Guessing Game
 
-### User Interface (UI):
+## Description
 
-Design a clean and intuitive UI for the game that includes:
+A word guessing game built with React. It provides visual feedback for correct guesses, creating an engaging and interactive experience.
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+## Features
 
-### State Management:
+- **Interactive UI:** A clean and responsive interface for an enjoyable user experience.
+- **Visual Feedback:** Real-time feedback for each guess.
+- **Customizable Word List:** Easily modify the word list for different game themes or difficulty levels.
 
-Implement a robust state management system to handle:
+## Getting Started
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+To get started with the project, follow these steps:
 
-### User Interaction:
+1. **Clone the repository and switch to the branch:**
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+    ```bash
+    git clone git@github.com:W1ESD/OpenDevEd-Wordle.git
+    cd OpenDevEd-Wordle
+    git checkout wordle-Wissam_Essaiydy
+    ```
 
+2. **Build and start the containers:**
 
-### Game Logic:
+    ```bash
+    make
+    ```
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+   This will build the Docker containers and start the development server.
 
-## Code Quality:
+3. **Stopping the containers:**
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+    To stop and remove the containers, run:
 
-## Submission Guidelines:
-
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
-
-## Evaluation Criteria:
-
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+    ```bash
+    make down
+    ```
