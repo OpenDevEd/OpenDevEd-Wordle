@@ -2,10 +2,17 @@ import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { Board } from "./components/Board";
 import { Keyboard } from "./components/Keyboard";
+import { checkWord, selectTargetWord } from "./tools/helper";
 
 function App() {
+	const [TargetWord] = useState(() => {
+		const tr = selectTargetWord();
+		console.log(tr);
+		return tr;
+	});
 	const [Tries, setTries] = useState<number>(0);
 	const [words, setWords] = useState<string[][]>(new Array(6).fill([]));
+	const [results, setResults] = useState<string[][]>(new Array(6).fill([]));
 
 	const addLetter = useCallback(
 		(Letter: string) => {
@@ -37,6 +44,17 @@ function App() {
 			console.log(key);
 			if (Tries === 6) return;
 			if (key === "Enter" && words[Tries].length === 5) {
+				words[Tries].map((letter, index) => {
+					const result = checkWord(letter, index, TargetWord);
+
+					setResults((prev) => {
+						const newResults = prev.map((word, i) =>
+							i === Tries ? [...word, result] : word
+						);
+						console.log(newResults);
+						return newResults;
+					});
+				});
 				setTries((prev) => prev + 1);
 				return;
 			} else if (key === "Backspace") deleteLetter();
@@ -44,7 +62,7 @@ function App() {
 			if (Letter.length === 1 && Letter >= "A" && Letter <= "Z")
 				addLetter(Letter);
 		},
-		[words, Tries, deleteLetter, addLetter]
+		[TargetWord, words, Tries, deleteLetter, addLetter]
 	);
 
 	useEffect(() => {
@@ -57,7 +75,7 @@ function App() {
 	return (
 		<div className="app_container">
 			<div className="game_container">
-				<Board Words={words} />
+				<Board Words={words} Results={results}/>
 				<Keyboard onKeyPress={handleKeyPress} />
 			</div>
 		</div>

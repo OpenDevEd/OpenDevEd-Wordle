@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-	background-image: url("./assets/background_galaxy.jpg");
+	background-image: url("./assets/background_galaxy.webp");
 	@apply bg-cover bg-center;
 }
