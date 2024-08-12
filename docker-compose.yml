@@ -1,0 +1,5 @@
+services:
+  app:
+    build: ./wordle-mohamed-oulmouden
+    ports:
+      - "3000:3000"

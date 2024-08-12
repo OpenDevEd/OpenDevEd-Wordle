@@ -1,0 +1,106 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.gameInput {
+  width: clamp(42px, 10vw, 62px);
+  height: clamp(42px, 10vw, 62px);
+  border-radius: 3px;
+}
+.row {
+  display: flex;
+  gap: 5px;
+}
+
+.cellText {
+  font-size: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.8rem);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.empty {
+  border: 1px solid var(--border_input);
+  background-color: transparent;
+}
+
+.filled {
+  border: 2px solid var(--border_input);
+  background-color: transparent;
+  color: var(--text_color);
+  animation: scale 0.2s ease;
+}
+
+.incorrect {
+  border: 3px solid #2a2a2c;
+  background-color: #2a2a2c;
+  color: white;
+  animation: revealAnimation var(--animation-duration, 0.5s) ease;
+}
+
+.correct {
+  border: 3px solid #3e9f1c;
+  background-color: #3e9f1c;
+  color: white;
+  animation: revealAnimation var(--animation-duration, 0.5s) ease;
+}
+
+.includes {
+  border: 3px solid #c39318;
+  background-color: #c39318;
+  color: white;
+  animation: revealAnimation var(--animation-duration, 0.5s) ease;
+}
+
+@keyframes revealAnimation {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.winningAnimation {
+  animation: vibrate 0.5s linear;
+  transition: transform 0.5s;
+}
+
+@keyframes vibrate {
+  8%,
+  41% {
+    transform: translateX(-5px);
+  }
+  25%,
+  58% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+  92% {
+    transform: translateX(3px);
+  }
+  0%,
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

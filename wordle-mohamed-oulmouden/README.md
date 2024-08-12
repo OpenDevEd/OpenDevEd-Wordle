@@ -21,16 +21,7 @@ The application is deployed on Vercel and can be accessed using the following li
 
 ### Running the Application
 
-#### To run the application using docker compose:
-
-   ```bash
-   docker-compose up --build
-   ```
-
-   then open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
-
-
-#### Or you can run the application in the following way:
+#### To run the application, follow these steps:
 
 1. Clone the repository and navigate to the project folder.
 
@@ -58,7 +49,11 @@ The application is deployed on Vercel and can be accessed using the following li
    ```
 4. Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
+#### Or you can run the application using Docker:
 
+   ```bash
+   docker-compose up --build
+   ```
 
 ### Additional Features
 - Responsive UI: The design is optimized for both desktop and mobile devices.

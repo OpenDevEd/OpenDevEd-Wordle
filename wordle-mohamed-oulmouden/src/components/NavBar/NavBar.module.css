@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  height: 70px;
+  background-color: var(--body_background);
+  border-bottom: var(--border_bottom);
+}
+
+.navigationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1300px;
+  width: 100%;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: clamp(200px, 1vw, 300px);
+}
+
+.subscribeButton {
+  background: none;
+  outline: none;
+  border-radius: 40px;
+  border: 1px solid black;
+  max-height: 52px;
+}
+
+.subscribeText {
+  padding: 5px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+.guideIcon {
+  width: clamp(25px, 1vw, 40px);
+  height: clamp(25px, 1vw, 40px);
+  transition: all 0.3s ease-in-out;
+}
+
+.gamesIcon {
+  width: clamp(25px, 1vw, 40px);
+  height: clamp(25px, 1vw, 40px);
+  transition: all 0.3s ease-in-out;
+}
+
+.staticsIcon {
+  width: clamp(25px, 1vw, 40px);
+  height: clamp(25px, 1vw, 40px);
+  transition: all 0.3s ease-in-out;
+}
+
+.staticsIcon:hover {
+  transform: scale(1.05);
+  opacity: 0.6;
+}
+
+.gamesIcon:hover {
+  transform: scale(1.05);
+  opacity: 0.6;
+}
+
+
+.guideIcon:hover {
+  transform: scale(1.05);
+  opacity: 0.6;
+}
