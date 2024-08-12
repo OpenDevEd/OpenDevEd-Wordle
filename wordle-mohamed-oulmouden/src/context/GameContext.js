@@ -78,7 +78,6 @@ export const GameProvider = ({ children }) => {
       const randomWord =
         data.words[Math.floor(Math.random() * data.words.length)];
       setWord(randomWord.toUpperCase());
-      console.log("Word: ", randomWord);
       setWordsList(data.words);
     } catch (error) {
       console.error("Error fetching the words:", error);
@@ -303,7 +302,6 @@ export const GameProvider = ({ children }) => {
       if (event.key === "Enter") {
         validateAnswer();
       } else if (event.key === "Backspace") {
-        console.log("Erase");
         handleEraseLetter();
       } else if (event.key === "Escape") {
         handleReplay();

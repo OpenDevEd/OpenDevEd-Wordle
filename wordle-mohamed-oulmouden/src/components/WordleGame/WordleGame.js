@@ -20,7 +20,6 @@ export default function WordleGame() {
   } = useContext(GameContext);
 
   useEffect(() => {
-    console.log(word, currentGameType);
     if (word === "NONE" || currentGameType !== "DAILY") return;
     const saveStateToLocalStorage = () => {
       localStorage.setItem(

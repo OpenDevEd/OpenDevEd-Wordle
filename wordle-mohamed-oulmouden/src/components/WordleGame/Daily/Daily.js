@@ -36,7 +36,6 @@ export default function Daily() {
   useEffect(() => {
     const loadStateFromLocalStorage = () => {
       const savedState = JSON.parse(localStorage.getItem("gameState"));
-      console.log("Saved state:", savedState);
       if (savedState) {
         setCurrentColumn(savedState.currentColumn);
         setCurrentRow(savedState.currentRow);
@@ -69,7 +68,6 @@ export default function Daily() {
 
  
   useEffect(() => {
-    console.log("1", word, currentGameType);
     if (word === "NONE" || currentGameType !== "DAILY") return;
 
     const saveStateToLocalStorage = () => {

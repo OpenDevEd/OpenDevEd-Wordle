@@ -85,7 +85,6 @@ export default function Victory() {
           <button
             className={styles.replay}
             onClick={() => {
-              console.log("replay");
               setShowPopUp(false);
               currentGameType === "UNLIMITED" && handleGameEvent("replay");
             }}
