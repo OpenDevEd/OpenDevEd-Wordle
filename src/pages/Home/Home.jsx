@@ -40,7 +40,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div className={classes.color}>
-						<p className={classes.gray_title}><span>Yellow</span> indicates that the letter is not in the word at all:</p>
+						<p className={classes.gray_title}><span>Gray</span> indicates that the letter is not in the word at all:</p>
 						<div className={`${classes.gray} cairo-bold`}>
 							<div className={classes.gray_letter}>A</div>
 							<div className={classes.letter}>A</div>

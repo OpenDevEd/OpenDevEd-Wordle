@@ -101,21 +101,21 @@ p {
 }
 
 .yellow_title span {
-	color: var(--wrong-color);
+	color: var(--included-color);
 	text-decoration: underline;
 }
 
 .yellow_letter {
-	background-color: var(--wrong-color);
+	background-color: var(--included-color);
 	color: var(--light-color);
 }
 
 .gray_title span {
-	color: var(--neutral-color);
+	color: var(--wrong-color);
 	text-decoration: underline;
 }
 
 .gray_letter {
-	background-color: var(--neutral-color);
+	background-color: var(--wrong-color);
 	color: var(--light-color);
 }
