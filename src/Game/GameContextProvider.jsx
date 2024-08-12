@@ -12,7 +12,7 @@ function GameContextProvider({children}) {
   const [words, setWords] = useState(() => Array(6).fill(""));
   const [results, setResults] = useState(() => Array(6).fill({}));
   const [index, setIndex] = useState(0);
-  const [win, setWin] = useState('lose');
+  const [win, setWin] = useState('play');
 
 
   useEffect(() => {
