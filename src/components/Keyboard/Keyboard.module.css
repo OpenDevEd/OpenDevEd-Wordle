@@ -14,8 +14,8 @@
 	border: 1px solid var(--dark-mode-text);
 }
 
-.keyboard.hidden {
-	display: none;
+.game_finished {
+	margin-top: 40px;
 }
 
 .keyboard_row {

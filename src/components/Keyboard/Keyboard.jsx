@@ -5,7 +5,7 @@ import WordleContext from '../../context/WordleContext'
 
 const Keyboard = () => {
 
-	const {gameLocal, setGameLocal, setIsWrongGuess, setIsWindowOpen, darkMode} = useContext(WordleContext);
+	const {gameLocal, setGameLocal, setIsWrongGuess, setIsWindowOpen, setStartNewGame, darkMode} = useContext(WordleContext);
 
 	const keys = [
 		['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
@@ -133,29 +133,36 @@ const Keyboard = () => {
 	}, [gameLocal]);
 
 	return (
-		<div className={`${classes.keyboard} ${gameLocal.is_game_finished && classes.hidden} ${darkMode && classes.dark_mode}`}>
-			<div className={classes.keyboard_row}>
-				{
-					keys[0].map(key => <button key={key} className={classes.key} onClick={() => handleKeyClick(key)}>{key.toUpperCase()}</button>)
-				}
-			</div>
-			<div className={classes.keyboard_row}>
-				{
-					keys[1].map(key => <button key={key} className={classes.key} onClick={() => handleKeyClick(key)}>{key.toUpperCase()}</button>)
-				}
-			</div>
-			<div className={classes.keyboard_row}>
-				<button className={`${classes.key} ${classes.enter}`} onClick={() => handleKeyClick("Enter")}>
-					{ darkMode ? <img src="assets/icons/ic_arrow_top_gray.svg" alt="enter" /> : <img src="assets/icons/ic_arrow_top.svg" alt="enter" /> }
-				</button>
-				{
-					keys[2].map(key => <button key={key} className={classes.key} onClick={() => handleKeyClick(key)}>{key.toUpperCase()}</button>)
-				}
-				<button className={`${classes.key} ${classes.clear}`} onClick={() => handleKeyClick("Backspace")}>
-					{ darkMode ? <img src="assets/icons/ic_clear_gray.svg" alt="clear" /> : <img src="assets/icons/ic_clear.svg" alt="clear" /> }
-				</button>
-			</div>
-		</div>
+		<>
+			{
+				gameLocal.is_game_finished ?
+				<p className={classes.game_finished}>Refresh the page after 1 minute to play again.</p>
+				:
+				<div className={`${classes.keyboard} ${darkMode && classes.dark_mode}`}>
+					<div className={classes.keyboard_row}>
+						{
+							keys[0].map(key => <button key={key} className={classes.key} onClick={() => handleKeyClick(key)}>{key.toUpperCase()}</button>)
+						}
+					</div>
+					<div className={classes.keyboard_row}>
+						{
+							keys[1].map(key => <button key={key} className={classes.key} onClick={() => handleKeyClick(key)}>{key.toUpperCase()}</button>)
+						}
+					</div>
+					<div className={classes.keyboard_row}>
+						<button className={`${classes.key} ${classes.enter}`} onClick={() => handleKeyClick("Enter")}>
+							{ darkMode ? <img src="assets/icons/ic_arrow_top_gray.svg" alt="enter" /> : <img src="assets/icons/ic_arrow_top.svg" alt="enter" /> }
+						</button>
+						{
+							keys[2].map(key => <button key={key} className={classes.key} onClick={() => handleKeyClick(key)}>{key.toUpperCase()}</button>)
+						}
+						<button className={`${classes.key} ${classes.clear}`} onClick={() => handleKeyClick("Backspace")}>
+							{ darkMode ? <img src="assets/icons/ic_clear_gray.svg" alt="clear" /> : <img src="assets/icons/ic_clear.svg" alt="clear" /> }
+						</button>
+					</div>
+				</div>
+			}
+		</>
 	)
 }
 
