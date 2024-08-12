@@ -47,7 +47,7 @@ export default function GameKeyBoard() {
               onClick={() => {
                 handleGameEvent(letter.letter);
               }}
-              key={index}
+              key={letter.id}
               className={`${styles.letter} ${styles.scaleUpAnimation}`}
               style={{
                 "--time": `${(index + 1) * 100}ms`,
@@ -66,7 +66,7 @@ export default function GameKeyBoard() {
               onClick={() => {
                 handleGameEvent(letter.letter);
               }}
-              key={index}
+              key={letter.id}
               className={`${styles.letter} ${styles.scaleUpAnimation}`}
               style={{
                 "--time": `${(index + 1) * 100}ms`,
@@ -86,7 +86,7 @@ export default function GameKeyBoard() {
                     onClick={() => {
                       handleGameEvent(letter.letter);
                     }}
-                    key={index}
+                    key={letter.id}
                     className={`${styles.eraseKey} ${styles.scaleUpAnimation}`}
                     style={{
                       "--time": `${700}ms`,
@@ -100,7 +100,7 @@ export default function GameKeyBoard() {
                     onClick={() => {
                       handleGameEvent(letter.letter);
                     }}
-                    key={index}
+                    key={letter.id}
                     className={`${styles.enterKey} ${styles.scaleUpAnimation}`}
                     style={{
                       "--time": `${700}ms`,
@@ -113,12 +113,12 @@ export default function GameKeyBoard() {
               </>
             ) : (
               <button
+              key={letter.id}
                 draggable={true}
                 onDragStart={(e) => handleDragStart(e, letter.letter)}
                 onClick={() => {
                   handleGameEvent(letter.letter);
                 }}
-                key={index}
                 className={`${styles.letter} ${styles.scaleUpAnimation}`}
                 style={{
                   "--time": `${(index + 1) * 100}ms`,

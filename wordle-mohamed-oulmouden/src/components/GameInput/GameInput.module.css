@@ -25,12 +25,10 @@
 .empty {
   border: 1px solid var(--border_input);
   background-color: transparent;
-  /* background-color: var(--body_background); */
 }
 
 .filled {
   border: 2px solid var(--border_input);
-  /* background-color: var(--body_background); */
   background-color: transparent;
   color: var(--text_color);
   animation: scale 0.2s ease;

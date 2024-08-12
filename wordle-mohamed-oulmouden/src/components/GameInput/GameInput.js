@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import styles from "./GameInput.module.css";
 import GameContext from "../../context/GameContext";
 
@@ -10,7 +10,6 @@ export default function GameInput() {
     cellContent,
     handleGameEvent,
     cellsResult,
-    word,
     currentRow,
     submit,
     setSubmit,
@@ -27,6 +26,7 @@ export default function GameInput() {
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
     };
+    // eslint-disable-next-line
   }, [submit]);
 
   function getClassName(rowIndex, colIndex) {

@@ -33,40 +33,40 @@ export const GameProvider = ({ children }) => {
   ]);
 
   const [firstRow, setFirstRow] = useState([
-    { letter: "Q", color: "#ffffff26" },
-    { letter: "W", color: "#ffffff26" },
-    { letter: "E", color: "#ffffff26" },
-    { letter: "R", color: "#ffffff26" },
-    { letter: "T", color: "#ffffff26" },
-    { letter: "Y", color: "#ffffff26" },
-    { letter: "U", color: "#ffffff26" },
-    { letter: "I", color: "#ffffff26" },
-    { letter: "O", color: "#ffffff26" },
-    { letter: "P", color: "#ffffff26" },
+    {id:1, letter: "Q", color: "#ffffff26" },
+    {id:2, letter: "W", color: "#ffffff26" },
+    {id:3, letter: "E", color: "#ffffff26" },
+    {id:4, letter: "R", color: "#ffffff26" },
+    {id:5, letter: "T", color: "#ffffff26" },
+    {id:6, letter: "Y", color: "#ffffff26" },
+    {id:7, letter: "U", color: "#ffffff26" },
+    {id:8, letter: "I", color: "#ffffff26" },
+    {id:9, letter: "O", color: "#ffffff26" },
+    {id:10, letter: "P", color: "#ffffff26" },
   ]);
 
   const [secondRow, setSecondRow] = useState([
-    { letter: "A", color: "#ffffff26" },
-    { letter: "S", color: "#ffffff26" },
-    { letter: "D", color: "#ffffff26" },
-    { letter: "F", color: "#ffffff26" },
-    { letter: "G", color: "#ffffff26" },
-    { letter: "H", color: "#ffffff26" },
-    { letter: "J", color: "#ffffff26" },
-    { letter: "K", color: "#ffffff26" },
-    { letter: "L", color: "#ffffff26" },
+    { letter: 11, color: "#ffffff26" },
+    { letter: 13, color: "#ffffff26" },
+    { letter: 14, color: "#ffffff26" },
+    { letter: 15, color: "#ffffff26" },
+    { letter: 16, color: "#ffffff26" },
+    { letter: 17, color: "#ffffff26" },
+    { letter: 18, color: "#ffffff26" },
+    { letter: 19, color: "#ffffff26" },
+    { letter: 20, color: "#ffffff26" },
   ]);
 
   const [thirdRow, setThirdRow] = useState([
-    { letter: "ENTER", color: "#ffffff26" },
-    { letter: "Z", color: "#ffffff26" },
-    { letter: "X", color: "#ffffff26" },
-    { letter: "C", color: "#ffffff26" },
-    { letter: "V", color: "#ffffff26" },
-    { letter: "B", color: "#ffffff26" },
-    { letter: "N", color: "#ffffff26" },
-    { letter: "M", color: "#ffffff26" },
-    { letter: "erase", color: "#ffffff26" },
+    {id:21, letter: "ENTER", color: "#ffffff26" },
+    {id:22, letter: "Z", color: "#ffffff26" },
+    {id:23, letter: "X", color: "#ffffff26" },
+    {id:24, letter: "C", color: "#ffffff26" },
+    {id:25, letter: "V", color: "#ffffff26" },
+    {id:26, letter: "B", color: "#ffffff26" },
+    {id:27, letter: "N", color: "#ffffff26" },
+    {id:28, letter: "M", color: "#ffffff26" },
+    {id:29, letter: "erase", color: "#ffffff26" },
   ]);
 
   const [wordsList, setWordsList] = useState([]);
@@ -161,12 +161,17 @@ export const GameProvider = ({ children }) => {
       setTimeout(() => {
         setShowPopUp(true);
       }, 1400);
+      if (currentGameType === "DAILY")
+          localStorage.setItem("lastTimePlayed", new Date().getTime());
     } else if (currentRow === 5) {
       setGameFinished(true);
       setWinState(false);
       setTimeout(() => {
         setShowPopUp(true);
       }, 800);
+      console.log(currentGameType)
+      if (currentGameType === "DAILY")
+          localStorage.setItem("lastTimePlayed", new Date().getTime());
     } else {
       setCurrentRow((prevRow) => prevRow + 1);
       setCurrentColumn(0);
@@ -317,6 +322,7 @@ export const GameProvider = ({ children }) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
+    // eslint-disable-next-line
   }, [currentColumn, currentRow, cellContent, showPopUp]);
 
   return (

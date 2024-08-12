@@ -30,7 +30,7 @@ export default function Daily() {
     setThirdRow,
     setWordsList,
     fetchWords,
-    setDarkMode,
+    handleReplay
   } = useContext(GameContext);
 
   useEffect(() => {
@@ -66,10 +66,29 @@ export default function Daily() {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    try{
+  
+      let lastTimePlayed = localStorage.getItem("lastTimePlayed");
+      console.log(lastTimePlayed)
+      if (lastTimePlayed) {
+        let currentTime = new Date().getTime();
+        let timeDifference = currentTime - lastTimePlayed;
+        if (timeDifference >= 60000 * 60 * 24) {
+          handleReplay();
+          localStorage.removeItem("gameState");
+          localStorage.removeItem("lastTimePlayed");
+        }
+      }
+    }catch(e){
+      console.log("Error while checking the time difference", e);
+    }
+  // eslint-disable-next-line
+  },[]);
  
   useEffect(() => {
-    if (word === "NONE" || currentGameType !== "DAILY") return;
 
+    if (word === "NONE" || currentGameType !== "DAILY") return;
     const saveStateToLocalStorage = () => {
       localStorage.setItem(
         "gameState",
