@@ -16,7 +16,7 @@ export function checkValidWord(string: string, setStrings: any, setString: any, 
     .then((res) => res.json())
     .then((data) => {
       if (data.title === "No Definitions Found") {
-        toast("Invalid word", { type: "error" });
+        toast(string + " is an invalid word.", { type: "error" });
         gameSounds.current.playSound("invalidWord");
       } else {
         if (!cont.state) return;
