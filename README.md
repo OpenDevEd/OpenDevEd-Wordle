@@ -8,7 +8,6 @@ This project is a simple word-guessing game built using React. The game allows u
 - Six attempts to guess the word.
 - Feedback on each guess indicating correct letters and their positions.
 - Win/Lose state management.
-- Handling of words not in the list.
 
 ## Approach
 
@@ -19,7 +18,6 @@ The game uses React's `useState` hook to manage the following states:
 - `results`: An array to store the results of each guess.
 - `index`: The current attempt index.
 - `win`: The game state indicating whether the game is in progress, won, or lost.
-- `notInList`: A boolean to handle words not in the list.
 
 ### Random Word Generation
 The `getRandomWord` function is used to select a random word from a predefined list. The word is converted to lowercase to ensure case insensitivity.
@@ -40,9 +38,6 @@ The initial states for `target`, `words`, and `results` are set using functions 
 
 ### Feedback Mechanism
 The feedback mechanism is designed to provide clear and immediate feedback to the user. This helps in improving the user experience and makes the game more engaging.
-
-### Error Handling
-The `notInList` state is used to handle cases where the user inputs a word that is not in the predefined list. This ensures that the game can provide appropriate feedback and maintain a consistent user experience.
 
 ## How to Run the Project
 
