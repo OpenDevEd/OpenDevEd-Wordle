@@ -1,57 +1,36 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
 
-### User Interface (UI):
+# Wordle - Moonlit Edition 🌙
 
-Design a clean and intuitive UI for the game that includes:
+This project is a simple implementation of the classic Wordle game, built with React and TypeScript. The game offers a serene, moonlit-themed user interface that is easy on the eyes and focuses on simplicity without unnecessary distractions.
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+Features : 
+- Simple and Clean UI: The game features a minimalist design with a calming moonlit background, ensuring that players can focus on the gameplay without being overwhelmed by flashy elements.
 
-### State Management:
+- Random Word Generation: A random word is selected from a pre-defined list at the start of each game, offering a new challenge every time you play.
 
-Implement a robust state management system to handle:
+- Interactive Gameplay: Players have six attempts to guess the correct five-letter word. Feedback is provided for each guess, indicating whether the letters are correct, present in the word but in the wrong position, or absent from the word.
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+- Responsive Design: The UI is responsive and adapts well to different screen sizes, ensuring a consistent experience across devices.
 
-### User Interaction:
+- Reset Functionality: After each game, players can reset and start a new game with a freshly selected word.
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+### Installation
 
+1. Clone the repo :
+   ```sh
+   git clone https://github.com/MedMagnum/OpenDevEd-Wordle.git
+   ```
+2. Navigate to project directory :
+   ```sh
+   cd OpenDevEd-Wordle
+   ```
+3. Install Dependencies:
+   Ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your system. Then, run the following command to install the project dependencies:
 
-### Game Logic:
-
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
-
-## Code Quality:
-
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
-
-## Submission Guidelines:
-
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
-
-## Evaluation Criteria:
-
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+   ```bash
+   npm install
+4. Start the development server :
+   ```sh
+   npm run dev
+   ```
+5. go to browser on http://localhost:5173
