@@ -6,7 +6,7 @@ import { GameContext } from '../Game/GameContextProvider';
 
 function Cases() {
 
-  const {words, results, index} = useContext(GameContext);
+  const {words, results} = useContext(GameContext);
   
   return (
     <div className={styles.Container}>

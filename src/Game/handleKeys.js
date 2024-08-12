@@ -64,7 +64,7 @@ export default function handleKeyCallBack(alpha, index, setIndex, words, setWord
     })
   }
   else{
-    if (win == 'play'){
+    if (win === 'play'){
       toast.error('only accepts alphabetic characters')
     }
   }
