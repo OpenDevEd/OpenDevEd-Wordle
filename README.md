@@ -1,57 +1,62 @@
 # OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
 
-### User Interface (UI):
+This project is a Wordle clone built using React and TypeScript. It implements the core gameplay mechanics of the popular word-guessing game, featuring a responsive design and keyboard input support.
 
-Design a clean and intuitive UI for the game that includes:
+## Approach
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+The game is built using React hooks for state management and side effects. Here's an overview of the main components and logic:
 
-### State Management:
+1. **State Management**:
+   - `TargetWord`: The word to be guessed, randomly selected at the start of the game.
+   - `Tries`: Tracks the number of attempts made by the player.
+   - `words`: A 2D array storing the player's guesses.
+   - `results`: A 2D array storing the feedback for each guess.
 
-Implement a robust state management system to handle:
+2. **Game Logic**:
+   - `addLetter`: Adds a letter to the current guess.
+   - `deleteLetter`: Removes the last letter from the current guess.
+   - `handleKeyPress`: Manages keyboard input for letter entry, deletion, and guess submission.
+   - `checkWord`: Compares the guessed word with the target word and provides feedback.
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+3. **User Interface**:
+   - `Board`: Displays the guessed words and their feedback.
+   - `Keyboard`: On-screen keyboard for input on touch devices.
 
-### User Interaction:
+4. **Input Handling**:
+   - The game supports both physical keyboard input and on-screen keyboard interactions.
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+5. **Responsive Design**:
+   - The UI is designed to be responsive and work well on both desktop and mobile devices.
 
+## How to Run the App
 
-### Game Logic:
+To run this app locally, follow these steps:
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+1. Clone the repository to your local machine.
 
-## Code Quality:
+```bash
+git clone https://github.com/RED-MEGA/OpenDevEd-Wordle.git
+```
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+2. Navigate to the project directory in your terminal.
 
-## Submission Guidelines:
+```bash
+cd OpenDevEd-Wordle
+```
+3. checkout to branch
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+```bash
+git checkout wordle-radouane
+```
 
-## Evaluation Criteria:
+4. Install the dependencies:
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+```bash
+npm install
+```
+
+5. run the project:
+
+```bash
+npm run dev
+```
