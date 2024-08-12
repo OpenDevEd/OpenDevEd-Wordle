@@ -25,9 +25,6 @@ yarn-error.log*
 # Windows files
 Thumbs.db
 
-# Optional: Tailwind CSS specific
-tailwind.config.js
-
 # Optional: Other files
 *.log
 *.swp
