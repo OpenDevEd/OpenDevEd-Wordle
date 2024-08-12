@@ -1,57 +1,63 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# Wordle Clone in React
 
-### User Interface (UI):
+This Wordle Clone features:
 
-Design a clean and intuitive UI for the game that includes:
+- 🎲 Random Solution Generator
+- ✨ Cool Reveal and Typing Animations
+- 📬 Interactive Notification Messages
+- 🧩 Comprehensive Word Interaction Functionalities
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+Users can seamlessly:
 
-### State Management:
+- 🖋 Enter, Submit, and Delete Words
+- ⌨️ Enjoy a Functional Virtual Keyboard
 
-Implement a robust state management system to handle:
+The application intelligently marks tried letters as:
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+- ❌ Absent
+- ➡️ Present
+- ✔️ Correct
 
-### User Interaction:
+# Approach
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+The development of this Wordle Clone followed a structured approach to ensure a smooth user experience and maintainable codebase:
 
+1. **Component-Based Architecture**: Leveraged React's component-based architecture to create reusable and modular components for the virtual keyboard, word grid, and notification messages.
+2. **State Management**: Utilized React's `useState` and `useEffect` hooks to manage the state of the game, including the current word, guessed words, and the solution.
+3. **Random Solution Generator**: Implemented a random solution generator that selects a word from a predefined list of valid words.
+4. **Animations**: Added CSS animations for revealing letters and typing effects to enhance the user experience.
+5. **Notification System**: Created an interactive notification system to provide feedback to users, such as invalid word entries or game status updates.
+6. **Virtual Keyboard**: Developed a functional virtual keyboard that allows users to input words without relying on their physical keyboard.
 
-### Game Logic:
+# Decisions Made
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+Several key decisions were made during the development process:
 
-## Code Quality:
+1. **Word List**: Chose a predefined list of valid words to ensure the solutions are always recognizable and valid.
+2. **User Feedback**: Prioritized user feedback through animations and notifications to make the game more engaging and informative.
+3. **Responsive Design**: Ensured the application is responsive and works well on different screen sizes, including mobile devices.
+4. **Accessibility**: Considered accessibility by providing keyboard navigation and screen reader support where possible.
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+# Additional Features
 
-## Submission Guidelines:
+In addition to the core functionalities, the following features were implemented:
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+1. **Dark Mode**: Added a dark mode toggle to enhance the user experience in low-light environments.
+2. **Statistics Tracking**: Implemented a statistics tracking system to record the user's game history, including the number of games played, won, and lost.
+3. **Shareable Results**: Enabled users to share their game results on social media platforms.
+4. **Hint System**: Introduced a hint system that provides users with clues if they are stuck.
 
-## Evaluation Criteria:
+# Usage
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+To start the project run `yarn` and `yarn dev` in your repo folder.
+
+# Future Enhancements
+
+Future enhancements could include:
+
+1. **Multiplayer Mode**: Adding a multiplayer mode where users can compete against each other in real-time.
+2. **Custom Word Lists**: Allowing users to create and share custom word lists.
+3. **Localization**: Supporting multiple languages to make the game accessible to a wider audience.
+4. **Advanced Analytics**: Providing users with advanced analytics on their gameplay, such as average guess time and letter frequency analysis.
+
+I hope you enjoy playing this Wordle Clone as much as i enjoyed building it!
