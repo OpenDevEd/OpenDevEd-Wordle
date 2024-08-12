@@ -32,28 +32,33 @@ function App() {
 		}
 	}, [words, Tries]);
 
-	useEffect(() => {
-		const handleKeyPress = (e: KeyboardEvent) => {
-			console.log(e.key);
+	const handleKeyPress = useCallback(
+		(key: string) => {
+			console.log(key);
 			if (Tries === 6) return;
-			if (e.key === "Enter" && words[Tries].length === 5) {
+			if (key === "Enter" && words[Tries].length === 5) {
 				setTries((prev) => prev + 1);
 				return;
-			} else if (e.key === "Backspace") deleteLetter();
-			const Letter: string = e.key.toUpperCase();
+			} else if (key === "Backspace") deleteLetter();
+			const Letter: string = key.toUpperCase();
 			if (Letter.length === 1 && Letter >= "A" && Letter <= "Z")
 				addLetter(Letter);
-		};
-		window.addEventListener("keydown", handleKeyPress);
+		},
+		[words, Tries, deleteLetter, addLetter]
+	);
 
-		return () => window.removeEventListener("keydown", handleKeyPress);
-	}, [words, Tries, deleteLetter, addLetter]);
+	useEffect(() => {
+		const handleKeyDown = (e: KeyboardEvent) => handleKeyPress(e.key);
+		window.addEventListener("keydown", handleKeyDown);
+
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, [handleKeyPress]);
 
 	return (
 		<div className="app_container">
 			<div className="game_container">
 				<Board Words={words} />
-				<Keyboard />
+				<Keyboard onKeyPress={handleKeyPress} />
 			</div>
 		</div>
 	);
