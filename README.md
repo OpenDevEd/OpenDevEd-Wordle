@@ -31,3 +31,5 @@ To get started with the Wordle Game, follow these steps:
 3. **Run the Application**:
    ```bash
    npm start
+
+   Check out this video: [Watch on YouTube]([https://youtu.be/VIDEO_ID](https://www.youtube.com/watch?v=OfiXDqDYm4o))
