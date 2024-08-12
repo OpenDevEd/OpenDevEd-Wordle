@@ -69,9 +69,12 @@ export function checkValidWord(string: string, setStrings: any, setString: any, 
             new_colors[i] = red;
           }
         }
-        
         setColors((prev: string[][]) => [...prev, new_colors]);
-        setString((prev: string) => prev = "");
+        setString((prev: string) => {
+          const emptyString = "";
+          prev = emptyString;
+          return prev;
+        });
       }
     });
 }
@@ -116,9 +119,8 @@ function GameScreen({ gameStart }: { gameStart: boolean }) {
     }
 
     window.onkeydown = (e) => {
-      if (gameOver) return;
+      if (gameOver || !gameStart) return;
       const letter = e.key;
-      gameSounds.current.playSound("keystroke");
       if (!checkIncorrectCharacters(letter)) {
         if (string.length < 6) {
           setString((prev) => prev + letter);
@@ -142,7 +144,7 @@ function GameScreen({ gameStart }: { gameStart: boolean }) {
   }, [string, strings, word]);
   return (
     <motion.div
-      className="flex-col gap-5 justify-center items-center h-screen w-screen"
+      className="flex-col gap-5 justify-center items-center h-screen w-screen overflow-hidden"
       style={{ display: gameStart ? "flex" : "none" }}
       >
       <GuessBox correctLetters={correctLetters} gameOver={gameOver}/>
