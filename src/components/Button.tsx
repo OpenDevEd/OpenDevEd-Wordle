@@ -4,7 +4,7 @@ import { VscDebugRestart } from "react-icons/vsc";
 import { motion, useAnimation } from 'framer-motion';
 
 
-function resetGame(setStrings: any, setColors: any, setString: any, setWord: any, setGameOver: any, setCorrectLetters: any, setWinState: any, setLoseState: any) {
+function resetGame(setStrings: any, setColors: any, setString: any, setWord: any, setGameOver: any, setCorrectLetters: any, setWinState: any, setLoseState: any, setIncorrectLetters: any) {
     setStrings([]);
     setColors([]);
     setString("");
@@ -13,10 +13,11 @@ function resetGame(setStrings: any, setColors: any, setString: any, setWord: any
     setCorrectLetters(["", "", "", "", ""]);
     setWinState(false);
     setLoseState(false);
+    setIncorrectLetters("");
 }  
 
 export default function Button(props: any) {
-    const { setStrings, setColors, setString, setWord, setGameOver, gameOverState, setCorrectLetters, setWinState, setLoseState } = props;
+    const { setStrings, setColors, setString, setWord, setGameOver, gameOverState, setCorrectLetters, setWinState, setLoseState, setIncorrectLetters } = props;
     const controls = useAnimation();
 
     useEffect(() => {
@@ -41,8 +42,8 @@ export default function Button(props: any) {
         <motion.button 
             initial={{ transform: "translateY(0px)", opacity: 0, display: "none" }}
             animate={controls}
-            className="bg-fuchsia-400 hover:bg-fuchsia-700 text-white font-bold py-2 px-4 rounded w-[5rem] h-[3rem]"
-            onClick={() => resetGame(setStrings, setColors, setString, setWord, setGameOver, setCorrectLetters, setWinState, setLoseState)}>
+            className="hover:bg-neutral-900 text-white font-bold py-2 px-4 rounded w-[5rem] h-[3rem] border border-neutral-200 transition-all"
+            onClick={() => resetGame(setStrings, setColors, setString, setWord, setGameOver, setCorrectLetters, setWinState, setLoseState, setIncorrectLetters)}>
             <VscDebugRestart className="inline-block w-[1.5rem] h-[1.5rem]" />
         </motion.button>
     );

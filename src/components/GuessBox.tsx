@@ -9,12 +9,12 @@ export default function GuessBox({correctLetters, gameOver}:{correctLetters: str
                         transition: { duration: 0.5 },
                         height: gameOver ? 0 : ""
                     }}
-        className='flex gap-2 items-center justify-between'>
+        className='flex gap-2 items-center justify-between select-none'>
         {
             correctLetters.map((letter, index) => (
                 <motion.div 
                     transition={{ duration: 0.5 }}
-                    key={index} className='text-white font-bold text-5xl w-[4.5rem] h-[4.5rem] flex items-center justify-center uppercase transition-all'
+                    key={index} className='text-white font-bold md:text-5xl text-3xl md:w-[4.5rem] md:h-[4.5rem] size-12  flex items-center justify-center uppercase transition-all'
                     style={
                         {
                             backgroundColor: letter.length === 0 ? "transparent" : "var(--green)" ,
