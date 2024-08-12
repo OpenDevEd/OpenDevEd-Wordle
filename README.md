@@ -1,57 +1,59 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+# Word guess game
 
-### User Interface (UI):
+## Overview
 
-Design a clean and intuitive UI for the game that includes:
+This project is a React application set up with Docker. The application provides a modern UI and features built with React, TypeScript, and Tailwind CSS. Docker is used to containerize the application, making it easy to run in any environment that supports Docker.
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+## How to Run the Application
 
-### State Management:
+To run the application using Docker and Docker Compose, follow these steps:
 
-Implement a robust state management system to handle:
+1. **Install Docker and Docker Compose**
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+   Ensure that Docker and Docker Compose are installed on your system. You can download Docker from the [official Docker website](https://www.docker.com/get-started) and Docker Compose from the [official Docker Compose documentation](https://docs.docker.com/compose/install/).
 
-### User Interaction:
+2. **Clone the Repository**
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+   Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/OpenDevEd/OpenDevEd-Wordle.git
+   cd OpenDevEd-Wordle
+   create folder inside frontend/ called: node_modules   
+   
+3. **Build and Run the Application**
+
+  Use Docker Compose to build and run the application:
+  \```bash
+  docker-compose up --build \```
+  
+This command will:
+
+    Build the Docker images specified in the docker-compose.yml file.
+    Start the containers as defined.
 
 
-### Game Logic:
+4. **Access the Application**
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+Once the containers are running, open your web browser and navigate to http://localhost:3000 to view the application.
 
-## Code Quality:
+Stop the Application
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+To stop the running containers, press Ctrl + C in the terminal where Docker Compose is running. You can also use:
 
-## Submission Guidelines:
+bash
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+    docker-compose down
 
-## Evaluation Criteria:
+Approach and Decisions Made
+Project Structure
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+React: Used for building the user interface. React's component-based architecture allows for modular and maintainable code.
+TypeScript: Provides static typing, which helps in catching errors early and improves code quality.
+Tailwind CSS: Utilized for styling the application with a utility-first approach, enabling rapid UI development.
+
+Docker Setup
+
+Dockerfile: Configures the build process for the React application.
+docker-compose.yml: Defines the service for running the React application.
+  It sets up a single service that builds the application image and exposes the necessary ports.
