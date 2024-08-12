@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import useGameUtils from "../hooks/GameUtils";
 import Ydivs from "./Ydivs";
 import ShowedKeyboard from "./ShowedKeyboard";
-import ResultPoPup from "./Output";
+import ResultPoPup from "./ResultPoPup";
 
 export default function Game({ word }) {
   const {
