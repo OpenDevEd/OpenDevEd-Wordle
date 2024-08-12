@@ -16,8 +16,7 @@ export default function GameMainScreen() {
 
     useEffect(() => {
         window.onclick = () => {
-            setgameStart(prev => prev = true);
-            console.log(gameStart);
+            setgameStart(true);
         }
         if (!gameStart) {
             setAnimationState("start");
@@ -33,7 +32,7 @@ export default function GameMainScreen() {
                 animate={animationState}
                 variants={animationVariants}
                 onClick={() => {
-                    setgameStart(prev => prev = true);
+                    setgameStart(true);
                 }}
                 className="flex flex-col gap-5 justify-center items-center select-none h-screen w-screen overflow-hidden"
                 >
