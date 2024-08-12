@@ -56,6 +56,7 @@ export default function handleKeyCallBack(alpha, index, setIndex, words, setWord
     })
   }
   else if (key >= 'A' && key <= 'Z' && key.length === 1) {
+    if (words[index].length >= 5) return;
     setWords(
       (prev) => {
         let newWord = [...prev];
@@ -64,7 +65,7 @@ export default function handleKeyCallBack(alpha, index, setIndex, words, setWord
     })
   }
   else{
-    if (win === 'play'){
+    if (win === 'play' && words[index].length < 5){
       toast.error('only accepts alphabetic characters')
     }
   }
