@@ -26,13 +26,13 @@ To get started with the Wordle Game, follow these steps:
    git clone https://github.com/sben-ela/wordle-SalahEddinBenElarradia.git
    cd wordle-SalahEddinBenElarradia
 
-2. **Install the Dependencies**:
+2. **Navigate to My Branch:**:
+   ```bash
+   git checkout wordle-SALAHEDDINEBENELARRADIA
+   
+3. **Install the Dependencies**:
    ```bash
    npm install
-   
-3. **Navigate to My Branch:**:
-   ```bash
-   git checkout wordle-SALAHEDDINEBENELARRADIA 
 
 4. **Run the Application**:
    ```bash
