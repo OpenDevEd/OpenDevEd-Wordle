@@ -29,8 +29,12 @@ To get started with the Wordle Game, follow these steps:
 2. **Install the Dependencies**:
    ```bash
    npm install
+   
+3. **Navigate to My Branch:**:
+   ```bash
+   git checkout wordle-SALAHEDDINEBENELARRADIA 
 
-3. **Run the Application**:
+4. **Run the Application**:
    ```bash
    npm start
 
