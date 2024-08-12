@@ -121,6 +121,7 @@ function GameScreen({ gameStart }: { gameStart: boolean }) {
     window.onkeydown = (e) => {
       if (gameOver || !gameStart) return;
       const letter = e.key;
+      gameSounds.current.playSound("keystroke");
       if (!checkIncorrectCharacters(letter)) {
         if (string.length < 6) {
           setString((prev) => prev + letter);
@@ -141,7 +142,7 @@ function GameScreen({ gameStart }: { gameStart: boolean }) {
     return () => {
       cont.state = false;
     }
-  }, [string, strings, word]);
+  }, [string, strings, word, gameStart]);
   return (
     <motion.div
       className="flex-col gap-5 justify-center items-center h-screen w-screen overflow-hidden"
