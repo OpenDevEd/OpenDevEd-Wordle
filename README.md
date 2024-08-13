@@ -1,57 +1,66 @@
-# OpenDevEd-Wordle
-## Requirements:
-Your task is to create a web-based Wordle game using React that adheres to the following specifications:
+## Running the Project Locally
 
-### User Interface (UI):
+To get the project up and running on your local machine, follow these steps:
 
-Design a clean and intuitive UI for the game that includes:
+### 1. Clone the Repository
 
-- Input field for guessing words.
-- Submit button to submit the guess.
-- Display area for previous guesses.
-= Indication of correct letters in correct positions (right letter, right position).
-- Indication of correct letters in the wrong position.
-- Display remaining attempts.
-- End game state UI (upon winning or losing).
+```bash
+git clone https://github.com/iqabbal/wordle-IlyasQabbal.git
+```
 
-### State Management:
+### 2. Navigate to the Project Directory
 
-Implement a robust state management system to handle:
+Change into the project directory:
 
-- Target word selection (randomly generate a word at the start of the game).
-- Storing user guesses and their results.
-- Tracking remaining attempts.
+```bash
+cd wordle-IlyasQabbal
+```
 
-### User Interaction:
+### 3. Switch to The Branch
 
-- Capture user input for word guesses.
-- Validate input (alphabetic characters, word length, etc.).
-- Handle the submission of guesses and update the game state accordingly.
+```bash
+git checkout wordle-IlyasQabbal
+```
 
+### 4. Install Dependencies
 
-### Game Logic:
+Install the necessary dependencies for the project:
 
-- Compare the user's guessed word against the target word.
-- Provide feedback to the user about the correctness of the guessed word.
-- End the game when the correct word is guessed or when the attempts reach zero.
+```bash
+npm install
+```
 
-## Code Quality:
+### 5. Start the Development Server
 
-- Write clean, readable, and maintainable code.
-- Implement best practices for React development.
-- Ensure error handling for edge cases (invalid input, unexpected behavior).
+Run the development server to start the project:
 
-## Submission Guidelines:
+```bash
+npm start
+```
 
-- Fork this [repository](https://github.com/OpenDevEd/OpenDevEd-wordle/)) and create a new branch named `wordle-[YOUR NAME]`.
-- Provide clear instructions on how to run the application locally.
-- Include a README file explaining your approach, decisions made, and any additional features implemented.
-- Open a PR.
+The application should now be running on [http://localhost:3000](http://localhost:3000). Open this URL in your web browser to view the app.
 
-## Evaluation Criteria:
+### Note:
+In the `context.jsx` file, the constant `URL = 'http://localhost:3000/';` is used to define the base URL of the application. If your development server runs on a different port or if you deploy the application to a live server, you will need to update this URL accordingly to match your server's address.
 
-- UI/UX design and functionality.
-- Code quality, structure, and maintainability.
-- State management and logic implementation.
-- Handling of edge cases and error scenarios.
-- Bonus points for additional features or optimizations.
+## Wordle Game
+
+**Wordle** is a popular word guessing game where players have six attempts to guess a hidden five-letter word. With each guess, players receive feedback on their guesses in the form of color-coded tiles. Green indicates the correct letter in the correct position, yellow shows the correct letter in the wrong position, and gray means the letter is not in the word. The goal is to guess the word within the allotted attempts.
+
+## Features Implemented
+
+In this clone of Wordle, several features have been implemented to enhance the gameplay experience:
+
+- **Random Word Selection:** The game selects a random five-letter word from a JSON file, ensuring each playthrough offers a new challenge.
+- **Color-Coded Feedback:** After each guess, tiles change color to provide feedback on the guessed letters, helping players adjust their strategy.
+- **Responsive Design:** The game is designed to work seamlessly across different devices and screen sizes, offering a consistent experience whether on desktop or mobile.
+- **End-Game Popup:** At the end of the game, a popup displays the result and provides an option to play again, allowing players to quickly start a new game.
+- **Keyboard Support:** Players can use their physical keyboard to make guesses, enhancing the ease of play.
+- **Valid Word Guessing:** Only valid five-letter words are accepted as guesses, ensuring the game remains challenging and fair.
+
+### Bonus Features
+
+- **Settings Menu:** Players can change the theme of the game through a settings menu, customizing their gameplay environment.
+- **Game Statistics:** A state feature displays key statistics, including win/loss totals, total games played, and win rate, giving players insight into their performance.
+- **Hints:** Offers clues that help players get closer to the correct answer, guiding them with targeted suggestions to refine their guesses.
+- **Share Feature:** When a game ends, players can generate a shareable link to challenge their friends.

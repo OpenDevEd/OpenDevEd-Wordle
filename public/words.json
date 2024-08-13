@@ -1,0 +1,419 @@
+[
+  {
+    "id": "A1B2C",
+    "word": "apple",
+    "hints": [
+      "A common fruit with a sweet taste.",
+      "Often associated with health.",
+      "Typically red, green, or yellow.",
+      "Has a core with seeds.",
+      "Often eaten raw or used in pies."
+    ]
+  },
+  {
+    "id": "D3E4F",
+    "word": "brave",
+    "hints": [
+      "Describes someone who faces danger.",
+      "Opposite of fearful.",
+      "Often used in heroic contexts.",
+      "Associated with courage.",
+      "A trait admired in warriors."
+    ]
+  },
+  {
+    "id": "G5H6I",
+    "word": "cloud",
+    "hints": [
+      "Visible mass of condensed water vapor.",
+      "Can be fluffy or stormy.",
+      "Found in the sky.",
+      "Blocks sunlight during overcast days.",
+      "Can bring rain."
+    ]
+  },
+  {
+    "id": "J7K8L",
+    "word": "dance",
+    "hints": [
+      "Movement to rhythmical music.",
+      "Performed in various styles.",
+      "Can be solo or in groups.",
+      "Often done at celebrations.",
+      "Requires coordination and skill."
+    ]
+  },
+  {
+    "id": "M9N0O",
+    "word": "eagle",
+    "hints": [
+      "A bird of prey known for its keen sight.",
+      "Symbol of freedom and strength.",
+      "Has powerful talons.",
+      "Found in various parts of the world.",
+      "Often depicted in national emblems."
+    ]
+  },
+  {
+    "id": "P1Q2R",
+    "word": "flame",
+    "hints": [
+      "A visible, gaseous part of a fire.",
+      "Produces heat and light.",
+      "Can be dangerous if uncontrolled.",
+      "Often used in cooking and heating.",
+      "A symbol of passion and energy."
+    ]
+  },
+  {
+    "id": "S3T4U",
+    "word": "grape",
+    "hints": [
+      "Small, round fruit often used in wine.",
+      "Can be red, green, or purple.",
+      "Grows in bunches on vines.",
+      "Used in making raisins.",
+      "Often eaten fresh or in juices."
+    ]
+  },
+  {
+    "id": "V5W6X",
+    "word": "heart",
+    "hints": [
+      "Organ that pumps blood through the body.",
+      "Symbolizes love and emotion.",
+      "Located in the chest cavity.",
+      "Beats continuously in a rhythmic pattern.",
+      "Can be associated with Valentine's Day."
+    ]
+  },
+  {
+    "id": "Y7Z8A",
+    "word": "index",
+    "hints": [
+      "A reference list or catalog.",
+      "Also a finger used for pointing.",
+      "Commonly found in books and databases.",
+      "Helps in locating information.",
+      "May be used to rank or measure."
+    ]
+  },
+  {
+    "id": "B9C1D",
+    "word": "jumpy",
+    "hints": [
+      "Describes someone who is easily startled.",
+      "Characterized by sudden movements.",
+      "Often associated with nervousness.",
+      "A trait common in animals like kangaroos.",
+      "Can describe a lively or restless mood."
+    ]
+  },
+  {
+    "id": "E1F2G",
+    "word": "knife",
+    "hints": [
+      "A tool used for cutting.",
+      "Has a sharp blade.",
+      "Commonly found in kitchens.",
+      "Can be used in various types of work.",
+      "Often has a handle for grip."
+    ]
+  },
+  {
+    "id": "H3I4J",
+    "word": "lemon",
+    "hints": [
+      "A sour citrus fruit.",
+      "Often used in cooking and drinks.",
+      "Yellow in color.",
+      "Rich in vitamin C.",
+      "Can be used to make lemonade."
+    ]
+  },
+  {
+    "id": "K5L6M",
+    "word": "music",
+    "hints": [
+      "Art form consisting of sound and rhythm.",
+      "Can be instrumental or vocal.",
+      "Includes genres like rock, jazz, and classical.",
+      "Performed in concerts and recordings.",
+      "Often enjoyed for relaxation and entertainment."
+    ]
+  },
+  {
+    "id": "N7O8P",
+    "word": "night",
+    "hints": [
+      "Time of day when it is dark.",
+      "Opposite of day.",
+      "Often associated with sleep and rest.",
+      "Sky is often covered with stars and moon.",
+      "Can be described as quiet and calm."
+    ]
+  },
+  {
+    "id": "Q9R0S",
+    "word": "ocean",
+    "hints": [
+      "Large body of saltwater covering most of the Earth.",
+      "Home to marine life such as whales and fish.",
+      "Divided into several major regions like the Pacific.",
+      "Affects weather and climate.",
+      "Often associated with beaches and waves."
+    ]
+  },
+  {
+    "id": "T1U2V",
+    "word": "piano",
+    "hints": [
+      "Musical instrument with keys.",
+      "Played by pressing keys.",
+      "Used in various musical compositions.",
+      "Has pedals and strings inside.",
+      "Can be grand or upright."
+    ]
+  },
+  {
+    "id": "W3X4Y",
+    "word": "quilt",
+    "hints": [
+      "A warm bed covering.",
+      "Made by sewing together layers of fabric.",
+      "Often has decorative patterns.",
+      "Used for warmth and comfort.",
+      "Can be handmade or machine-made."
+    ]
+  },
+  {
+    "id": "Z5A7B",
+    "word": "radio",
+    "hints": [
+      "Device used to receive audio broadcasts.",
+      "Operates on various frequencies.",
+      "Can be used to listen to music or news.",
+      "Often found in cars and homes.",
+      "Can be AM or FM."
+    ]
+  },
+  {
+    "id": "C7D8E",
+    "word": "shoes",
+    "hints": [
+      "Footwear worn to protect and comfort the feet.",
+      "Can be formal or casual.",
+      "Often made of leather or fabric.",
+      "Includes various types like sneakers and boots.",
+      "Typically worn daily."
+    ]
+  },
+  {
+    "id": "F9G0H",
+    "word": "table",
+    "hints": [
+      "Furniture item with a flat surface.",
+      "Used for eating or working.",
+      "Has four legs and a top.",
+      "Commonly found in dining rooms and offices.",
+      "Can be made from wood or metal."
+    ]
+  },
+  {
+    "id": "I1J2K",
+    "word": "urban",
+    "hints": [
+      "Relating to cities or towns.",
+      "Characterized by high population density.",
+      "Opposite of rural.",
+      "Includes infrastructure like roads and buildings.",
+      "Often associated with modern lifestyles."
+    ]
+  },
+  {
+    "id": "L3M4N",
+    "word": "vivid",
+    "hints": [
+      "Intense and bright in color.",
+      "Describes something very clear and detailed.",
+      "Often used to describe imagery or dreams.",
+      "Can be striking and memorable.",
+      "Opposite of dull or muted."
+    ]
+  },
+  {
+    "id": "O5P6Q",
+    "word": "water",
+    "hints": [
+      "Essential liquid for life.",
+      "Covers about 71% of Earth's surface.",
+      "Found in oceans, rivers, and lakes.",
+      "Can be consumed for hydration.",
+      "Used in various daily activities."
+    ]
+  },
+  {
+    "id": "R7S8T",
+    "word": "xenon",
+    "hints": [
+      "A chemical element with symbol Xe.",
+      "Used in high-intensity lamps.",
+      "Inert gas in the periodic table.",
+      "Does not react easily with other elements.",
+      "Found in trace amounts in Earth's atmosphere."
+    ]
+  },
+  {
+    "id": "U9V0W",
+    "word": "yacht",
+    "hints": [
+      "A luxury boat or ship.",
+      "Used for recreational sailing.",
+      "Can be motorized or sail-powered.",
+      "Often associated with wealth and leisure.",
+      "Used for vacations and racing."
+    ]
+  },
+  {
+    "id": "X1Y2Z",
+    "word": "zebra",
+    "hints": [
+      "African animal with black and white stripes.",
+      "Related to horses and donkeys.",
+      "Herbivorous and lives in groups.",
+      "Known for its unique coat pattern.",
+      "Found in savannas and grasslands."
+    ]
+  },
+  {
+    "id": "Y3Z4A",
+    "word": "brick",
+    "hints": [
+      "Building material made of clay.",
+      "Used in construction for walls and pavements.",
+      "Can be red, brown, or gray.",
+      "Often laid in courses.",
+      "Durable and heavy."
+    ]
+  },
+  {
+    "id": "Z5A6B",
+    "word": "candy",
+    "hints": [
+      "Sweet treat often enjoyed as a dessert.",
+      "Made from sugar and other flavorings.",
+      "Comes in various forms like bars and lollipops.",
+      "Often given out during holidays.",
+      "Can be chewy, hard, or chocolate-covered."
+    ]
+  },
+  {
+    "id": "A7B8C",
+    "word": "dough",
+    "hints": [
+      "Mixture used to make bread and pastries.",
+      "Composed of flour and water.",
+      "Often requires rising with yeast.",
+      "Kneaded before baking.",
+      "Can be sweet or savory."
+    ]
+  },
+  {
+    "id": "B9C0D",
+    "word": "earth",
+    "hints": [
+      "Our planet.",
+      "Third from the Sun.",
+      "Supports life and ecosystems.",
+      "Surface includes land and water.",
+      "Has atmosphere and magnetic field."
+    ]
+  },
+  {
+    "id": "D3E5F",
+    "word": "glove",
+    "hints": [
+      "Worn on hands for protection or warmth.",
+      "Can be made of leather or fabric.",
+      "Often used in sports and cold weather.",
+      "Has separate sections for each finger.",
+      "Used by workers and athletes."
+    ]
+  },
+  {
+    "id": "E5F6G",
+    "word": "hotel",
+    "hints": [
+      "Establishment providing lodging.",
+      "Offers rooms for guests to stay.",
+      "Includes services like housekeeping.",
+      "Found in cities and tourist areas.",
+      "Can range from budget to luxury."
+    ]
+  },
+  {
+    "id": "F7G8H",
+    "word": "juice",
+    "hints": [
+      "Liquid extracted from fruits or vegetables.",
+      "Can be consumed fresh or processed.",
+      "Often served as a beverage.",
+      "Rich in vitamins and minerals.",
+      "May be sweet or tart."
+    ]
+  },
+  {
+    "id": "G9H0I",
+    "word": "knife",
+    "hints": [
+      "Sharp tool used for cutting.",
+      "Commonly found in kitchens.",
+      "Has a blade and handle.",
+      "Used for preparing food.",
+      "Can be folding or fixed."
+    ]
+  },
+  {
+    "id": "H1I2J",
+    "word": "lunch",
+    "hints": [
+      "Midday meal.",
+      "Often eaten around noon.",
+      "Can include sandwiches, salads, or hot dishes.",
+      "Commonly eaten at work or school.",
+      "Provides energy for the afternoon."
+    ]
+  },
+  {
+    "id": "I3J4K",
+    "word": "model",
+    "hints": [
+      "Representation or example of something.",
+      "Can be a physical or digital version.",
+      "Used in design and planning.",
+      "May represent objects or systems.",
+      "Often used in fashion and engineering."
+    ]
+  },
+  {
+    "id": "J5K6L",
+    "word": "novel",
+    "hints": [
+      "Extended work of fiction.",
+      "Includes narrative and characters.",
+      "Often divided into chapters.",
+      "Read for entertainment or education.",
+      "Can be genres like mystery or romance."
+    ]
+  },
+  {
+    "id": "K7L8M",
+    "word": "olive",
+    "hints": [
+      "Fruit used to make oil.",
+      "Common in Mediterranean cuisine.",
+      "Can be green or black.",
+      "Often eaten as a snack or in salads.",
+      "Has a distinct, briny flavor."
+    ]
+  }]
