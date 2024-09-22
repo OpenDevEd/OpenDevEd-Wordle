@@ -6,12 +6,10 @@
 body{
     width: 100vw;
     height: 100vh;
-    background: #0e0e0f;
-    overflow: hidden;
+    /* background: #0e0e0f; */
+    /* overflow: hidden; */
     font-family: "Outfit", sans-serif;
 }
-
-
 
 @layer components {
     .button{

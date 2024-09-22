@@ -6,7 +6,7 @@ import { IoSettingsSharp } from "react-icons/io5";
 const GameBoard = () => {
   return (
     <div className='h-16 bg-header w-full'>
-      <div className="max-w-[500px] h-full mx-auto flex items-center justify-between relative">
+      <div className="max-w-[600px] h-full mx-auto flex items-center justify-between relative">
       <div className="text-[20px] text-white flex items-center gap-[.5px] ">
         <span className="px-1 rounded-md bg-green" >W</span>
         <span className="tracking-widest">ordle</span>
