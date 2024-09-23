@@ -6,14 +6,16 @@
 body{
     width: 100vw;
     height: 100vh;
-    /* background: #0e0e0f; */
-    /* overflow: hidden; */
+    background: #0e0e0f;
+    overflow: hidden;
     font-family: "Outfit", sans-serif;
+    color:white
 }
+
 
 @layer components {
     .button{
-        @apply bg-gray-1000 p-2 rounded-md border-b-[2px] border-gray-950 cursor-pointer
+        @apply bg-gray0 p-2 rounded-md border-b-[2px] border-gray-950 cursor-pointer
     }
 
     .button:hover{
@@ -22,5 +24,8 @@ body{
     .button:active{
         @apply bg-gray-950  translate-y-px
     }
- 
+    .row{
+        @apply text-white text-[32px] border-[3px] p-2 w-[62px] h-[62px] flex text-center items-center justify-center mx-1  rounded-lg
+    }
 }
+

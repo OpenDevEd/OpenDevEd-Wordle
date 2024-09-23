@@ -1,21 +1,24 @@
 import useWordle from '../hook/useWordle'
-import { WordleProps } from '@/types/types'
+import { WordleProps, alertProps, itemSolution } from '@/utils/types'
 import React, { useEffect } from 'react'
 import Grid from './Grid'
+import Keypad from './Keypad'
+import Alert from '../utils/Alerts'
 
 
 
-const Wordle: React.FC<WordleProps> = ({ solution }) => {
-    const { handleKeyup ,currentGuess, guesses} = useWordle(solution)
+const Wordle = ({ solution, data}:{solution:itemSolution, data:itemSolution[] | null}) => {
+    const { handleKeyup, currentGuess, setCurrentGuess, guesses, turn, alertState, setAlertState } = useWordle(solution,data)
+    console.log(alertState)
     useEffect(() => {
         window.addEventListener('keyup', handleKeyup)
         return () => window.removeEventListener('keyup', handleKeyup)
     }, [handleKeyup])
     return (
-        <div>
-            <div>solution - {solution.word}</div>
-            <div>current guess - {currentGuess}</div>
-            <Grid guesses={guesses} currentGuess={currentGuess}/>
+        <div className='w-full h-full flex flex-col justify-evenly items-center'>
+            <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />
+            <Keypad solution={solution} handleKeyup={handleKeyup} setCurrentGuess={setCurrentGuess} currentGuess={currentGuess} />
+            {alertState && <Alert alertState={alertState}  setAlertState={setAlertState}/>}
         </div>
     )
 }
