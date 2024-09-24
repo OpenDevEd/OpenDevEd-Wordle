@@ -23,7 +23,7 @@ const Row = ({g, currentGuess, turn}: { g?: guessesProps[], currentGuess?: strin
           Array(5).fill(1).map((_, j) => {
             if (currentGuessArray?.[j])
               return <motion.div key={j} variants={variants} animate={"end"} initial={"start"} className='row'>{currentGuessArray[j]}</motion.div>
-            return <div key={j} className='row'></div>
+            return <div key={j} className={`row ${(currentGuess.length === j || j == 0) && 'border-blue-600'}`}></div>
           })
         }
       </div>

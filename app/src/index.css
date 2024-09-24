@@ -15,7 +15,7 @@ body{
 
 @layer components {
     .button{
-        @apply bg-gray0 p-2 rounded-md border-b-[2px] border-gray-950 cursor-pointer
+        @apply bg-gray0 p-2 rounded-md border-b-[2px] border-gray-950 cursor-pointer select-none
     }
 
     .button:hover{
@@ -25,7 +25,7 @@ body{
         @apply bg-gray-950  translate-y-px
     }
     .row{
-        @apply text-white text-[32px] border-[3px] p-2 w-[62px] h-[62px] flex text-center items-center justify-center mx-1  rounded-lg
+        @apply text-white text-[32px] border-[3px] border-gray-800 p-2 w-[62px] h-[62px] flex text-center items-center justify-center mx-1  rounded-lg select-none
     }
 }
 

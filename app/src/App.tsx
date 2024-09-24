@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import GameBoard from './components/GameBoard';
-import GameInputGuess from './components/GameInputGuess';
 import { itemSolution } from './utils/types';
 import Wordle from './components/Worlde';
 

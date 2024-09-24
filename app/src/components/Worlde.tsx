@@ -3,7 +3,7 @@ import { WordleProps, alertProps, itemSolution } from '@/utils/types'
 import React, { useEffect } from 'react'
 import Grid from './Grid'
 import Keypad from './Keypad'
-import Alert from '../utils/Alerts'
+import Alert from './Alerts'
 
 
 
@@ -17,7 +17,7 @@ const Wordle = ({ solution, data}:{solution:itemSolution, data:itemSolution[] | 
     return (
         <div className='w-full h-full flex flex-col justify-evenly items-center'>
             <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />
-            <Keypad solution={solution} handleKeyup={handleKeyup} setCurrentGuess={setCurrentGuess} currentGuess={currentGuess} />
+            <Keypad solution={solution} handleKeyup={handleKeyup} setCurrentGuess={setCurrentGuess} currentGuess={currentGuess} guesses={guesses}/>
             {alertState && <Alert alertState={alertState}  setAlertState={setAlertState}/>}
         </div>
     )
